@@ -1,6 +1,8 @@
 # Ea2018
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+## Dev server with stubs
+
+`npm run dev` navigate to `http://localhost:4200/`
 
 ## Development server
 
