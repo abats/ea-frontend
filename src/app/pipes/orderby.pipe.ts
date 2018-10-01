@@ -10,7 +10,7 @@ export class OrderBy implements PipeTransform {
             return value;
         }
 
-        let array: any[] = value.sort((a: any, b: any): number => {
+        const array: any[] = value.sort((a: any, b: any): number => {
             return a[expression] > b[expression] ? 1 : -1;
         });
 

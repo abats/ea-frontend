@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CONSTANTS } from '../constant/main';
+import { CONSTANTS } from '../constants/main';
 
 @Pipe({
     name: 'asFanartPipe',

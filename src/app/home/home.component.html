@@ -1,0 +1,123 @@
+
+<!--<div *ngIf="!authService.isLoggedIn()" class="row splash-brand">-->
+  <!--<p>episode alert</p>-->
+<!--</div>-->
+
+<!--<div *ngIf="!authService.isLoggedIn()" class="marketing">-->
+  <!--<div class="col-xs-4 col-md-4">-->
+    <!--<h1>Follow</h1>-->
+    <!--<p>Find your favorite<br/>TV Series</p>-->
+  <!--</div>-->
+  <!--<div class="col-xs-4 col-md-4">-->
+    <!--<h1>Get Notified</h1>-->
+    <!--<p>Receive email<br/>notifications</p>-->
+  <!--</div>-->
+  <!--<div class="col-xs-4 col-md-4">-->
+    <!--<h1>Keep Track</h1>-->
+    <!--<p>Remember episodes<br/>you've seen</p>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!-- <as-welcomemessage *ngIf="!authService.isLoggedIn()"></as-welcomemessage> -->
+
+<!--<div class="container" *ngIf="!authService.isLoggedIn()">-->
+  <!--<div class="row">-->
+    <!--<div class="col-md-12 col-lg-12" >-->
+      <!--<p class="user-greeting">-->
+        <!--<a href="signup">Click here to sign-up</a> and start following your favorite TV shows and always be up to date on the latest episodes with e-mail notifications.-->
+      <!--</p>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+<!--<app-userstats *ngIf="authService.isLoggedIn()" state="all"></app-userstats>-->
+
+<div class="row-ea">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <h1 class="ea-header--h1">Currently airing and recommended</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+
+        <ul class="home-banners">
+          <li *ngFor="let series of spotlightSeries; let i=index" class="spotlight">
+            <a [routerLink]="['/series', series.unique_name]">
+              <div class="gradient-effect">
+                <img class="img-responsive"
+                     src="{{ series.unique_name | asFanartPipe : series.fanart_image }}"
+                     alt="{{ series.name }}"/>
+              </div>
+              <span class="badge">
+                                <span class="rating">{{ series.rating }}</span>
+                                <span class="rating-source">users</span>
+                            </span>
+              <span class="home-banners-season"> Season {{ series.season_amount }} </span>
+              <h3 class="title">{{ series.name }} </h3>
+            </a>
+            <!--<app-follow class="spotlight-button-location" [series]="series" *ngIf="i < 2" [buttonLabel]="series.following ? 'Unfollow' : 'Follow'"></app-follow>-->
+
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <!-- Trending Series -->
+    <div class="col-md-6 col-lg-6 trending-background-color">
+      <h2>Most new followers last 30 days</h2>
+      <ul class="splash-posters">
+        <li class="series" *ngFor="let series of trendingSeries; let i=index">
+
+          <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
+            <img class="img-responsive poster"
+                 src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
+                 alt="{{ series.name }}"/>
+          </a>
+
+          <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
+                        <span class="title">
+                            {{ series.name }}
+                        </span>
+          </a>
+
+          <span class="season" *ngIf="i < 3">
+                        Season {{ series.season_amount }}
+                    </span>
+
+        </li>
+      </ul>
+    </div>
+
+    <!-- Trending Series -->
+    <div class="col-md-6 col-lg-6 trending-background-color">
+      <h2>Editors' picks</h2>
+      <ul class="splash-posters">
+        <li class="series" *ngFor="let series of trendingSeries; let i = index">
+          <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
+
+            <img class="img-responsive poster"
+                 src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
+                 alt="{{ series.name }}"/>
+            <span class="title">
+                            {{ series.name }}
+                        </span>
+            <span class="season" *ngIf="i < 3">
+                            Season {{ series.season_amount }}
+                        </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
