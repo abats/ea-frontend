@@ -1,0 +1,65 @@
+// New color list
+
+$dark-grey-background: #1c1c1c;
+$grey-background: #414141;
+$light-grey-background: #e7e7e7;
+
+$grey-line: #e7e7e7;
+
+$dark-grey-text: #141414;
+$light-grey-text: #777777;
+
+$light-blue-text: #14b6cc;
+
+$light-green-text: #00ce74;
+
+
+// $light-blue: ???;
+// $blue: ???;
+
+// $light-green: ???;
+// $highlight-green: ???;
+
+
+
+// Colors
+$background-line-color: #666666;
+$light-blue: #14b6cc;
+$light-text: #C9C9C9;
+$bright-highlight: #00de7d;
+$dark-color: #212a3f;
+$light-color: #434f5b;
+$background-color: #101010;
+$highlight-color: #8ab839;
+$primary-color: #1a1a1a;
+$primary-lighter: #252525;
+$secondary-color: #363636;
+$lighter-text-shadow: #0F0F0F;
+$lighter-text: #C9C9CD;
+
+$font-family: "Lato", sans-serif;
+$font-header: 'Raleway', sans-serif;
+
+$hidpi-screen : "only screen and (-webkit-min-device-pixel-ratio : 2),
+				 only screen and (min-device-pixel-ratio : 2),
+           		 only screen and (min--moz-device-pixel-ratio: 2)";
+
+
+// Dropdown vars bootstrap
+$dropdown-bg: $light-text;
+$dropdown-link-hover-color: #fff;
+$border-radius-base: 0;
+$dropdown-divider-bg: $primary-color;
+
+// Modal vars bootstrap
+$modal-md: 450px !default;
+
+
+// Nav tabs
+$nav-tabs-border-color:                     $light-grey-background;
+$nav-tabs-link-hover-border-color:          $light-grey-background;
+$nav-tabs-active-link-hover-bg:             $light-grey-background;
+$nav-tabs-active-link-hover-color:          $light-text;
+$nav-tabs-active-link-hover-border-color:   $light-grey-background;
+$nav-tabs-justified-link-border-color:      $light-grey-background;
+$nav-link-hover-bg:                         $light-grey-background;
