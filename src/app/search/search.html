@@ -1,0 +1,26 @@
+<div class="navbar-form navbar-left">
+    <div class="input-group" >
+        <input class="form-control form-control-search" placeholder="Search" [formControl]="searchField">
+        <span class="input-group-btn">
+            <button type="submit" class="btn btn-default btn-search" ><span class="fa fa-search"></span></button>
+        </span>
+    </div>
+</div>
+
+<ul class="search-results" *ngIf="series && searchField.value.length > 0">
+    <li *ngFor="let series of series">
+        <img class="img-responsive hidden-xs hidden-sm"
+             src="{{ series.poster_image | asUrlPipe : series.unique_name : 'small'  }}"
+             alt="{{ series.name }}"/>
+
+        <a href="{{ series.unique_name }}" target="_blank">
+            {{ series.name }}
+        </a>
+
+        {{ (series.firstaired !== null) ? '(' + ( series.firstaired | asLimitTo: 4 ) + ')' : "" }}
+
+        <br/>
+
+        {{ series.season_amount }} seasons
+    </li>
+</ul>

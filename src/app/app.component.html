@@ -12,34 +12,35 @@
       </a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <!--<app-search></app-search>-->
+      <app-search></app-search>
       <ul class="nav navbar-nav">
         <li><a [routerLink]="['/home']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
         <li><a [routerLink]="['/guide']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">GUIDE</a></li>
         <li><a [routerLink]="['/myshows']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">MY SHOWS</a></li>
         <li><a [routerLink]="['/profile']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">PROFILE</a></li>
 
-        <!--<li *ngIf="authService.isLoggedIn()" class="hidden-xs hidden-sm" >-->
+        <li *ngIf="authService.isLoggedIn()" class="hidden-xs hidden-sm" >
+          <div class="dropdown user-dropdown" dropdown >
 
-          <!--<div class="dropdown user-dropdown">-->
-            <!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">-->
-              <!--USERNAME-->
-              <!--<span class="caret"></span>-->
-            <!--</button>-->
-            <!--&lt;!&ndash;<app-login-form></app-login-form>&ndash;&gt;-->
-            <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
-              <!--<li><a href="#">Profile</a></li>-->
-              <!--<li role="separator" class="divider"></li>-->
-              <!--<li><a href="#">Settings</a></li>-->
-              <!--<li role="separator" class="divider"></li>-->
-              <!--<li><a href="#">Logout</a></li>-->
-            <!--</ul>-->
-          <!--</div>-->
-        <!--</li>-->
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dropdownToggle>
+              USERNAME
+              <span class="caret"></span>
+            </button>
+
+            <app-login-form></app-login-form>
+
+            <ul class="dropdown-menu"  aria-labelledby="dropdownMenu1">
+              <li><a href="#">Profile</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Settings</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+
+          </div>
+        </li>
 
       </ul>
-
-
     </div>
   </div>
 </nav>

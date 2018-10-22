@@ -1,0 +1,38 @@
+<span (click)="eaModal.show()">Login</span>
+<div bsModal #eaModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content ea-modal--login">
+            <div class="modal-header">
+                <h1>Episode Alert</h1>
+                <button type="button" class="close pull-right" (click)="eaModal.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h2 class="fancy background"><span>Sign in to start following shows</span></h2>
+                <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                    <div class="form-group">
+                        <input [(ngModel)]="userModel.name" title="enter username" type="text" class="form-control" id="username" name="name" placeholder="username" required>
+                    </div>
+                    <div class="form-group">
+                        <input [(ngModel)]="userModel.password" title="enter password" type="password" class="form-control" id="password" name="password" placeholder="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-default btn-bright" [disabled]="!loginForm.form.valid">Submit</button>
+                </form>
+                <hr/>
+
+                <div class="ng-scope">
+                    <a class="btn-lg btn btn-block btn-social btn-google-plus"><i class="fa fa-google-plus"></i> Sign in with Google</a>
+                    <br>
+                    <a class="btn btn-lg btn-block btn-social btn-facebook" href="#" ng-click="facebookLogin()"><i class="fa fa-facebook"></i> Sign in with Facebook</a>
+                </div>
+
+                <hr/>
+                <div class="ea-modal--login--footer">
+                    <div><a href>Forgot password</a></div>
+                    <div>Don't have an account? <a href>Sign up with email</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

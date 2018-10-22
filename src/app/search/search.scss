@@ -1,0 +1,42 @@
+@import '../variables';
+
+
+:host{
+  position: relative;
+}
+
+.search-results {
+
+  position: absolute;
+  z-index: 100;
+  width: 402px;
+  background-color: #fff;
+  height: 580px;
+  overflow: scroll;
+  top: 50px;
+  left: -417px;
+
+  li {
+    padding: 20px;
+    height: 114px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: $light-grey-text;
+    &:hover {
+      background-color: lighten($light-grey-background, 0%)
+    }
+  }
+
+  a {
+    font-size: 17px;
+    font-weight: 500;
+    color: $light-green-text;
+  }
+
+  img {
+    margin-right: 14px;
+    float: left;
+    width: 50px;
+  }
+
+}
