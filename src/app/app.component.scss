@@ -1,8 +1,7 @@
-@import 'variables';
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/_variables';
+@import 'variables';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/_mixins';
-
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,200,300,400,500,600,700);
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700);
@@ -62,9 +61,6 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
-
-
 
 /*
 * Filter button
