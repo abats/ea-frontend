@@ -11,6 +11,14 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @CHARSET "ISO-8859-1";
 
 
+a {
+  color: $bright-highlight;
+}
+
+a:hover, a:focus {
+  color: $bright-highlight;
+}
+
 /*
 * Buttons
 */
@@ -133,10 +141,6 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   border: none;
   background-color: $dark-grey-background;
 
-  .navbar-form {
-    padding-top: 9px;
-  }
-
   .navbar-brand {
     text-transform: uppercase;
     color: $light-text;
@@ -218,30 +222,6 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
     border-bottom: 1px solid $light-text;
   }
 
-
-  .navbar-form {
-    margin-bottom: 2px;
-    margin-top: 2px;
-  }
-
-  .form-control-search {
-    font-family: 'Lato', sans-serif;
-    font-size: 17px;
-    font-weight: 300;
-    padding-left: 15px;
-    padding-right: 15px;
-    height: 41px;
-    min-width: 360px;
-    margin-top: -2px;
-    color: $light-grey-text;
-    background-color: $light-grey-background;
-    background-image: none;
-    border: 0;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-
   .btn-search {
     height: 41px;
     margin-top: -2px;
@@ -253,6 +233,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
     border-radius: 0;
   }
 }
+
 
 .navbar-nav{
   float: right;
@@ -282,21 +263,6 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   margin-bottom: -1px;
   padding: 15px 30px 0px 0px;
 }
-
-/*
-* User greeting
-*/
-
-.user-greeting{
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  font-size: 110%;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
-  color: $lighter-text;
-  padding: 20px 0px 20px 0px;
-}
-
 
 .dropdown-menu{
   min-width: 50px;
@@ -372,13 +338,7 @@ button:active {
   outline: none !important;
 }
 
-a {
-  color: $bright-highlight;
-}
 
-a:hover, a:focus {
-  color: $bright-highlight;
-}
 
 p {
   margin: 0 0 0px;
@@ -431,9 +391,7 @@ ul {
 //
 //}
 //
-.row-ea{
-  background-color: $dark-grey-background;
-}
+
 //
 //.password-reset{
 //  form{

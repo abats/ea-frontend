@@ -8,6 +8,7 @@
 }
 
 .ea-modal{
+
     &--login{
 
       background-color: $grey-background;
@@ -92,7 +93,7 @@
                 margin-right: 8px;
                 color: $light-text !important;
                 opacity: 0.8;
-                background-color: $light-grey-background !important;
+                background-color: $grey-background;
 
                 font-weight: normal;
             }

@@ -2,6 +2,7 @@ import {Component, OnDestroy} from '@angular/core';
 import {Series} from '../model/series';
 import {ApiService} from '../api.service';
 import {SeriesService} from '../services/series.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,7 @@ export class HomeComponent implements OnDestroy {
 
   constructor(
     private apiService: ApiService,
+    private authService: AuthService,
     private seriesService: SeriesService) {
 
     this.topSeries$ = this.seriesService.getTopSeries().subscribe(topSeriesResponse => {
@@ -38,6 +40,7 @@ export class HomeComponent implements OnDestroy {
   ngOnDestroy() {
     this.topSeries$.unsubscribe();
     this.seriesDetail$.unsubscribe();
+    this.trendingSeries$.unsubscribe();
   }
 
 }

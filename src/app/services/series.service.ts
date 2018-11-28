@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Series } from '../model/series';
+import {DateInput} from 'ngx-bootstrap/chronos/test/chain';
 
 const API_URL = environment.apiUrl;
 
@@ -51,6 +52,20 @@ export class SeriesService {
 
   getSingleSeries(uniqueName): Observable<Series> {
     return this.http.get<Series>(this.singleSeriesUrl + uniqueName);
+  }
+
+
+  /* TODO: caching ? */
+  getProfileStats(): Observable<any> {
+    return this.getProfileStatsWithFilter(null, null);
+  }
+
+  //
+  getProfileStatsWithFilter(from: Date, to: Date): Observable<any> {
+    // dates are formatted as yyyy-MM-dd
+    const completeUrl = this.statsUrl + (from ? '?from=' + from.toISOString().slice(0, 10) : '')
+      + (to ? '&to=' + to.toISOString().slice(0, 10) : '');
+    return this.http.get(completeUrl);
   }
 
   //
@@ -143,22 +158,8 @@ export class SeriesService {
   //     .catch(this.handleError);
   // }
   //
-  // /* TODO: caching ? */
-  // getProfileStats(): Promise<any> {
-  //   return this.getProfileStatsWithFilter(null, null);
-  // }
-  //
-  //
-  // getProfileStatsWithFilter(from: Date, to: Date): Promise<any> {
-  //   // dates are formatted as yyyy-MM-dd
-  //   let completeUrl = this.statsUrl + (from ? '?from=' + from.toISOString().slice(0, 10) : '')
-  //     + (to ? '&to=' + to.toISOString().slice(0, 10) : '');
-  //   return this.http.get(completeUrl)
-  //     .toPromise()
-  //     .then(response => response.json())
-  //     .catch(this.handleError);
-  // }
-  //
+
+
   private handleError(error: any) {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

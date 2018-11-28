@@ -1,0 +1,213 @@
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import '../variables';
+
+
+.episode-table{
+  font-size: 14px;
+  padding-top: 20px;
+  line-height: 30px;
+  table-layout: fixed;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  .episode-table-number{
+    padding-left: 15px;
+    width: 5%;
+  }
+
+  .episode-table-description{
+    width: 70%;
+  }
+
+  tr.seen{
+    color: $background-line-color;
+  }
+}
+
+.series-detail {
+
+  padding-left: 15px;
+
+
+
+  .unseen--badge{
+    text-align: center;
+    position: absolute;
+    right: 6px;
+    top: -14px;
+    font-size: 85%;
+    background-color: $light-blue;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    font-weight:bold;
+    color: #fff;
+
+    &:hover{
+      color: #fff;
+    }
+  }
+
+  .unseen--badge-done{
+
+    color: $light-text;
+
+    i{
+      margin-top: 5px;
+    }
+
+    font-weight: normal;
+    font-size: 110%;
+    background-color: $background-line-color;
+
+    &:hover{
+      color: $light-text;
+    }
+  }
+
+  .tab-content{
+    padding: 7px 5px 15px 9px;
+
+    @media(max-width: $screen-xs-max){
+      padding: 0px;
+    }
+  }
+
+  .series-left{
+    padding-right: 5px;
+  }
+
+  .info-text-top {
+    padding: 3px 0px 30px 0px;
+    @media(max-width: $screen-xs-max){ padding: 5px 0px 5px 20px; }
+
+    // HiDPI screens
+    @media only screen and (-webkit-min-device-pixel-ratio : 2),
+    only screen and (min-device-pixel-ratio : 2),
+    only screen and (min--moz-device-pixel-ratio: 2) {
+
+      margin-top: -10px;
+      padding: 20px 0px 30px 0px;
+    }
+
+  }
+
+  h1 {
+    @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
+    text-shadow: 2px 2px $lighter-text-shadow;
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 160%;
+
+    //TODO move to vars
+    font-family: $font-header;
+    font-weight: 600;
+    border: none;
+  }
+
+  li {
+    padding: 0px 10px 0px 0px;
+    list-style: none;
+    font-family: 'Source Sans Pro';
+    font-size: 90%;
+  }
+
+  img {
+    @media(min-width: $screen-md-min){ margin-left: -15px;}
+  }
+
+  p, dl {
+    text-shadow: 1px 1px $lighter-text-shadow;
+  }
+
+  // button position on detail page
+  .ea-btn--follow, .ea-btn--archive {
+    top: -3px;
+    position: relative;
+    line-height: 120%;
+  }
+
+  .seasons{
+    padding-left: 0;
+    background-color: $primary-color;
+  }
+
+  .btn{
+    border-radius: 0px;
+  }
+
+  .btn:hover{
+    color: #FFF;
+  }
+
+  .btn:focus{
+    color: $bright-highlight;
+  }
+
+  .nav-tabs {
+
+    font-size: 130%;
+
+    .nav-link{
+      background-color: orange;
+    }
+
+    a {
+      color: $light-text !important;
+    }
+
+    li > a {
+      text-shadow: none;
+      text-decoration: none;
+      padding: 12px 16px 12px 16px;
+      margin-right: 1px;
+      border: none;
+      color: #8A8A8A;
+    }
+
+    li > a:hover {
+      color: #FFF;
+      border: none;
+      background-color:pink !important;
+      font-size: 30px !important;
+    }
+
+    .active > a {
+      color: #FFF;
+      border: none;
+    }
+
+    .active > a:hover,
+    .active > a:focus{
+      color: #FFF;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.series-details-extra {
+  background-color: $primary-color;
+  margin: 0 0px 40px 0px;
+  @media(min-width: $screen-md-min){
+
+    margin: 20px 14px 40px -15px;}
+  padding: 20px;
+  font-size: 90%;
+
+  dt {
+    float: left;
+    clear: both;
+    margin-right: 10px;
+  }
+
+  dl {
+    margin-bottom: 0px;
+  }
+
+  a{
+    color: $bright-highlight;
+  }
+}

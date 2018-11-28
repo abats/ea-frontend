@@ -1,0 +1,88 @@
+@import '../../variables';
+
+.ea--seen{
+  width: 100%;
+  position: relative;
+  display: block;
+
+  &.seen{
+
+    button{
+      background-color: $background-color;
+      width: 60px;
+      right: 0px;
+      border-radius: 0px;
+      font-size: 84%;
+      color: $background-line-color;
+      padding: 1px 1px 1px 1px;
+      height: 24px;
+      line-height: 20px;
+      border: 1px solid $background-line-color;
+      text-transform: uppercase;
+
+      &:hover{
+        color: $light-text;
+      }
+    }
+
+
+
+    .ea-btn--seenseason:hover,
+    .ea-btn--seenuntil:hover{
+      color: $light-text;
+    }
+
+
+    .ea-btn--seenuntil,
+    .ea-btn--seenseason{
+      display: none;
+      position: absolute;
+    }
+
+    .ea-btn--seenuntil{
+      right: 94px;
+    }
+
+    .ea-btn--seenseason{
+      right: 153px;
+    }
+
+  }
+
+  .ea-btn--seenuntil,
+  .ea-btn--seenseason{
+    display: none;
+    position: absolute;
+  }
+
+  .ea-btn--seenuntil{
+    right: 94px;
+  }
+
+  .ea-btn--seenseason{
+    right: 153px;
+  }
+
+  button{
+    text-transform: uppercase;
+    background-color: $background-color;
+    width: 60px;
+    right: 0px;
+    border-radius: 0px;
+    font-size: 80%;
+    color: $bright-highlight;
+    padding: 1px 1px 1px 1px;
+    height: 26px;
+    line-height: 22px;
+    border: 1px solid $bright-highlight;
+  }
+
+}
+
+.ea--seen:hover .ea-btn--seenseason,
+.ea--seen:hover .ea-btn--seenuntil,
+.ea--seen.seen:hover .ea-btn--seenuntil,
+.ea--seen.seen:hover .ea-btn--seenuntil{
+   display: inline-block;
+ }
+

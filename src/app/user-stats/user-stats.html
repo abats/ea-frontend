@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-lg-12" >
+      <p *ngIf="state == 'all'" class="user-greeting">
+        Currently you are following <a [routerLink]="['/myshows']">{{ profileStats?.following }}</a> shows.
+        You have {{ profileStats?.unseen }} unwatched episodes waiting for you. Use the filters below to display shows that match your criteria.
+        By the way, did you know you are following more series than {{ profileStats?.followmorethan }}% of your fellow Episode Alert users?
+      </p>
+      <p *ngIf="state == 'withFilter'" class="user-greeting">Hi Larry, this is your episode guide.
+        The past week <span class="remaining-episodes">{{ profileStats?.unseen }} episodes</span> you're following have been released. Enjoy!
+      </p>
+    </div>
+  </div>
+</div>

@@ -7,8 +7,18 @@ body {
   background-color: #101010;
   color: #C9C9C9;
   font-family: "Lato", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   overflow-y: scroll;
 }
 
+a {
+  color: $bright-highlight;
+}
 
+a:hover, a:focus {
+  color: $bright-highlight;
+}
+
+.row-ea{
+  background-color: $dark-grey-background;
+}
