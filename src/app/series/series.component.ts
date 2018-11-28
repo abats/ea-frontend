@@ -46,6 +46,10 @@ export class SeriesComponent implements OnInit, OnDestroy {
 
   }
 
+  ngOnInit(): void {
+    console.log('init series component');
+  }
+
   createSeriesSeasonTabs(seasonAmount) {
 
     // don't judge me for this code
@@ -85,46 +89,46 @@ export class SeriesComponent implements OnInit, OnDestroy {
       // }
   }
 
-  getSeriesSeason(seriesId: number, seasonNumber: number) {
+  // getSeriesSeason(seriesId: number, seasonNumber: number) {
+  //
+  //   this.seriesService.getSeriesSeason(seriesId, seasonNumber).then(
+  //     (season) => {
+  //       if (this.series.has_specials) {
+  //         this.tabs[seasonNumber].content = season;
+  //       } else {
+  //         this.tabs[seasonNumber - 1].content = season;
+  //       }
+  //
+  //     }
+  //   );
+  // }
 
-    this.seriesService.getSeriesSeason(seriesId, seasonNumber).then(
-      (season) => {
-        if (this.series.has_specials) {
-          this.tabs[seasonNumber].content = season;
-        } else {
-          this.tabs[seasonNumber - 1].content = season;
-        }
-
-      }
-    );
-  }
-
-  public loadTab(tab): void {
-    if (this.series.has_specials) {
-      this.getSeriesSeason(this.series.id, tab);
-    } else {
-      this.getSeriesSeason(this.series.id, tab + 1);
-    }
-
-  }
+  // public loadTab(tab): void {
+  //   if (this.series.has_specials) {
+  //     this.getSeriesSeason(this.series.id, tab);
+  //   } else {
+  //     this.getSeriesSeason(this.series.id, tab + 1);
+  //   }
+  //
+  // }
 
   public setActiveTab(index: number): void {
     console.log('set one active: ' + index);
     console.log(this.tabs);
     this.tabs[index].active = true;
   }
-
-  public getSeriesUnseenAmount() {
-    this.seriesService.getUnseenAmountBySeries( this.series.id, 5).then(
-      (unseenAmount) => {
-        this.seriesUnseenAmount = unseenAmount;
-
-        if (this.series.has_specials) {
-          this.seriesUnseenAmount.unshift('specials');
-        }
-      }
-    );
-  }
+  //
+  // public getSeriesUnseenAmount() {
+  //   this.seriesService.getUnseenAmountBySeries( this.series.id, 5).then(
+  //     (unseenAmount) => {
+  //       this.seriesUnseenAmount = unseenAmount;
+  //
+  //       if (this.series.has_specials) {
+  //         this.seriesUnseenAmount.unshift('specials');
+  //       }
+  //     }
+  //   );
+  // }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
