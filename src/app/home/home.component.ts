@@ -26,11 +26,11 @@ export class HomeComponent implements OnDestroy {
 
     this.topSeries$ = this.seriesService.getTopSeries().subscribe(topSeriesResponse => {
       this.spotlightSeries = topSeriesResponse.slice(0, 2);
-    })
+    });
 
     this.trendingSeries$ = this.seriesService.getTrendingSeries().subscribe(trendingSeriesResponse => {
       this.trendingSeries = trendingSeriesResponse;
-    })
+    });
 
     this.seriesDetail$ = this.seriesService.getSingleSeries('breaking_bad').subscribe(seriesDetailResponse => {
       this.seriesDetail = seriesDetailResponse;

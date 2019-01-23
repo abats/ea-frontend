@@ -29,7 +29,7 @@
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-9 seasons">
-        <tabset *ngIf="tabs">
+        <tabset *ngIf="tabs" class="ea-tabs">
 
           <tab *ngFor="let tab of tabs let i = index;"
                [heading]="tab.title"
@@ -40,7 +40,7 @@
                (removed)="removeTabHandler(tab)"
                [active]="tab.active">
 
-            <ng-template tabHeading>
+            <ng-template tabHeading class="tab--test">
 
                             <span *ngIf="seriesUnseenAmount && seriesUnseenAmount[i] == 0" class="unseen--badge unseen--badge-done">
                                 <i class="fa fa-check" aria-hidden="true"></i>
@@ -57,7 +57,7 @@
                 <td class="episode-table-number">{{ episode.episode }}</td>
                 <td class="episode-table-description">{{ episode.name }}</td>
                 <td>{{ episode.airdate }}</td>
-                <!--<td><app-seen [seen]="episode.seen" [episode]="episode" [buttonLabel]="episode.seen ? 'Unsee' : 'Seen'"></app-seen></td>-->
+                <td><app-seen [seen]="episode.seen" [episode]="episode" [buttonLabel]="episode.seen ? 'Unsee' : 'Seen'"></app-seen></td>
               </tr>
             </table>
           </tab>

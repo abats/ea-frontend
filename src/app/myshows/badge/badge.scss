@@ -1,0 +1,21 @@
+@import '../../variables';
+
+.badge{
+
+  border-radius: 0px;
+  z-index: 1;
+  height: 34px;
+  width: 34px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+
+  &--finished{
+    background-color: $light-text;
+  }
+
+  &--unfinished{
+    background-color: $light-blue;
+  }
+
+}

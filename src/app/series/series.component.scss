@@ -2,7 +2,6 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import '../variables';
 
-
 .episode-table{
   font-size: 14px;
   padding-top: 20px;
@@ -26,11 +25,50 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   }
 }
 
+::ng-deep {
+  .ea-tabs {
+
+    .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+      border: 0;
+    }
+
+    li.active > a:hover{
+     border: none !important;
+    }
+
+    ul, li{
+      border: none!important;
+    }
+
+    .nav > li > a:hover{
+      background-color: $primary-color;
+      color: $light-blue;
+    }
+
+    .nav-tabs > li > a:hover{
+      color: $light-blue;
+    }
+
+    .nav-tabs > li > a{
+      background-color: $secondary-color;
+      color: $light-text;
+      border: none;
+    }
+
+    .nav-tabs > a:hover{
+      background-color: $primary-color;
+    }
+
+    .nav-tabs > li.active > a{
+      background-color: $primary-color;
+      color: $light-blue;
+    }
+  }
+}
+
 .series-detail {
 
   padding-left: 15px;
-
-
 
   .unseen--badge{
     text-align: center;
@@ -52,7 +90,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
   .unseen--badge-done{
 
-    color: $light-text;
+    color: #FFFFFF;
 
     i{
       margin-top: 5px;
@@ -60,11 +98,8 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
     font-weight: normal;
     font-size: 110%;
-    background-color: $background-line-color;
+    background-color: $light-blue;
 
-    &:hover{
-      color: $light-text;
-    }
   }
 
   .tab-content{
@@ -132,6 +167,16 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   .seasons{
     padding-left: 0;
     background-color: $primary-color;
+
+    .nav-item{
+      background-color: pink!important;
+      a{
+        background-color: pink!important;
+        color: $light-blue !important;
+      }
+    }
+
+
   }
 
   .btn{
@@ -211,3 +256,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
     color: $bright-highlight;
   }
 }
+//
+//.seasons{
+//
+//}

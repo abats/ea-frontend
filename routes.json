@@ -3,6 +3,16 @@
 
   "/series/top" : "/top",
 
+  "/api/series/seen/*" : "/seen",
+
+  "/api/series/unseen/*" : "/unseen",
+
+  "/api/follow/264586" : "/follow",
+  "/api/unfollow/264586" : "/unfollow",
+
+  "/api/follow/81189" : "/follow",
+  "/api/unfollow/81189" : "/unfollow",
+
   "/profile/following": "/following",
   "/api/profile/stats?from=*&to=*": "/stats_with_filter",
   "/api/profile/stats": "/stats",

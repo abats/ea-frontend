@@ -46,6 +46,10 @@ export class SeriesService {
     return this.http.get<Series[]>(this.topSeriesUrl);
   }
 
+  getSeriesSeason(seriesId, seriesSeason): Observable<any> {
+    return this.http.get<any>(this.singleSeasonUrl + seriesId + '/' + seriesSeason);
+  }
+
   getTrendingSeries(): Observable<Series[]> {
     return this.http.get<Series[]>(this.trendingSeriesUrl);
   }
@@ -54,6 +58,9 @@ export class SeriesService {
     return this.http.get<Series>(this.singleSeriesUrl + uniqueName);
   }
 
+  getUnseenAmountBySeries(seriesId, seasons): Observable<any> {
+    return this.http.get<any>(this.unseenAmountBySeries + seriesId + '/' + seasons);
+  }
 
   /* TODO: caching ? */
   getProfileStats(): Observable<any> {
@@ -68,13 +75,9 @@ export class SeriesService {
     return this.http.get(completeUrl);
   }
 
-  //
-  // getProfileSeries(): Promise<Series[]> {
-  //   return this.http.get(this.profileUrl)
-  //     .toPromise()
-  //     .then(response => response.json())
-  //     .catch(this.handleError);
-  // }
+  getProfileSeries(): Observable<Series[]> {
+    return this.http.get<Series[]>(this.profileUrl);
+  }
 
   /*
    * Following
@@ -82,12 +85,12 @@ export class SeriesService {
 
   followSeries(seriesId) {
     return this.http
-      .get(this.followUrl + seriesId)
+      .get(this.followUrl + seriesId);
   }
 
   unfollowSeries(seriesId) {
     return this.http
-      .get(this.unfollowUrl + seriesId)
+      .get(this.unfollowUrl + seriesId);
   }
 
 
@@ -96,31 +99,17 @@ export class SeriesService {
    */
 
   seenEpisode(episodeId, mode) {
-    return this.http.post(this.seenUrl + episodeId, {'mode' : mode})
+    return this.http.post(this.seenUrl + episodeId, {'mode' : mode});
   }
 
   unseeEpisode(episodeId, mode) {
-    return this.http.post(this.unseenUrl + episodeId, {'mode' : mode})
+    return this.http.post(this.unseenUrl + episodeId, {'mode' : mode});
   }
 
   // /*
   //  * end seen
   //  */
-  //
-  // getUnseenAmountBySeries(seriesId, seasons) {
-  //   return this.http.get(this.unseenAmountBySeries + seriesId + '/' + seasons)
-  //     .toPromise()
-  //     .then(response => response.json())
-  //     .catch(this.handleError);
-  // }
-  //
-  //
-  // getSeriesSeason(seriesId, seriesSeason) {
-  //   return this.http.get(this.singleSeasonUrl + seriesId + '/' + seriesSeason)
-  //     .toPromise()
-  //     .then(response => response.json())
-  //     .catch(this.handleError);
-  // }
+
   //
   // getSpotlightSeries(): Promise<Series []> {
   //   return this.http.get(this.spotlightSeriesUrl)

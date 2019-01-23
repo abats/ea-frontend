@@ -24,7 +24,7 @@ export class SeriesComponent implements OnInit, OnDestroy {
   private series$;
   private seriesSeason$;
   private seriesUnseenAmount$;
-
+  private seriesCurrentSeason$;
 
   constructor(
     private titleService: Title,
@@ -47,7 +47,6 @@ export class SeriesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log('init series component');
   }
 
   createSeriesSeasonTabs(seasonAmount) {
@@ -77,63 +76,58 @@ export class SeriesComponent implements OnInit, OnDestroy {
   }
 
   getSeriesInformation() {
-      // this.getSeriesUnseenAmount();
-      // this.createSeriesSeasonTabs(series.season_amount);
-      // this.getSeriesSeason(series.id, 1 );
-      // this.setTitle(this.series.name);
-      //
-      // if (this.series.has_specials) {
-      //   this.setActiveTab(this.series.last_seen_season);
-      // } else {
-      //   this.setActiveTab(this.series.last_seen_season - 1);
-      // }
+      this.getSeriesUnseenAmount();
+      this.createSeriesSeasonTabs(this.series.season_amount);
+      this.getSeriesSeason(this.series.id, 1 );
+      this.setTitle(this.series.name);
+
+      if (this.series.has_specials) {
+        this.setActiveTab(this.series.last_seen_season);
+      } else {
+        this.setActiveTab(this.series.last_seen_season - 1);
+      }
   }
 
-  // getSeriesSeason(seriesId: number, seasonNumber: number) {
-  //
-  //   this.seriesService.getSeriesSeason(seriesId, seasonNumber).then(
-  //     (season) => {
-  //       if (this.series.has_specials) {
-  //         this.tabs[seasonNumber].content = season;
-  //       } else {
-  //         this.tabs[seasonNumber - 1].content = season;
-  //       }
-  //
-  //     }
-  //   );
-  // }
+  getSeriesSeason(seriesId: number, seasonNumber: number) {
 
-  // public loadTab(tab): void {
-  //   if (this.series.has_specials) {
-  //     this.getSeriesSeason(this.series.id, tab);
-  //   } else {
-  //     this.getSeriesSeason(this.series.id, tab + 1);
-  //   }
-  //
-  // }
+    this.seriesCurrentSeason$ = this.seriesService.getSeriesSeason(seriesId, seasonNumber).subscribe(seriesSeason => {
+      if (this.series.has_specials) {
+        this.tabs[seasonNumber].content = seriesSeason;
+      } else {
+        this.tabs[seasonNumber - 1].content = seriesSeason;
+      }
+    });
+  }
+
+  public loadTab(tab): void {
+    if (this.series.has_specials) {
+      this.getSeriesSeason(this.series.id, tab);
+    } else {
+      this.getSeriesSeason(this.series.id, tab + 1);
+    }
+  }
 
   public setActiveTab(index: number): void {
-    console.log('set one active: ' + index);
-    console.log(this.tabs);
     this.tabs[index].active = true;
   }
-  //
-  // public getSeriesUnseenAmount() {
-  //   this.seriesService.getUnseenAmountBySeries( this.series.id, 5).then(
-  //     (unseenAmount) => {
-  //       this.seriesUnseenAmount = unseenAmount;
-  //
-  //       if (this.series.has_specials) {
-  //         this.seriesUnseenAmount.unshift('specials');
-  //       }
-  //     }
-  //   );
-  // }
+
+  public getSeriesUnseenAmount() {
+    this.seriesUnseenAmount$ = this.seriesService.getUnseenAmountBySeries( this.series.id, 5).subscribe(
+      (unseenAmount) => {
+        this.seriesUnseenAmount = unseenAmount;
+
+        if (this.series.has_specials) {
+          this.seriesUnseenAmount.unshift('specials');
+        }
+      }
+    );
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.series$.unsubscribe();
-    this.seriesSeason$.unsubscribe();
+    // this.seriesSeason$.unsubscribe();
     this.seriesUnseenAmount$.unsubscribe();
+    this.seriesCurrentSeason$.unsubscribe();
   }
 }

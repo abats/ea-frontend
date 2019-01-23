@@ -1,3 +1,134 @@
-<p>
-  myshows works!
-</p>
+<app-userstats *ngIf="authService.isLoggedIn()" state="all"></app-userstats>
+
+<div class="container myshows-filters">
+  <div class="row profile-filters ng-scope">
+
+    <div class="col-md-12 col-lg-12">
+
+      <span class="hidden-xs myshows-filters-label">Filters </span>
+      <input type="text" value="lol" [(ngModel)]="search" placeholder="Filter by name">
+      <button [ngClass]="{'ea-filter--active' : showUnseen}" class="ea-filter" (click)="clickToggleUnseen()">
+        <span [hidden]="!showUnseen" class="fa fa-check ng-hide"></span>
+        <span [hidden]="showUnseen" class="fa fa-plus"></span>
+        unseen
+      </button>
+      <button [ngClass]="{'ea-filter--active' : showEnded}" class="ea-filter" ng-class="{'ea-filter--active': !ended}" (click)="clickToggleEnded()">
+        <span [hidden]="!showEnded" class="fa fa-check ng-hide"></span>
+        <span [hidden]="showEnded" class="fa fa-plus"></span>
+        continuing
+      </button>
+      <button [ngClass]="{'ea-filter--active' : showArchive}" class="ea-filter" ng-class="{'ea-filter--active': archive}" (click)="clickToggleArchive()">
+        <span [hidden]="!showArchive" class="fa fa-check ng-hide"></span>
+        <span [hidden]="showArchive" class="fa fa-plus"></span>
+        archived
+      </button>
+
+      <span class="ea-filter-viewtoggle">
+
+                <div *ngIf="profileSeriesView == 'poster'" (click)="toggleSeriesView()">
+                    <svg id="_2x2_icon" class="ea-icon ea-icon--medium" data-name="2x2 icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                        <rect id="Rectangle_1657_copy_3" data-name="Rectangle 1657 copy 3" y="14.75" width="10.25" height="10.25"/>
+                        <rect id="Rectangle_1657_copy_4" data-name="Rectangle 1657 copy 4" width="10.25" height="10.25"/>
+                        <rect id="Rectangle_1657_copy_5" data-name="Rectangle 1657 copy 5" x="14.75" width="10.25" height="10.25"/>
+                        <rect id="Rectangle_1657_copy_6" data-name="Rectangle 1657 copy 6" x="14.75" y="14.75" width="10.25" height="10.25"/>
+                    </svg>
+                </div>
+
+                <div *ngIf="profileSeriesView == 'poster_big'" (click)="toggleSeriesView()">
+                    <svg id="text_copy" class="ea-icon ea-icon--medium" data-name="text copy" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                        <rect id="Rectangle_1657_copy_7" data-name="Rectangle 1657 copy 7" y="10" width="27" height="5"/>
+                        <rect id="Rectangle_1657_copy_7-2" data-name="Rectangle 1657 copy 7" y="-1" width="27" height="6"/>
+                        <rect id="Rectangle_1657_copy_10" data-name="Rectangle 1657 copy 10" y="20" width="25" height="5"/>
+                    </svg>
+                </div>
+
+                <div *ngIf="profileSeriesView == 'list'" (click)="toggleSeriesView()">
+                    <svg id="_3x3_icon" class="ea-icon ea-icon--medium" data-name="3x3 icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                        <rect id="Rectangle_1657_copy_7" data-name="Rectangle 1657 copy 7"  x="0.219" y="8.938" width="6.656" height="6.656"/>
+                        <rect id="Rectangle_1657_copy_7-2" data-name="Rectangle 1657 copy 7" x="0.219" width="6.656" height="6.656"/>
+                        <rect id="Rectangle_1657_copy_7-3" data-name="Rectangle 1657 copy 7"  x="9.188" width="6.625" height="6.656"/>
+                        <rect id="Rectangle_1657_copy_7-4" data-name="Rectangle 1657 copy 7"  x="9.188" y="8.938" width="6.625" height="6.656"/>
+                        <rect id="Rectangle_1657_copy_8" data-name="Rectangle 1657 copy 8"  x="9.406" y="18.125" width="6.656" height="6.656"/>
+                        <rect id="Rectangle_1657_copy_8-2" data-name="Rectangle 1657 copy 8"  x="18.344" y="9.188" width="6.656" height="6.625"/>
+                        <rect id="Rectangle_1657_copy_9" data-name="Rectangle 1657 copy 9"  x="18.344" width="6.656" height="6.656"/>
+                        <rect id="Rectangle_1657_copy_10" data-name="Rectangle 1657 copy 10"  y="18.344" width="6.656" height="6.656"/>
+                        <rect id="Rectangle_1657_copy_8-3" data-name="Rectangle 1657 copy 8" x="18.344" y="18.125" width="6.656" height="6.656"/>
+                    </svg>
+                </div>
+            </span>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container myshows-shows">
+
+  <div class="row">
+    <!-- Trending Series -->
+    <div class="col-md-12 col-lg-12 trending-background-color">
+
+      <ul class="profile-series" *ngIf="profileSeries && ( profileSeriesView == 'poster' || profileSeriesView == 'poster_big' ) "  [ngClass]="{'big-poster': profileSeriesView == 'poster_big'}">
+        <li class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search">
+          <div class="series-img">
+            <a [routerLink]="['/series', series.unique_name]">
+              <img class="img-responsive"
+                   src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
+                   alt="{{ series.name }}"/>
+            </a>
+            <app-badge class="myshows--badge" color="red" content="{{series.unseen_episodes}}"></app-badge>
+          </div>
+          <div class="series-info">
+            <a [routerLink]="['/series', series.unique_name]">
+                            <span class="title truncate" title="{{series.name}}">
+                                {{ series.name }}
+                            </span>
+            </a>
+          </div>
+        </li>
+      </ul>
+
+      <table class="profile-series-list" *ngIf="profileSeries && profileSeriesView == 'list'">
+        <tr>
+          <th (click)="setOrder('name')">
+            <app-orderdisplay activeOrder="{{order}}" order="name" orderReverse="{{orderReverse}}"></app-orderdisplay>
+            Show
+          </th>
+          <th (click)="setOrder('unseen_episodes')">
+            <app-orderdisplay activeOrder="{{order}}" order="unseen_episodes" orderReverse="{{orderReverse}}"></app-orderdisplay>
+            Unseen</th>
+          <th (click)="setOrder('season_amount')">
+            <app-orderdisplay activeOrder="{{order}}" order="season_amount" orderReverse="{{orderReverse}}"></app-orderdisplay>
+            Seasons
+          </th>
+          <th (click)="setOrder('status')">
+            <app-orderdisplay activeOrder="{{order}}" order="status" orderReverse="{{orderReverse}}"></app-orderdisplay>
+            Status</th>
+          <th (click)="setOrder('rating')">
+            <app-orderdisplay activeOrder="{{order}}" order="rating" orderReverse="{{orderReverse}}"></app-orderdisplay>
+            Rating</th>
+          <th (click)="setOrder('')">Next episode</th>
+          <th>Archive show</th>
+        </tr>
+        <tr class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search | asOrderBy: order : orderReverse">
+          <td>
+            <i class="fa fa-angle-right series-indicator" aria-hidden="true"></i>
+            <a [routerLink]="['/series', series.unique_name]">
+                <span class="title truncate" title="{{series.name}}">
+                    {{ series.name }}
+                </span>
+            </a>
+          </td>
+          <td>{{ series.unseen_episodes }}</td>
+          <td>{{ series.season_amount }}</td>
+          <td>{{ series.status }}</td>
+          <td>{{ series.rating }}</td>
+          <td>todo: next episode</td>
+          <td>Archive</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>

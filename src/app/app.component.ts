@@ -24,7 +24,7 @@ export class AppComponent implements OnDestroy {
     private seriesService: SeriesService) {
       this.topSeries$ = this.seriesService.getTopSeries().subscribe(topSeriesResponse => {
         this.topSeries = topSeriesResponse;
-      })
+      });
 
       this.seriesDetail$ = this.seriesService.getSingleSeries('breaking_bad').subscribe(seriesDetailResponse => {
         this.seriesDetail = seriesDetailResponse;

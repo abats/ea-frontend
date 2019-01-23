@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import {Component, Input, ChangeDetectionStrategy, OnInit, OnDestroy} from '@angular/core';
 import { SeriesService } from '../../services/series.service';
 
 @Component({
@@ -10,28 +10,30 @@ import { SeriesService } from '../../services/series.service';
     ]
 })
 
-export class SeenbuttonComponent {
+export class SeenbuttonComponent implements OnDestroy  {
     @Input() episode: any;
     @Input() buttonLabel: string;
     @Input() seen: boolean;
 
+    private episodeSeen$;
+
     constructor( private seriesService: SeriesService ) {
     }
 
-    // toggleSeen(mode) {
-    //     this.seriesService.seenEpisode(this.episode.id, mode).then(
-    //         (response) => {
-    //             this.episode.seen = !this.episode.seen;
-    //         }
-    //     );
-    // }
-    //
-    // toggleUnseen(mode) {
-    //     this.seriesService.unseeEpisode(this.episode.id, mode).then(
-    //         (response) => {
-    //             this.episode.seen = !this.episode.seen;
-    //         }
-    //     );
-    // }
+    toggleSeen(mode) {
+      this.episodeSeen$ = this.seriesService.seenEpisode(this.episode.id, mode).subscribe( response => {
+        this.episode.seen = !this.episode.seen;
+      });
+    }
+
+    toggleUnseen(mode) {
+      this.episodeSeen$ = this.seriesService.unseeEpisode(this.episode.id, mode).subscribe( response => {
+        this.episode.seen = !this.episode.seen;
+      });
+    }
+
+  ngOnDestroy() {
+    this.episodeSeen$.unsubscribe();
+  }
 
 }

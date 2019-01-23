@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
 import { SeriesService } from './services/series.service';
-import { GuideComponent } from './guide/guide.component';
 import { HomeComponent } from './home/home.component';
 import { MyshowsComponent } from './myshows/myshows.component';
 import { SeriesComponent } from './series/series.component';
@@ -15,14 +14,19 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { FanartPipe, FilterByPipe, LimitToPipe, SearchPipe, UrlPipe } from './pipes/index';
+import {FanartPipe, FilterByPipe, LimitToPipe, OrderBy, SearchPipe, UrlPipe} from './pipes/index';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './user/login.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {SearchComponent} from './search/search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
 import { UserStatsComponent } from './user-stats/user-stats.component';
-import {SeenbuttonComponent} from './buttons/seen/seen-button.component';
-import {FollowbuttonComponent} from './buttons/follow/follow-button.component';
+import { SeenbuttonComponent } from './buttons/seen/seen-button.component';
+import { FollowbuttonComponent } from './buttons/follow/follow-button.component';
+import { WebStorageModule } from 'h5webstorage';
+import { OrderDisplayComponent } from './myshows/orderDisplay/orderdisplay.component';
+import {GuideModule} from './guide/guide.module';
+import {BadgeComponent} from './myshows/badge/badge.component';
+import {GuideRoutingModule} from './guide/guide.routes';
 
 const routes: Routes = [
     {
@@ -39,7 +43,7 @@ const routes: Routes = [
     },
     {
       path: 'guide',
-      component: GuideComponent
+      loadChildren: () => GuideModule
     },
     {
       path: 'home',
@@ -51,9 +55,9 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    GuideComponent,
     HomeComponent,
     MyshowsComponent,
+    OrderDisplayComponent,
     SeriesComponent,
     ProfileComponent,
     UserStatsComponent,
@@ -62,11 +66,14 @@ const routes: Routes = [
     FollowbuttonComponent,
     SearchPipe,
     UrlPipe,
+    BadgeComponent,
+    OrderBy,
     FanartPipe,
     FilterByPipe,
     LimitToPipe
   ],
   imports: [
+    GuideModule,
     ReactiveFormsModule,
     BrowserModule,
     FormsModule,
@@ -76,7 +83,8 @@ const routes: Routes = [
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    WebStorageModule.forRoot()
   ],
   providers: [ApiService, SeriesService, AuthService],
   bootstrap: [AppComponent]
