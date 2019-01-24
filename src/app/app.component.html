@@ -1,68 +1,72 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container container--navbar">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">
-        Episode Alert
-      </a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <app-search></app-search>
-      <ul class="nav navbar-nav">
-        <li><a [routerLink]="['/home']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
-        <li><a [routerLink]="['/guide']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">GUIDE</a></li>
-        <li><a [routerLink]="['/myshows']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">MY SHOWS</a></li>
-        <!--<li><a [routerLink]="['/profile']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">PROFILE</a></li>-->
-
-        <li *ngIf="authService.isLoggedIn()" class="hidden-xs hidden-sm" >
-          <div class="dropdown user-dropdown" dropdown >
-
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dropdownToggle>
-              abats
-              <span class="caret"></span>
-            </button>
-
-            <app-login-form></app-login-form>
-
-            <ul class="dropdown-menu"  aria-labelledby="dropdownMenu1">
-              <li><a href="#">Profile</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Settings</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Logout</a></li>
-            </ul>
-
-          </div>
-        </li>
-
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<router-outlet></router-outlet>
-
-<div class="row-ea">
-  <div class="container" id="footer">
-    <div class="footer row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <i class="fa fa-facebook-official ea-facebook" aria-hidden="true"></i> <a href="https://www.facebook.com/episodealert/" target="_blank">Follow us on facebook</a>
+<div>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container container--navbar">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          Episode Alert
+        </a>
       </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <app-search></app-search>
+        <ul class="nav navbar-nav">
+          <li><a [routerLink]="['/home']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
+          <li><a [routerLink]="['/guide']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">GUIDE</a></li>
+          <li><a [routerLink]="['/myshows']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">MY SHOWS</a></li>
+          <!--<li><a [routerLink]="['/profile']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">PROFILE</a></li>-->
 
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <ul class="nav-small">
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/guide']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">GUIDE</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/myshows']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">MY SHOWS</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/contact']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">CONTACT</a></li>
+          <li *ngIf="authService.isLoggedIn()" class="hidden-xs hidden-sm" >
+            <div class="dropdown user-dropdown" dropdown >
+
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dropdownToggle>
+                abats
+                <span class="caret"></span>
+              </button>
+
+              <app-login-form></app-login-form>
+
+              <ul class="dropdown-menu"  aria-labelledby="dropdownMenu1">
+                <li><a href="#">Profile</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Settings</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+
+            </div>
+          </li>
+
         </ul>
       </div>
+    </div>
+  </nav>
 
+  <div [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''"  class="turbo--wrapper">
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
+
+  <div class="row-ea">
+    <div class="container" id="footer">
+      <div class="footer row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <i class="fa fa-facebook-official ea-facebook" aria-hidden="true"></i> <a href="https://www.facebook.com/episodealert/" target="_blank">Follow us on facebook</a>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <ul class="nav-small">
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/guide']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">GUIDE</a></li>
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/myshows']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">MY SHOWS</a></li>
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/contact']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">CONTACT</a></li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>

@@ -70,7 +70,7 @@
     <div class="col-md-12 col-lg-12 trending-background-color">
 
       <ul class="profile-series" *ngIf="profileSeries && ( profileSeriesView == 'poster' || profileSeriesView == 'poster_big' ) "  [ngClass]="{'big-poster': profileSeriesView == 'poster_big'}">
-        <li class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search">
+        <li ngDraggable class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search">
           <div class="series-img">
             <a [routerLink]="['/series', series.unique_name]">
               <img class="img-responsive"
@@ -81,9 +81,9 @@
           </div>
           <div class="series-info">
             <a [routerLink]="['/series', series.unique_name]">
-                            <span class="title truncate" title="{{series.name}}">
-                                {{ series.name }}
-                            </span>
+                <span class="title truncate" title="{{series.name}}">
+                    {{ series.name }}
+                </span>
             </a>
           </div>
         </li>

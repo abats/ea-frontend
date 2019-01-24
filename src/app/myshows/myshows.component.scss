@@ -114,8 +114,18 @@
 
 
 .ea-filter{
-  margin-left: 15px;
+  margin-left: 25px;
   background-color: $primary-color;
+
+  .fa{
+    width: 18px;
+  }
+
+  &:hover,
+  &--active{
+    color: $bright-highlight;
+    border-color: $bright-highlight;
+  }
 
   &-viewtoggle{
     display: inline-block;

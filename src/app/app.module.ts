@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
 import { SeriesService } from './services/series.service';
 import { HomeComponent } from './home/home.component';
-import { MyshowsComponent } from './myshows/myshows.component';
 import { SeriesComponent } from './series/series.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,19 +13,18 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import {FanartPipe, FilterByPipe, LimitToPipe, OrderBy, SearchPipe, UrlPipe} from './pipes/index';
+import { FanartPipe, FilterByPipe, LimitToPipe, OrderBy, SearchPipe, UrlPipe} from './pipes/index';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './user/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
-import { UserStatsComponent } from './user-stats/user-stats.component';
 import { SeenbuttonComponent } from './buttons/seen/seen-button.component';
 import { FollowbuttonComponent } from './buttons/follow/follow-button.component';
 import { WebStorageModule } from 'h5webstorage';
-import { OrderDisplayComponent } from './myshows/orderDisplay/orderdisplay.component';
-import {GuideModule} from './guide/guide.module';
-import {BadgeComponent} from './myshows/badge/badge.component';
-import {GuideRoutingModule} from './guide/guide.routes';
+import { GuideModule } from './guide/guide.module';
+import { MyshowsModule } from './myshows/myshows.module';
+import { AppSharedModule } from './app.shared.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const routes: Routes = [
     {
@@ -35,7 +33,8 @@ const routes: Routes = [
     },
     {
       path: 'myshows',
-      component: MyshowsComponent
+      data: {animation: 'HomePage'},
+      loadChildren: () => MyshowsModule
     },
     {
       path: 'profile',
@@ -43,10 +42,12 @@ const routes: Routes = [
     },
     {
       path: 'guide',
+      data: {animation: 'GuidePage'},
       loadChildren: () => GuideModule
     },
     {
       path: 'home',
+      data: {animation: 'HomePage'},
       component: HomeComponent
     }
 ];
@@ -56,23 +57,18 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    MyshowsComponent,
-    OrderDisplayComponent,
     SeriesComponent,
     ProfileComponent,
-    UserStatsComponent,
     SearchComponent,
     SeenbuttonComponent,
     FollowbuttonComponent,
-    SearchPipe,
-    UrlPipe,
-    BadgeComponent,
-    OrderBy,
     FanartPipe,
     FilterByPipe,
     LimitToPipe
   ],
   imports: [
+    BrowserAnimationsModule,
+    AppSharedModule,
     GuideModule,
     ReactiveFormsModule,
     BrowserModule,

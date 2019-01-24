@@ -1,5 +1,6 @@
 import {Component, Input, ChangeDetectionStrategy, OnInit, OnDestroy} from '@angular/core';
 import { SeriesService } from '../../services/series.service';
+import {Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-seen',
@@ -15,7 +16,7 @@ export class SeenbuttonComponent implements OnDestroy  {
     @Input() buttonLabel: string;
     @Input() seen: boolean;
 
-    private episodeSeen$;
+  private episodeSeen$ = new Subscription();
 
     constructor( private seriesService: SeriesService ) {
     }
@@ -33,7 +34,7 @@ export class SeenbuttonComponent implements OnDestroy  {
     }
 
   ngOnDestroy() {
-    this.episodeSeen$.unsubscribe();
+      this.episodeSeen$.unsubscribe();
   }
 
 }
