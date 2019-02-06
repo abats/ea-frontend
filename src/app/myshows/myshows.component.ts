@@ -13,6 +13,7 @@ import { Title } from '@angular/platform-browser';
 
 export class MyshowsComponent implements OnInit, OnDestroy {
   private series$;
+  private seriesOrder$;
   pristineSeries: Series [];
   seriesTest: Series [];
   profileSeries: Series [];
@@ -23,6 +24,7 @@ export class MyshowsComponent implements OnInit, OnDestroy {
   @StorageProperty() public showUnseen: boolean;
   @StorageProperty() public showArchive: boolean;
   @StorageProperty() public showEnded: boolean;
+  public options: { onUpdate: (event: any) => void };
 
 
   constructor( private seriesService: SeriesService,
@@ -31,8 +33,14 @@ export class MyshowsComponent implements OnInit, OnDestroy {
                private localStorage: LocalStorage) {
 
     titleService.setTitle('Episode Alert - My Shows');
-
-
+    this.options = {
+      onUpdate: (event: any) => {
+        // switch items
+       const newOrderArray =  {'order' : this.switchArrayItemsSeries(event.newIndex, event.oldIndex) };
+       const newOrderJsonString = JSON.stringify(newOrderArray);
+       seriesService.updateSeriesProfileOrder(newOrderJsonString).subscribe();
+      }
+    };
     /*
      * TODO: Implement services as observables one day
      */
@@ -42,6 +50,23 @@ export class MyshowsComponent implements OnInit, OnDestroy {
     //     series => this.seriesTest = series
     // );
 
+  }
+
+  updateProfileSeriesOrder() {
+
+  }
+
+  switchArrayItemsSeries(newIndex, oldIndex) {
+    const temp = this.profileSeries[oldIndex];
+    this.profileSeries[oldIndex] = this.profileSeries[newIndex];
+    this.profileSeries[newIndex] = temp;
+
+    const newArray = [];
+    for (let i = 0;  i < this.profileSeries.length; i++) {
+      newArray.push(this.profileSeries[i].id);
+    }
+
+    return newArray;
   }
 
 

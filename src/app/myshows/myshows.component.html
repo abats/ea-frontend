@@ -69,8 +69,8 @@
     <!-- Trending Series -->
     <div class="col-md-12 col-lg-12 trending-background-color">
 
-      <ul class="profile-series" *ngIf="profileSeries && ( profileSeriesView == 'poster' || profileSeriesView == 'poster_big' ) "  [ngClass]="{'big-poster': profileSeriesView == 'poster_big'}">
-        <li ngDraggable class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search">
+      <ul [sortablejsOptions]="options" [sortablejs]="series" class="profile-series" *ngIf="profileSeries && ( profileSeriesView == 'poster' || profileSeriesView == 'poster_big' ) "  [ngClass]="{'big-poster': profileSeriesView == 'poster_big'}">
+        <li class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search">
           <div class="series-img">
             <a [routerLink]="['/series', series.unique_name]">
               <img class="img-responsive"

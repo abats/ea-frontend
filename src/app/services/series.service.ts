@@ -23,9 +23,11 @@ export class SeriesService {
   private seenUrl: string;
   private unseenUrl: string;
   private unseenAmountBySeries: string;
+  private seriesProfileOrderURL: string;
 
   constructor( private http: HttpClient ) {
     this.baseUrl = API_URL;
+    this.seriesProfileOrderURL =  this.baseUrl + '/profile/order';
     this.topSeriesUrl = this.baseUrl + '/series/top';
     this.trendingSeriesUrl = this.baseUrl + '/series/trending';
     // TODO: Change when we have spotlight
@@ -105,6 +107,15 @@ export class SeriesService {
   unseeEpisode(episodeId, mode) {
     return this.http.post(this.unseenUrl + episodeId, {'mode' : mode});
   }
+
+  /*
+   *  update series profile order
+  */
+
+  updateSeriesProfileOrder(order) {
+    return this.http.post( this.seriesProfileOrderURL,  order);
+  }
+
 
   // /*
   //  * end seen

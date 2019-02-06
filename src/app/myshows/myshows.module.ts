@@ -7,6 +7,7 @@ import {MyshowRoutingModule} from './myshows.routes';
 import {AppSharedModule} from '../app.shared.module';
 import {BadgeComponent} from './badge/badge.component';
 import {OrderDisplayComponent} from './orderDisplay/orderdisplay.component';
+import {SortablejsModule} from 'angular-sortablejs';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {OrderDisplayComponent} from './orderDisplay/orderdisplay.component';
   ],
   imports: [
     MyshowRoutingModule,
-    AppSharedModule
+    AppSharedModule,
+    SortablejsModule
   ],
   providers: [
     Title,

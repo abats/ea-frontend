@@ -25,6 +25,7 @@ import { GuideModule } from './guide/guide.module';
 import { MyshowsModule } from './myshows/myshows.module';
 import { AppSharedModule } from './app.shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SortablejsModule} from 'angular-sortablejs';
 
 const routes: Routes = [
     {
@@ -80,7 +81,8 @@ const routes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     TabsModule.forRoot(),
-    WebStorageModule.forRoot()
+    WebStorageModule.forRoot(),
+    SortablejsModule.forRoot({ animation: 150 })
   ],
   providers: [ApiService, SeriesService, AuthService],
   bootstrap: [AppComponent]
