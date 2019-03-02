@@ -1,0 +1,65 @@
+@import '../variables';
+
+tr:nth-of-type(odd) {
+  background-color: $primary-lighter!important;
+
+}
+
+table tr td{
+  border-top: 0px;
+}
+
+form{
+  padding: 10px 10px 10px 0px;
+
+  input{
+    margin: 0px 10px 0px 10px;
+    visibility: hidden;
+  }
+}
+
+.day{
+  text-transform: capitalize;
+  font-size: 150%;
+  margin-bottom: 3em;
+  line-height: 260%;
+}
+
+ul{
+  margin: auto;
+  padding-top: 15px;
+  padding-left: 0px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+li{
+  position: relative;
+  width: 33%;
+  display: inline-block;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  font-size: 80%;
+
+  img{
+    width: 100%;
+    margin-bottom: 3px;
+  }
+}
+
+.episode-info{
+  padding-bottom: 6px;
+  text-decoration: none;
+  background-color: #252525;
+  display: inline-block;
+  border-bottom: 1px solid $bright-highlight;
+  text-align: center;
+}
+
+i{
+  cursor: pointer;
+  position: absolute;
+  top: 1em;
+  font-size: 5em;
+}

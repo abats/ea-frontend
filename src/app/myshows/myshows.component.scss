@@ -6,10 +6,19 @@
   right: 0px;
 }
 
+
+
+.handle{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: move;
+  display: none;
+  font-size: 14px;
+  padding: 11px;
+}
+
 .profile-series-list{
   width: 100%;
-
-
 
   th{
     padding-bottom: 20px;
@@ -41,6 +50,10 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  li:hover .handle {
+    display: block;
+  }
 
   li{
     position: relative;

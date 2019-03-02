@@ -4,3 +4,4 @@ export * from './search.pipe';
 export * from './orderby.pipe';
 export * from './filterBy.pipe';
 export * from './limitTo.pipe';
+export * from './number-padder';

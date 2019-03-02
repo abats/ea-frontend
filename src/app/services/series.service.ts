@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Series } from '../model/series';
-import {DateInput} from 'ngx-bootstrap/chronos/test/chain';
+import {Episode} from '../model/episode';
 
 const API_URL = environment.apiUrl;
 
@@ -24,6 +24,8 @@ export class SeriesService {
   private unseenUrl: string;
   private unseenAmountBySeries: string;
   private seriesProfileOrderURL: string;
+  private guideUrl: string;
+  private guideUrlDay: string;
 
   constructor( private http: HttpClient ) {
     this.baseUrl = API_URL;
@@ -35,6 +37,8 @@ export class SeriesService {
     this.profileUrl = this.baseUrl + '/profile/following';
     this.statsUrl = this.baseUrl + '/profile/stats';
     this.singleSeriesUrl = this.baseUrl + '/series/';
+    this.guideUrl = this.baseUrl + '/series/guide/';
+    this.guideUrlDay = this.baseUrl + '/series/episodesperdate/'
     this.singleSeasonUrl = this.baseUrl + '/series/episodesbyseason/';
     this.followUrl = this.baseUrl + '/follow/';
     this.unfollowUrl = this.baseUrl + '/unfollow/';
@@ -54,6 +58,17 @@ export class SeriesService {
 
   getTrendingSeries(): Observable<Series[]> {
     return this.http.get<Series[]>(this.trendingSeriesUrl);
+  }
+
+  /*
+   * days: 3, 7, 14, 21
+   */
+  getGuideSeries(days: number): Observable<Episode[]> {
+    return this.http.get<Episode[]>(this.guideUrl + days);
+  }
+
+  getGuideSeriesDay(date: string): Observable<Episode[]> {
+    return this.http.get<Episode[]>(this.guideUrlDay + date);
   }
 
   getSingleSeries(uniqueName): Observable<Series> {

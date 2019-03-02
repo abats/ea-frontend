@@ -43,6 +43,33 @@ router-outlet ~ * {
 }
 
 .turbo--wrapper{
-  min-height: 100%;
-  height:100vh;
+  //min-height: 100%;
+  //height:100vh;
 }
+
+.col-centered{
+  text-align: center;
+}
+
+.section-header {
+  height: 40px;
+  padding: 8px 0px 10px 15px;
+  background-color: #252525;
+  font-size: 150%;
+}
+
+h1 {
+  @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
+
+  border-bottom: 1px solid darken(#C9C9C9, 50%);
+  padding-top: 0px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  color: $light-blue;
+  letter-spacing: 0.09em;
+}
+
+.top-buffer { margin-top:24px; }

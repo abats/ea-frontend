@@ -1,7 +1,149 @@
+<app-userstats *ngIf="authService.isLoggedIn()" state="all"></app-userstats>
+
+<!-- Start Calendar -->
+<div class="row-ea">
+  <div class="container ea-guide">
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <h1 class="ea-header--h1">Your Calendar</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1 col-lg-1">
+        <span (click)="previousThreeDays()"><i class="fa fa-angle-left"></i></span>
+      </div>
+      <div class="col-md-10 col-lg-10">
+        <div class="row">
+          <div class="col-md-4 col-lg-4 col-centered">
+            <span class="day">{{ yesterday.fromNow() }}</span>
+            <ul>
+              <li *ngFor="let episode of guideEpisodesCalendar.day1">
+
+                <div class="series-img">
+                  <a [routerLink]="['/series', episode.unique_name]">
+                    <img
+                      src="{{ episode.unique_name | asUrlPipe : episode.unique_name : 'small'  }}"
+                      alt="{{ episode.seriesName}}"/>
+                  </a>
+                </div>
+                <span class="episode-info">{{ episode.seriesName }} S{{ episode.season | asNumberPadderPipe : 2 }}
+                  E{{ episode.episode | asNumberPadderPipe : 2 }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-lg-4 col-centered">
+            <span class="day">{{ getMiddleDay() }}</span>
+            <ul>
+              <li *ngFor="let episode of guideEpisodesCalendar.day2">
+
+                <div class="series-img">
+                  <a [routerLink]="['/series', episode.unique_name]">
+                    <img
+                      src="{{ episode.unique_name | asUrlPipe : episode.unique_name : 'small'  }}"
+                      alt="{{ episode.seriesName}}"/>
+                  </a>
+                </div>
+                <span class="episode-info">{{ episode.seriesName }} S{{ episode.season | asNumberPadderPipe : 2 }}
+                  E{{ episode.episode | asNumberPadderPipe : 2 }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-lg-4 col-centered">
+            <span class="day">{{ tomorrow.fromNow() }}</span>
+            <ul>
+              <li *ngFor="let episode of guideEpisodesCalendar.day3">
+
+                <div class="series-img">
+                  <a [routerLink]="['/series', episode.unique_name]">
+                    <img
+                      src="{{ episode.unique_name | asUrlPipe : episode.unique_name : 'small'  }}"
+                      alt="{{ episode.seriesName}}"/>
+                  </a>
+                </div>
+                <span class="episode-info">{{ episode.seriesName }} S{{ episode.season | asNumberPadderPipe : 2 }}
+                  E{{ episode.episode | asNumberPadderPipe : 2 }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 col-lg-1 text-left">
+        <span (click)="nextThreeDays()"><i class="fa fa-angle-right"></i></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <div class="container">
-  <div class="row">
-    <div class="col-md-12 col-lg-12" >
-     Guide works!
+  <div class="row top-buffer">
+    <div class="col-md-12 col-lg-12">
+      <h1 class="ea-header--h1">Recent episodes</h1>
+    </div>
+  </div>
+  <div class="row row-ea">
+    <div class="col-md-12 col-lg-12">
+        <label class="ea-filter">
+          <input type="radio" id="button3" name="daysOfWeekGroup" [value]="3" [checked]="guideDays === 3"
+                 [(ngModel)]="guideDays" (ngModelChange)="changeDays()" class="">
+          3 days
+        </label>
+        <label class="ea-filter">
+          <input type="radio" id="button7" name="daysOfWeekGroup" [value]="7" [(ngModel)]="guideDays"
+                 (ngModelChange)="changeDays()" class="">
+          7 days
+        </label>
+        <label class="ea-filter">
+          <input type="radio" id="button14" name="daysOfWeekGroup" [value]="14" [(ngModel)]="guideDays"
+                 (ngModelChange)="changeDays()" class="">
+          2 weeks
+        </label>
+        <label class="ea-filter">
+          <input type="radio" id="button21" name="daysOfWeekGroup" [value]="21" [(ngModel)]="guideDays"
+                 (ngModelChange)="changeDays()" class="">
+          3 weeks
+        </label>
+
+      <table class="table table-striped">
+        <tr>
+          <th>
+            Air Date
+          </th>
+          <th>
+            Series
+          </th>
+          <th>
+            Episode
+          </th>
+          <th>
+            Episode title
+          </th>
+          <th>
+
+          </th>
+        </tr>
+        <tr *ngFor="let episode of guideSeries">
+          <td>
+            {{ episode.airdate }}
+          </td>
+          <td>
+            <a href="/series/{{ episode.unique_name }}">{{ episode.seriesName }}</a>
+          </td>
+          <td>
+            S{{ episode.season | asNumberPadderPipe : 2 }}E{{ episode.episode | asNumberPadderPipe : 2 }}
+          </td>
+          <td>
+            {{ episode.name }}
+          </td>
+
+          <td>
+            <!--<seen-button episode="episode"></seen-button>-->
+          </td>
+        </tr>
+      </table>
+
     </div>
   </div>
 </div>

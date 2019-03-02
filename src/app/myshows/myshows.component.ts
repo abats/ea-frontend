@@ -24,7 +24,7 @@ export class MyshowsComponent implements OnInit, OnDestroy {
   @StorageProperty() public showUnseen: boolean;
   @StorageProperty() public showArchive: boolean;
   @StorageProperty() public showEnded: boolean;
-  public options: { onUpdate: (event: any) => void };
+  public options: { onUpdate: (event: any) => void, handle: '.handle' };
 
 
   constructor( private seriesService: SeriesService,
@@ -33,7 +33,9 @@ export class MyshowsComponent implements OnInit, OnDestroy {
                private localStorage: LocalStorage) {
 
     titleService.setTitle('Episode Alert - My Shows');
+
     this.options = {
+      handle: '.handle',
       onUpdate: (event: any) => {
         // switch items
        const newOrderArray =  {'order' : this.switchArrayItemsSeries(event.newIndex, event.oldIndex) };
@@ -41,6 +43,7 @@ export class MyshowsComponent implements OnInit, OnDestroy {
        seriesService.updateSeriesProfileOrder(newOrderJsonString).subscribe();
       }
     };
+
     /*
      * TODO: Implement services as observables one day
      */

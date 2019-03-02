@@ -13,7 +13,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { FanartPipe, FilterByPipe, LimitToPipe, OrderBy, SearchPipe, UrlPipe} from './pipes/index';
+import {FanartPipe, FilterByPipe, LimitToPipe, NumberPadderPipe, OrderBy, SearchPipe, UrlPipe} from './pipes/index';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './user/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

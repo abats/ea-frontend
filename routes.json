@@ -16,15 +16,16 @@
   "/profile/following": "/following",
   "/api/profile/stats?from=*&to=*": "/stats_with_filter",
   "/api/profile/stats": "/stats",
+  "/api/profile/order" : "/order",
 
   "/auth/check" : "/check",
 
   "/series/trending" : "/top",
 
-  "/series/guide/3" : "/guide3",
-  "/series/guide/7" : "/guide7",
-  "/series/guide/14" : "/guide14",
-  "/series/guide/21" : "/guide21",
+  "/api/series/guide/3" : "/guide3",
+  "/api/series/guide/7" : "/guide7",
+  "/api/series/guide/14" : "/guide14",
+  "/api/series/guide/21" : "/guide21",
 
   "/series/breaking_bad" : "/breaking_bad",
   "/series/orange_is_the_new_black" : "/orange_is_the_new_black",
@@ -52,7 +53,16 @@
   "/api/series/episodesbyseason/250487/3" : "/american_horror_story_season_3",
   "/api/series/episodesbyseason/250487/4" : "/american_horror_story_season_4",
   "/api/series/episodesbyseason/250487/5" : "/american_horror_story_season_5",
-  "/api/series/episodesbyseason/250487/6" : "/american_horror_story_season_6"
+  "/api/series/episodesbyseason/250487/6" : "/american_horror_story_season_6",
 
+  "/api/series/episodesperdate/2019-02-25": "/episodesperdate_day1",
+  "/api/series/episodesperdate/2019-02-26": "/episodesperdate_day2",
+  "/api/series/episodesperdate/2019-02-27": "/episodesperdate_day3",
+  "/api/series/episodesperdate/2019-02-28": "/episodesperdate_day1",
+  "/api/series/episodesperdate/2019-03-01": "/episodesperdate_day2",
+  "/api/series/episodesperdate/2019-03-02": "/episodesperdate_day3",
+  "/api/series/episodesperdate/2019-03-03": "/episodesperdate_day1",
+  "/api/series/episodesperdate/2019-03-04": "/episodesperdate_day2",
+  "/api/series/episodesperdate/2019-03-05": "/episodesperdate_day3"
 }
 
