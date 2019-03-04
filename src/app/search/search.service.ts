@@ -1,17 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
 import { CONSTANTS } from '../constants/main';
-import {Series} from '../model/series';
+import { Series } from '../model/series';
+import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class SearchService {
   queryUrl = 'series/search?query=';
-  baseUrl: string = CONSTANTS.APP.API_BASE_URL;
+  API_URL = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  search(term): Observable<Series[]>  {
-    return this.http.get<Series[]>(this.baseUrl + this.queryUrl + term);
+  search(terms: Observable<string>) {
+    return terms.pipe(debounceTime(400),
+      distinctUntilChanged(),
+      switchMap(term => this.searchEntries(term)));
+  }
+
+  searchEntries(term) {
+    return this.http
+      .get(this.API_URL + '/' + this.queryUrl + term)
+      .pipe(map(res => res));
   }
 }

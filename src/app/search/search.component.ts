@@ -17,23 +17,16 @@ import { debounceTime } from 'rxjs/operators';
 export class SearchComponent implements OnInit {
     searchField: FormControl;
     series: Series[];
+    searchTerm$ = new Subject<string>();
 
     constructor(private searchService: SearchService) {
+      this.searchService.search(this.searchTerm$)
+        .subscribe(results => {
+          this.series = <Series[]>results;
+        });
     }
 
   ngOnInit() {
-    this.searchField = new FormControl();
-    this.searchField.valueChanges
-      .pipe(debounceTime(400))
-      .subscribe(term => {
-        this.search(term);
-      });
   }
 
-  search(term) {
-    this.searchService.search(term).subscribe(response => {
-      console.log(response);
-      this.series = response;
-    });
-  }
 }
