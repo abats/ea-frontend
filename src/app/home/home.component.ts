@@ -21,7 +21,7 @@ export class HomeComponent implements OnDestroy {
 
   constructor(
     private apiService: ApiService,
-    private authService: AuthService,
+    public authService: AuthService,
     private seriesService: SeriesService) {
 
     this.topSeries$ = this.seriesService.getTopSeries().subscribe(topSeriesResponse => {

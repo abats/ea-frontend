@@ -28,7 +28,7 @@ export class MyshowsComponent implements OnInit, OnDestroy {
 
 
   constructor( private seriesService: SeriesService,
-               private authService: AuthService,
+               public authService: AuthService,
                private titleService: Title,
                private localStorage: LocalStorage) {
 

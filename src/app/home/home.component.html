@@ -58,7 +58,7 @@
               <span class="home-banners-season"> Season {{ series.season_amount }} </span>
               <h3 class="title">{{ series.name }} </h3>
             </a>
-            <!--<app-follow class="spotlight-button-location" [series]="series" *ngIf="i < 2" [buttonLabel]="series.following ? 'Unfollow' : 'Follow'"></app-follow>-->
+            <app-follow class="spotlight-button-location" [series]="series" *ngIf="i < 2" [buttonLabel]="series.following ? 'Unfollow' : 'Follow'"></app-follow>
 
           </li>
         </ul>
@@ -74,15 +74,15 @@
     <div class="col-md-6 col-lg-6 trending-background-color">
       <h2>Most new followers last 30 days</h2>
       <ul class="splash-posters">
-        <li class="series" *ngFor="let series of trendingSeries; let i=index">
+        <li class="series" *ngFor="let series of trendingSeries | slice:0:3;">
 
-          <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
+          <a [routerLink]="['/series', series.unique_name]">
             <img class="img-responsive poster"
                  src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
                  alt="{{ series.name }}"/>
           </a>
 
-          <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
+          <a [routerLink]="['/series', series.unique_name]">
                         <span class="title">
                             {{ series.name }}
                         </span>
@@ -100,8 +100,8 @@
     <div class="col-md-6 col-lg-6 trending-background-color">
       <h2>Editors' picks</h2>
       <ul class="splash-posters">
-        <li class="series" *ngFor="let series of trendingSeries; let i = index">
-          <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
+        <li class="series" *ngFor="let series of trendingSeries| slice:0:3;">
+          <a [routerLink]="['/series', series.unique_name]">
 
             <img class="img-responsive poster"
                  src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
@@ -109,7 +109,7 @@
             <span class="title">
                             {{ series.name }}
                         </span>
-            <span class="season" *ngIf="i < 3">
+            <span class="season">
                             Season {{ series.season_amount }}
                         </span>
           </a>

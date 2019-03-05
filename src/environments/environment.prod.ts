@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:3004'
+  apiUrl: 'http://www.episode-alert.com/api'
 };

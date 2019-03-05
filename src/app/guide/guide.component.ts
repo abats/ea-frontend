@@ -23,7 +23,7 @@ export class GuideComponent implements OnInit {
   tomorrow;
 
   constructor( private seriesService: SeriesService,
-               private authService: AuthService,
+               public authService: AuthService,
                private titleService: Title) {
 
     this.titleService.setTitle('Episode Alert - My Guide');

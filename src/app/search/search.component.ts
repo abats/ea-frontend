@@ -15,7 +15,7 @@ import { debounceTime } from 'rxjs/operators';
 })
 
 export class SearchComponent implements OnInit {
-    searchField: FormControl;
+    searchField: string;
     series: Series[];
     searchTerm$ = new Subject<string>();
 
