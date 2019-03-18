@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CONSTANTS } from '../constants/main';
 import { User } from '../model/user';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
@@ -13,9 +13,9 @@ export class AuthService {
 
   constructor(
     private http: HttpClient) {
-    this.baseUrl = CONSTANTS.APP.API_BASE_URL;
-    this.authCheckUrl = this.baseUrl + 'auth/check';
-    this.loginUrl = this.baseUrl + 'auth/login';
+    this.baseUrl = environment.apiUrl;
+    this.authCheckUrl = this.baseUrl + '/auth/check';
+    this.loginUrl = this.baseUrl + '/auth/login';
     this.user = new User;
   }
 

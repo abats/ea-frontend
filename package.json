@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "dev": "concurrently --kill-others \"ng serve\" \"json-server --watch db.json --routes routes.json --port 3004\"",
+    "dev": "concurrently --kill-others \"ng serve\" \"node server.js\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

@@ -8,3 +8,10 @@ export class User {
     return this.name + this.email;
   }
 }
+
+export interface IfcSampleInterface {
+  key: string;
+  value: string;
+}
+
+const sampleVar = {} as IfcSampleInterface;

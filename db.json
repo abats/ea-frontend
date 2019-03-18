@@ -5,6 +5,18 @@
   "unfollow": {
     "follow": "Success."
   },
+  "logout": {
+    "flash": "Logged out!"
+  },
+  "login": {
+    "email": "abats",
+    "password": "sloeber123"
+  },
+  "authcheck": {
+    "id": "4291",
+    "accountname": "henkigek",
+    "thirdparty": false
+  },
   "order": {},
   "seen": {},
   "unseen": {},
@@ -11622,8 +11634,112 @@
       "seen": 0
     }
   ],
-
-  "episodesperdate_day1" : [{"id":"7042051","series_id":"279121","season":"5","episode":"15","airdate":"05-03-2019","name":"King Shark vs. Gorilla Grodd","description":"When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.","image":"none","created_at":"2019-02-19 00:30:55","updated_at":"2019-02-20 02:00:09","seriesName":"The Flash (2014)","seriesPoster":"the_flash_(2014).jpg","unique_name":"orange_is_the_new_black","aired":"0","seen":0},{"id":"7042051","series_id":"279121","season":"5","episode":"15","airdate":"05-03-2019","name":"King Shark vs. Gorilla Grodd","description":"When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.","image":"none","created_at":"2019-02-19 00:30:55","updated_at":"2019-02-20 02:00:09","seriesName":"The Flash (2014)","seriesPoster":"the_flash_(2014).jpg","unique_name":"orange_is_the_new_black","aired":"0","seen":0}],
-  "episodesperdate_day2" : [{"id":"7042051","series_id":"279121","season":"5","episode":"15","airdate":"05-03-2019","name":"King Shark vs. Gorilla Grodd","description":"When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.","image":"none","created_at":"2019-02-19 00:30:55","updated_at":"2019-02-20 02:00:09","seriesName":"The Flash (2014)","seriesPoster":"the_flash_(2014).jpg","unique_name":"orange_is_the_new_black","aired":"0","seen":0},{"id":"7042051","series_id":"279121","season":"5","episode":"15","airdate":"05-03-2019","name":"King Shark vs. Gorilla Grodd","description":"When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.","image":"none","created_at":"2019-02-19 00:30:55","updated_at":"2019-02-20 02:00:09","seriesName":"The Flash (2014)","seriesPoster":"the_flash_(2014).jpg","unique_name":"orange_is_the_new_black","aired":"0","seen":0}],
-  "episodesperdate_day3" : [{"id":"7042051","series_id":"279121","season":"5","episode":"15","airdate":"05-03-2019","name":"King Shark vs. Gorilla Grodd","description":"When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.","image":"none","created_at":"2019-02-19 00:30:55","updated_at":"2019-02-20 02:00:09","seriesName":"The Flash (2014)","seriesPoster":"the_flash_(2014).jpg","unique_name":"orange_is_the_new_black","aired":"0","seen":0},{"id":"7042051","series_id":"279121","season":"5","episode":"15","airdate":"05-03-2019","name":"King Shark vs. Gorilla Grodd","description":"When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.","image":"none","created_at":"2019-02-19 00:30:55","updated_at":"2019-02-20 02:00:09","seriesName":"The Flash (2014)","seriesPoster":"the_flash_(2014).jpg","unique_name":"orange_is_the_new_black","aired":"0","seen":0}]
+  "episodesperdate_day1": [
+    {
+      "id": "7042051",
+      "series_id": "279121",
+      "season": "5",
+      "episode": "15",
+      "airdate": "05-03-2019",
+      "name": "King Shark vs. Gorilla Grodd",
+      "description": "When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.",
+      "image": "none",
+      "created_at": "2019-02-19 00:30:55",
+      "updated_at": "2019-02-20 02:00:09",
+      "seriesName": "The Flash (2014)",
+      "seriesPoster": "the_flash_(2014).jpg",
+      "unique_name": "orange_is_the_new_black",
+      "aired": "0",
+      "seen": 0
+    },
+    {
+      "id": "7042051",
+      "series_id": "279121",
+      "season": "5",
+      "episode": "15",
+      "airdate": "05-03-2019",
+      "name": "King Shark vs. Gorilla Grodd",
+      "description": "When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.",
+      "image": "none",
+      "created_at": "2019-02-19 00:30:55",
+      "updated_at": "2019-02-20 02:00:09",
+      "seriesName": "The Flash (2014)",
+      "seriesPoster": "the_flash_(2014).jpg",
+      "unique_name": "orange_is_the_new_black",
+      "aired": "0",
+      "seen": 0
+    }
+  ],
+  "episodesperdate_day2": [
+    {
+      "id": "7042051",
+      "series_id": "279121",
+      "season": "5",
+      "episode": "15",
+      "airdate": "05-03-2019",
+      "name": "King Shark vs. Gorilla Grodd",
+      "description": "When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.",
+      "image": "none",
+      "created_at": "2019-02-19 00:30:55",
+      "updated_at": "2019-02-20 02:00:09",
+      "seriesName": "The Flash (2014)",
+      "seriesPoster": "the_flash_(2014).jpg",
+      "unique_name": "orange_is_the_new_black",
+      "aired": "0",
+      "seen": 0
+    },
+    {
+      "id": "7042051",
+      "series_id": "279121",
+      "season": "5",
+      "episode": "15",
+      "airdate": "05-03-2019",
+      "name": "King Shark vs. Gorilla Grodd",
+      "description": "When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.",
+      "image": "none",
+      "created_at": "2019-02-19 00:30:55",
+      "updated_at": "2019-02-20 02:00:09",
+      "seriesName": "The Flash (2014)",
+      "seriesPoster": "the_flash_(2014).jpg",
+      "unique_name": "orange_is_the_new_black",
+      "aired": "0",
+      "seen": 0
+    }
+  ],
+  "episodesperdate_day3": [
+    {
+      "id": "7042051",
+      "series_id": "279121",
+      "season": "5",
+      "episode": "15",
+      "airdate": "05-03-2019",
+      "name": "King Shark vs. Gorilla Grodd",
+      "description": "When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.",
+      "image": "none",
+      "created_at": "2019-02-19 00:30:55",
+      "updated_at": "2019-02-20 02:00:09",
+      "seriesName": "The Flash (2014)",
+      "seriesPoster": "the_flash_(2014).jpg",
+      "unique_name": "orange_is_the_new_black",
+      "aired": "0",
+      "seen": 0
+    },
+    {
+      "id": "7042051",
+      "series_id": "279121",
+      "season": "5",
+      "episode": "15",
+      "airdate": "05-03-2019",
+      "name": "King Shark vs. Gorilla Grodd",
+      "description": "When Gorilla Grodd attacks Central City, Barry and Team Flash find themselves teaming up with an unexpected ally to defeat - King Shark. However, when they hit a snag, they bring in Dr. Tanya Lamden to try to reach the man behind the shark, Shay Lamden.",
+      "image": "none",
+      "created_at": "2019-02-19 00:30:55",
+      "updated_at": "2019-02-20 02:00:09",
+      "seriesName": "The Flash (2014)",
+      "seriesPoster": "the_flash_(2014).jpg",
+      "unique_name": "orange_is_the_new_black",
+      "aired": "0",
+      "seen": 0
+    }
+  ]
 }

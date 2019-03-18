@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Series } from '../model/series';
 import { SearchService } from './search.service';
 import { Subject } from 'rxjs';
-import { FormControl } from '@angular/forms';
-import { debounceTime } from 'rxjs/operators';
 
 @Component({
     selector: 'app-search',

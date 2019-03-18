@@ -3,6 +3,10 @@
 
   "/series/top" : "/top",
 
+  "/api/auth/logout" : "/logout",
+  "/api/auth/login" : "/login",
+  "/api/auth/check" : "authcheck",
+
   "/api/series/seen/*" : "/seen",
 
   "/api/series/unseen/*" : "/unseen",

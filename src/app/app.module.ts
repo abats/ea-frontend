@@ -47,7 +47,7 @@ const routes: Routes = [
       loadChildren: () => GuideModule
     },
     {
-      path: 'home',
+      path: '',
       data: {animation: 'HomePage'},
       component: HomeComponent
     }
