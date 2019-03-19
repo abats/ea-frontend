@@ -24,8 +24,9 @@ import { WebStorageModule } from 'h5webstorage';
 import { GuideModule } from './guide/guide.module';
 import { MyshowsModule } from './myshows/myshows.module';
 import { AppSharedModule } from './app.shared.module';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SortablejsModule} from 'angular-sortablejs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SortablejsModule } from 'angular-sortablejs';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 const routes: Routes = [
     {
@@ -82,6 +83,7 @@ const routes: Routes = [
     ModalModule.forRoot(),
     TabsModule.forRoot(),
     WebStorageModule.forRoot(),
+    NgxWebstorageModule.forRoot(),
     SortablejsModule.forRoot({ animation: 150 })
   ],
   providers: [ApiService, SeriesService, AuthService],
