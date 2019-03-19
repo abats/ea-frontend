@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { LocalStorage, StorageProperty } from 'h5webstorage';
+import {LocalStorage, LocalStorageService, SessionStorage} from 'ngx-webstorage';
 import { Series } from '../model/series';
 import { SeriesService } from '../services/series.service';
 import { Title } from '@angular/platform-browser';
@@ -20,17 +20,18 @@ export class MyshowsComponent implements OnInit, OnDestroy {
   search: String;
   order: String = '';
   orderReverse: boolean;
-  @StorageProperty() public profileSeriesView: string;
-  @StorageProperty() public showUnseen: boolean;
-  @StorageProperty() public showArchive: boolean;
-  @StorageProperty() public showEnded: boolean;
+  @LocalStorage()
+  public profileSeriesView: string;
+  @LocalStorage() public showUnseen: boolean;
+  @LocalStorage() public showArchive: boolean;
+  @LocalStorage() public showEnded: boolean;
   public options: { onUpdate: (event: any) => void, handle: '.handle' };
 
 
   constructor( private seriesService: SeriesService,
                public authService: AuthService,
                private titleService: Title,
-               private localStorage: LocalStorage) {
+               private localStorageService: LocalStorageService ) {
 
     titleService.setTitle('Episode Alert - My Shows');
 

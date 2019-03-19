@@ -10,8 +10,7 @@ import { SeriesService } from '../services/series.service';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from '../services/auth.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import {LOCAL_STORAGE_OBJECT, WebStorageModule} from 'h5webstorage';
-import { LocalStorage, StorageProperty } from 'h5webstorage';
+
 
 
 describe('MyshowsComponent', () => {
@@ -21,9 +20,9 @@ describe('MyshowsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, SortablejsModule, MyshowRoutingModule, AppSharedModule, HttpClientTestingModule, WebStorageModule.forRoot() ],
+      imports: [FormsModule, SortablejsModule, MyshowRoutingModule, AppSharedModule, HttpClientTestingModule],
       declarations: [ MyshowsComponent, BadgeComponent, OrderDisplayComponent ],
-      providers: [SeriesService , AuthService,  Title, {provide: LOCAL_STORAGE_OBJECT, useValue: {'myVariable': 'something'}}, LocalStorage]
+      providers: [SeriesService , AuthService,  Title]
     })
     .compileComponents();
   }));
@@ -33,10 +32,6 @@ describe('MyshowsComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should set myVariable', inject([LocalStorage], ( ls: LocalStorage) => {
-    expect(ls['myVariable']).toBe('something');
-  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
