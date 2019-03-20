@@ -8,10 +8,6 @@
   "logout": {
     "flash": "Logged out!"
   },
-  "login": {
-    "email": "abats",
-    "password": "sloeber123"
-  },
   "authcheck": {
     "id": "4291",
     "accountname": "henkigek",

@@ -27,6 +27,7 @@ import { AppSharedModule } from './app.shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SortablejsModule } from 'angular-sortablejs';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import {TestComponent} from './test/test.component';
 
 const routes: Routes = [
     {
@@ -66,7 +67,8 @@ const routes: Routes = [
     FollowbuttonComponent,
     FanartPipe,
     FilterByPipe,
-    LimitToPipe
+    LimitToPipe,
+    TestComponent
   ],
   imports: [
     BrowserAnimationsModule,
