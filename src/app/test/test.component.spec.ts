@@ -202,7 +202,6 @@ describe('TestComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
   it('should create', async () => {
     const heading = fixture.debugElement.nativeElement.querySelector('.title');
     expect(heading.innerHTML).toEqual('Hello there');

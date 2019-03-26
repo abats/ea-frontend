@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { ApiService } from './api.service';
 import { SeriesService } from './services/series.service';
 import { HomeComponent } from './home/home.component';
 import { SeriesComponent } from './series/series.component';
@@ -88,7 +87,9 @@ const routes: Routes = [
     NgxWebstorageModule.forRoot(),
     SortablejsModule.forRoot({ animation: 150 })
   ],
-  providers: [ApiService, SeriesService, AuthService],
+  providers: [
+    SeriesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
