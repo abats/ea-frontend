@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { SeriesService } from './services/series.service';
 import { Series } from './model/series';
 import {AuthService} from './services/auth.service';
@@ -16,7 +16,7 @@ import {fadeAnimation} from './annimations';
   ]
 })
 
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnInit {
   public topSeries: Array<Series> = [];
   public seriesDetail: Series;
 
@@ -41,6 +41,12 @@ export class AppComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.topSeries$.unsubscribe();
+  }
+
+  ngOnInit(): void {
+    console.log('init app let\'s do an auth check');
+    const user = this.authService.getAuth();
+    console.log(user);
   }
 
 }

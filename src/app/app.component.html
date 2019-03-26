@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">
+        <a [routerLink]="['/']" class="navbar-brand" href="/">
           Episode Alert
         </a>
       </div>
@@ -24,22 +24,22 @@
             <div class="dropdown user-dropdown" dropdown >
 
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dropdownToggle>
-                abats
+                {{ authService.getUserName() }}
                 <span class="caret"></span>
               </button>
-
-              <app-login-form></app-login-form>
 
               <ul class="dropdown-menu"  aria-labelledby="dropdownMenu1">
                 <li><a href="#">Profile</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Settings</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="#" (click)="authService.logout()">Logout</a></li>
               </ul>
 
             </div>
           </li>
+
+          <app-login-form *ngIf="!authService.isLoggedIn()"></app-login-form>
 
         </ul>
       </div>

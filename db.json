@@ -9,9 +9,9 @@
     "flash": "Logged out!"
   },
   "authcheck": {
-    "id": "4291",
-    "accountname": "henkigek",
-    "thirdparty": false
+    "id": "2",
+    "accountname": "Arno Bats",
+    "thirdparty": true
   },
   "order": {},
   "seen": {},

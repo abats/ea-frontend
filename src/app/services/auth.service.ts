@@ -10,12 +10,14 @@ export class AuthService {
   private baseUrl: string;
   private authCheckUrl: string;
   private loginUrl: string;
+  private logoutUrl : string;
 
   constructor(
     private http: HttpClient) {
     this.baseUrl = environment.apiUrl;
     this.authCheckUrl = this.baseUrl + '/auth/check';
     this.loginUrl = this.baseUrl + '/auth/login';
+    this.logoutUrl = this.baseUrl + '/auth/logout'
     this.user = new User;
   }
 
@@ -33,6 +35,20 @@ export class AuthService {
 
   public isLoggedIn() {
     return localStorage.getItem('authenticated');
+  }
+
+  logout() {
+    // var logout = $http.get('api/auth/logout');
+    // logout.success(uncacheSession);
+    // logout.success(unSetUserInfo);
+    // return logout;
+
+    return this.http.get(this.logoutUrl)
+      .toPromise()
+      .then(response => {
+        this.user = null;
+        localStorage.removeItem('authenticated');
+      });
   }
 
   login(response) {
