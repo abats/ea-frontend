@@ -1,12 +1,17 @@
 <span (click)="eaModal.show()">L</span>
 <div bsModal #eaModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+
     <div class="modal-dialog modal-md">
         <div class="modal-content ea-modal--login">
             <div class="modal-header">
                 <h1>Episode Alert</h1>
                 <button type="button" class="close pull-right ea-modal--button" (click)="eaModal.hide()" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                </button>temp button
+
+              <a class="btn btn-block btn-social btn-google-plus" href="https://accounts.google.com/o/oauth2/auth?scope=email&state={{state}}&redirect_uri={{googleRedirectURI}}&response_type=code&client_id={{client_id}}&access_type=offline&openid.realm={{googleRedirectURI}}"><i class="fa fa-google-plus"></i> Sign in with Google</a>
+
             </div>
             <div class="modal-body">
                 <h2 class="fancy background"><span>Sign in to start following shows</span></h2>

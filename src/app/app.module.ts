@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { ApiService } from './api.service';
 import { SeriesService } from './services/series.service';
 import { HomeComponent } from './home/home.component';
 import { SeriesComponent } from './series/series.component';
@@ -24,8 +23,10 @@ import { WebStorageModule } from 'h5webstorage';
 import { GuideModule } from './guide/guide.module';
 import { MyshowsModule } from './myshows/myshows.module';
 import { AppSharedModule } from './app.shared.module';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SortablejsModule} from 'angular-sortablejs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SortablejsModule } from 'angular-sortablejs';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import {TestComponent} from './test/test.component';
 
 const routes: Routes = [
     {
@@ -65,7 +66,8 @@ const routes: Routes = [
     FollowbuttonComponent,
     FanartPipe,
     FilterByPipe,
-    LimitToPipe
+    LimitToPipe,
+    TestComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -82,9 +84,12 @@ const routes: Routes = [
     ModalModule.forRoot(),
     TabsModule.forRoot(),
     WebStorageModule.forRoot(),
+    NgxWebstorageModule.forRoot(),
     SortablejsModule.forRoot({ animation: 150 })
   ],
-  providers: [ApiService, SeriesService, AuthService],
+  providers: [
+    SeriesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

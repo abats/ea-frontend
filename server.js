@@ -22,18 +22,18 @@ server.use((req, res, next) => {
     // login response for non openid users
     if (req.url === '/login') {
       res.status(200).jsonp(POST_LOGIN_RESPONSE);
-      res.end();
-    }else if (req.url === '/order'){
+res.end();
+}else if (req.url === '/order'){
 
-    // response for ordering post
-      res.status(200).jsonp(POST_ORDER_RESPONSE);
-      res.end();
+  // response for ordering post
+  res.status(200).jsonp(POST_ORDER_RESPONSE);
+  res.end();
 
-    }
+}
 
-  }else{
-    next()
-  }
+}else{
+  next()
+}
 
 });
 

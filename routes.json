@@ -5,7 +5,7 @@
 
   "/api/auth/logout" : "/logout",
   "/api/auth/login" : "/login",
-  "/api/auth/check" : "authcheck",
+  "/api/auth/check" : "/authcheck",
 
   "/api/series/seen/*" : "/seen",
 

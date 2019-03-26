@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { LocalStorage, StorageProperty } from 'h5webstorage';
 import { Series } from '../model/series';
 import { SeriesService } from '../services/series.service';
 import { Title } from '@angular/platform-browser';
@@ -13,24 +12,24 @@ import { Title } from '@angular/platform-browser';
 
 export class MyshowsComponent implements OnInit, OnDestroy {
   private series$;
-  private seriesOrder$;
   pristineSeries: Series [];
-  seriesTest: Series [];
   profileSeries: Series [];
   search: String;
   order: String = '';
   orderReverse: boolean;
-  @StorageProperty() public profileSeriesView: string;
-  @StorageProperty() public showUnseen: boolean;
-  @StorageProperty() public showArchive: boolean;
-  @StorageProperty() public showEnded: boolean;
+  public profileSeriesView: string;
+  public showUnseen: boolean;
+  public showArchive: boolean;
+  public showEnded: boolean;
   public options: { onUpdate: (event: any) => void, handle: '.handle' };
-
+  private UNSEEN_LOCAL_STORAGE_KEY = 'unseen';
+  private ARCHIVE_LOCAL_STORAGE_KEY = 'archive';
+  private ENDED_LOCAL_STORAGE_KEY = 'ended';
+  private SERIES_VIEW_LOCAL_STORAGE_KEY = 'seriesView';
 
   constructor( private seriesService: SeriesService,
                public authService: AuthService,
-               private titleService: Title,
-               private localStorage: LocalStorage) {
+               private titleService: Title) {
 
     titleService.setTitle('Episode Alert - My Shows');
 
@@ -103,22 +102,31 @@ export class MyshowsComponent implements OnInit, OnDestroy {
       newValue = 'poster';
     }
 
+    this.setLocalStorage(this.SERIES_VIEW_LOCAL_STORAGE_KEY, newValue);
     this.profileSeriesView = newValue;
 
   }
 
+  setLocalStorage(item: string, value: any): void {
+    localStorage.setItem(item, value);
+  }
+
+  getLocalStorage(item: string): string {
+    return localStorage.getItem(item);
+  }
+
   clickToggleUnseen() {
-    this.showUnseen = !this.showUnseen;
+    this.setLocalStorage(this.UNSEEN_LOCAL_STORAGE_KEY, this.showUnseen = !this.showUnseen);
     this.filterSeries();
   }
 
   clickToggleArchive() {
-    this.showArchive = !this.showArchive;
+    this.setLocalStorage(this.ARCHIVE_LOCAL_STORAGE_KEY, this.showArchive = !this.showArchive);
     this.filterSeries();
   }
 
   clickToggleEnded() {
-    this.showEnded = !this.showEnded;
+    this.setLocalStorage(this.ARCHIVE_LOCAL_STORAGE_KEY, this.showEnded = !this.showEnded);
     this.filterSeries();
   }
 
@@ -129,6 +137,7 @@ export class MyshowsComponent implements OnInit, OnDestroy {
 
   /*
    * filter out the series
+   *  todo: rewrite
    */
 
   filterSeries() {
@@ -175,14 +184,16 @@ export class MyshowsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
+    // Collect value from the local storage, default value if it's empty
+    this.showUnseen =  this.getLocalStorage(this.UNSEEN_LOCAL_STORAGE_KEY) as any as boolean || false;
+    this.showArchive =  this.getLocalStorage(this.ARCHIVE_LOCAL_STORAGE_KEY) as any as boolean || false;
+    this.showEnded =  this.getLocalStorage(this.ENDED_LOCAL_STORAGE_KEY) as any as boolean || false;
+    this.profileSeriesView =  this.getLocalStorage(this.SERIES_VIEW_LOCAL_STORAGE_KEY) || 'poster';
+
     this.order = '';
     this.orderReverse = true;
     this.getProfileSeries();
-
-    // TODO: get the profileSeriesView on init, otherwise set it to a default
-    if (!this.profileSeriesView) {
-      this.profileSeriesView = 'poster';
-    }
 
     if (!this.authService.isLoggedIn()) {
       this.authService.getAuth()
@@ -197,3 +208,4 @@ export class MyshowsComponent implements OnInit, OnDestroy {
     this.series$.unsubscribe();
   }
 }
+

@@ -1,5 +1,4 @@
 import {Component, OnDestroy} from '@angular/core';
-import { ApiService } from './api.service';
 import { SeriesService } from './services/series.service';
 import { Series } from './model/series';
 import {AuthService} from './services/auth.service';
@@ -25,7 +24,6 @@ export class AppComponent implements OnDestroy {
   private seriesDetail$;
 
   constructor(
-    private apiService: ApiService,
     public authService: AuthService,
     private seriesService: SeriesService) {
       this.topSeries$ = this.seriesService.getTopSeries().subscribe(topSeriesResponse => {
