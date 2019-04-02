@@ -39,7 +39,9 @@
             </div>
           </li>
 
-          <app-login-form *ngIf="!authService.isLoggedIn()"></app-login-form>
+          <li *ngIf="!authService.isLoggedIn()">
+            <a href="#"><app-login-form></app-login-form></a>
+          </li>
 
         </ul>
       </div>

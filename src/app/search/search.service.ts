@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class SearchService {
-  queryUrl = 'series/search?query=';
+  queryUrl = 'series/search/';
   API_URL = environment.apiUrl;
 
   constructor(private http: HttpClient) {}

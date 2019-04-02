@@ -10,7 +10,7 @@ export class AuthService {
   private baseUrl: string;
   private authCheckUrl: string;
   private loginUrl: string;
-  private logoutUrl : string;
+  private logoutUrl: string;
 
   constructor(
     private http: HttpClient) {
@@ -38,11 +38,6 @@ export class AuthService {
   }
 
   logout() {
-    // var logout = $http.get('api/auth/logout');
-    // logout.success(uncacheSession);
-    // logout.success(unSetUserInfo);
-    // return logout;
-
     return this.http.get(this.logoutUrl)
       .toPromise()
       .then(response => {
@@ -58,6 +53,8 @@ export class AuthService {
   }
 
   loginUser(userCredentials): Promise <any> {
+    console.log('login');
+    console.log(userCredentials);
     return this.http.post(this.loginUrl, userCredentials)
       .toPromise()
       .then(response => {
@@ -67,7 +64,7 @@ export class AuthService {
   }
 
   getAuth(): Promise<void> {
-    return this.http.get(this.authCheckUrl)
+    return this.http.get(this.authCheckUrl,  { withCredentials: true })
       .toPromise()
       .then(response => {
         this.login (response);

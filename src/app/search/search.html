@@ -13,11 +13,11 @@
              src="{{ series.poster_image | asUrlPipe : series.unique_name : 'small'  }}"
              alt="{{ series.name }}"/>
 
-        <a href="{{ series.unique_name }}" target="_blank">
+        <a href="/series/{{ series.unique_name }}">
             {{ series.name }}
         </a>
 
-        {{ (series.firstaired !== null) ? '(' + ( series.firstaired | asLimitTo: 4 ) + ')' : "" }}
+        {{ (series.firstaired !== null) ? '(' + ( series.firstaired | asLimitTo: '4' ) + ')' : "" }}
 
         <br/>
 

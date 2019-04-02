@@ -17,22 +17,8 @@ import {fadeAnimation} from './annimations';
 })
 
 export class AppComponent implements OnDestroy, OnInit {
-  public topSeries: Array<Series> = [];
-  public seriesDetail: Series;
-
-  private topSeries$;
-  private seriesDetail$;
-
   constructor(
-    public authService: AuthService,
-    private seriesService: SeriesService) {
-      this.topSeries$ = this.seriesService.getTopSeries().subscribe(topSeriesResponse => {
-        this.topSeries = topSeriesResponse;
-      });
-
-      this.seriesDetail$ = this.seriesService.getSingleSeries('breaking_bad').subscribe(seriesDetailResponse => {
-        this.seriesDetail = seriesDetailResponse;
-      });
+    public authService: AuthService) {
   }
 
   prepareRoute(outlet: RouterOutlet) {
@@ -40,13 +26,10 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   ngOnDestroy() {
-    this.topSeries$.unsubscribe();
   }
 
   ngOnInit(): void {
-    console.log('init app let\'s do an auth check');
     const user = this.authService.getAuth();
-    console.log(user);
   }
 
 }

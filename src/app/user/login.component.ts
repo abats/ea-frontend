@@ -28,21 +28,10 @@ export class LoginComponent {
         private modalService: BsModalService
     ) {
         titleService.setTitle('Episode Alert - Login');
-        this.state = this.generate_token(32);
+        this.state = localStorage.getItem('eaState')
         this.client_id = '756279714032-9r0not6lpuhgcfd6p1e10b442gumo6qa.apps.googleusercontent.com';
         this.googleRedirectURI = 'http://www.episode-alert.com/login';
     }
-
-   generate_token(length) {
-    // edit the token allowed characters
-    const a = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('');
-    const b = [];
-    for (let i = 0; i < length; i++) {
-      let j = (Math.random() * (a.length - 1)).toFixed(0);
-      b[i] = a[j];
-    }
-    return b.join('');
-  }
 
     openModal(template: TemplateRef<any>) {
       this.modalRef = this.modalService.show(template);
