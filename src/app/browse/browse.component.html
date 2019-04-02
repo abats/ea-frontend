@@ -1,0 +1,25 @@
+<div class="row-ea">
+  <div class="container ea-guide">
+
+    <div class="row">
+      <div class="col-md-2 col-lg-2">
+        <h1 class="ea-header--h1">
+          <ul>
+            <a *ngFor="let genre of seriesGenres"
+               [routerLink]="['/series/genre/' + genre.genre]"
+               [routerLinkActive]="['active']"
+               [routerLinkActiveOptions]>
+
+              {{ genre.genre }}
+            </a>
+          </ul>
+        </h1>
+      </div>
+      <div class="col-md-10 col-lg-10">
+        <h1 class="ea-header--h1">Browse shows</h1>
+          <app-series-list *ngFor="let series of seriesByGenre" [series]="series"></app-series-list>
+      </div>
+    </div>
+
+  </div>
+</div>

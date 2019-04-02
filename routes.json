@@ -31,6 +31,8 @@
   "/api/series/guide/14" : "/guide14",
   "/api/series/guide/21" : "/guide21",
 
+  "/api/series/genre/action/0" : "/browse_action_0",
+
   "/series/breaking_bad" : "/breaking_bad",
   "/series/orange_is_the_new_black" : "/orange_is_the_new_black",
   "/series/american_horror_story" : "/american_horror_story",

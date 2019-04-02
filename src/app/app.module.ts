@@ -26,12 +26,18 @@ import { AppSharedModule } from './app.shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SortablejsModule } from 'angular-sortablejs';
 import { NgxWebstorageModule } from 'ngx-webstorage';
-import {TestComponent} from './test/test.component';
+import { TestComponent} from './test/test.component';
+import { BrowseModule} from './browse/browse.module';
 
 const routes: Routes = [
     {
       path: 'series/:uniqueName',
       component: SeriesComponent
+    },
+    {
+      path: 'series/genre/:genre',
+      data: {animation: 'HomePage'},
+      loadChildren: () => BrowseModule
     },
     {
       path: 'myshows',

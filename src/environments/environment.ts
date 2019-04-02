@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://www.episode-alert.com/api'
+  apiUrl: 'http://localhost:3004/api'
 };
 
 /*

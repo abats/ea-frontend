@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SeriesService} from '../services/series.service';
 import {AuthService} from '../services/auth.service';
 import {Title} from '@angular/platform-browser';
@@ -12,7 +12,7 @@ import {Observable, Observer, Subscribable, Subscription} from 'rxjs';
   templateUrl: './guide.component.html',
   styleUrls: ['./guide.component.scss']
 })
-export class GuideComponent implements OnInit {
+export class GuideComponent implements OnInit, OnDestroy {
   private series$;
   private episodesCalendar$;
   guideSeries: Episode[];
@@ -96,5 +96,10 @@ export class GuideComponent implements OnInit {
         console.log(this.guideSeries);
       }
     );
+  }
+
+  ngOnDestroy() {
+    this.series$.unsubscribe();
+    this.episodesCalendar$.unsubscribe();
   }
 }

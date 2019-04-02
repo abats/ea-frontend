@@ -26,6 +26,7 @@ export class SeriesService {
   private seriesProfileOrderURL: string;
   private guideUrl: string;
   private guideUrlDay: string;
+  private seriesByGenre: string;
 
   constructor( private http: HttpClient ) {
     this.baseUrl = API_URL;
@@ -38,6 +39,7 @@ export class SeriesService {
     this.statsUrl = this.baseUrl + '/profile/stats';
     this.singleSeriesUrl = this.baseUrl + '/series/';
     this.guideUrl = this.baseUrl + '/series/guide/';
+    this.seriesByGenre = this.baseUrl + '/series/genre/';
     this.guideUrlDay = this.baseUrl + '/series/episodesperdate/'
     this.singleSeasonUrl = this.baseUrl + '/series/episodesbyseason/';
     this.followUrl = this.baseUrl + '/follow/';
@@ -50,6 +52,18 @@ export class SeriesService {
 
   getTopSeries(): Observable<Series[]> {
     return this.http.get<Series[]>(this.topSeriesUrl);
+  }
+
+  getSeriesByGenre(genre: string, page: number): Observable<Series[]> {
+    return this.http.get<Series[]>(`${this.seriesByGenre}${genre}/${page}`);
+  }
+
+  getSeriesGenres() {
+    return [{'genre' : 'action'}, {'genre' : 'adventure'}, {'genre' : 'animation'}, {'genre' : 'comedy'}
+      , {'genre' : 'children'}, {'genre' : 'crime'}, {'genre' : 'drama'}, {'genre' : 'documentary'}
+      , {'genre' : 'fantasy'}, {'genre' : 'mystery'}, {'genre' : 'game Show'}, {'genre' : 'horror'}
+      , {'genre' : 'news'}, {'genre' : 'reality'}, {'genre' : 'science-fiction'}, {'genre' : 'soap'}
+      , {'genre' : 'sport'}, {'genre' : 'talk show'}, {'genre' : 'western'}, {'genre' : 'travel'}, {'genre' : 'romance'}];
   }
 
   getSeriesSeason(seriesId, seriesSeason): Observable<any> {
