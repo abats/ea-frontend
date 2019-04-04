@@ -2,8 +2,9 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {SeriesService} from '../services/series.service';
 import {Series} from '../model/series';
-import {Subject, Subscription} from 'rxjs';
-import {ActivatedRoute, Router} from '@angular/router';
+import {interval, Subject, Subscription} from 'rxjs';
+import {ActivatedRoute } from '@angular/router';
+import {SeriesBrowseService} from '../services/browse.service';
 
 @Component({
   selector: 'app-browse',
@@ -15,33 +16,53 @@ export class BrowseComponent implements OnInit, OnDestroy {
   public seriesGenres = [];
   public seriesByGenre: Series[];
   private subscription$: Subscription;
+  private seriesBrowseSubscription$: Subscription;
   private genre: string;
+  private subject = new Subject<any>();
   private pageNumber = 0;
 
-  constructor( private seriesService: SeriesService,
-               private titleService: Title,
-               private activatedRoute: ActivatedRoute) {
+  constructor(private seriesService: SeriesService,
+              private titleService: Title,
+              private activatedRoute: ActivatedRoute,
+              private seriesBrowseService: SeriesBrowseService) {
 
+    /*
+     * Subscription to the subject change (genre)
+     */
+    this.seriesBrowseSubscription$ = this.seriesBrowseService.search(this.subject)
+      .subscribe(results => {
+        if  (this.seriesByGenre) {
+          this.seriesByGenre = [...this.seriesByGenre, ...<Series[]>results];
+        } else {
+          this.seriesByGenre = <Series[]>results;
+        }
+      });
 
+    /*
+     * Subscription to changes of the route param (genre in this case)
+     */
     this.subscription$ = this.activatedRoute.params.subscribe(
       (param: any) => {
-        this.genre = param.genre;
-        this.getSeriesByGenre(this.genre, this.pageNumber);
+        if (this.genre !== param.genre) {
+          // reset pageNumber and results when we switch genre
+          this.pageNumber = 0;
+          this.seriesByGenre = [];
+          this.genre = param.genre;
+        }
+
+        this.subject.next( {genre: param.genre, page: this.pageNumber});
+        this.pageNumber++;
       });
 
     this.titleService.setTitle('Episode Alert - Browse series');
   }
 
-  ngOnInit() {
-    this.seriesGenres = this.seriesService.getSeriesGenres();
+  onScroll() {
+    this.subject.next({genre: this.genre, page: this.pageNumber++});
   }
 
-  getSeriesByGenre(genre: string, page: number) {
-    this.series$ = this.seriesService.getSeriesByGenre(genre, page).subscribe(
-      (series) => {
-        this.seriesByGenre  = series;
-      }
-    );
+  ngOnInit() {
+    this.seriesGenres = this.seriesService.getSeriesGenres();
   }
 
   ngOnDestroy() {

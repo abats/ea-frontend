@@ -1,1 +1,15 @@
-<div>{{ series.name }}</div>
+<div class="series">
+  <a [routerLink]="['/series', series.unique_name]">
+    <img class="img-responsive poster"
+         src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
+         alt="{{ series.name }}"/>
+  </a>
+  <a [routerLink]="['/series', series.unique_name]">
+    <span class="title ellipsis">
+        {{ series.name }}
+    </span>
+  </a>
+  <span class="season" *ngIf="showSeason">
+    Season {{ series.season_amount }}
+  </span>
+</div>

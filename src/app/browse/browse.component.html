@@ -15,9 +15,18 @@
           </ul>
         </h1>
       </div>
-      <div class="col-md-10 col-lg-10">
+      <div class="col-md-10 col-lg-10" >
         <h1 class="ea-header--h1">Browse shows</h1>
-          <app-series-list *ngFor="let series of seriesByGenre" [series]="series"></app-series-list>
+
+        <div   infiniteScroll
+               [infiniteScrollDistance]="2"
+               [infiniteScrollThrottle]="50"
+               (scrolled)="onScroll()">
+
+          <app-series-list [showSeason]="false" *ngFor="let series of seriesByGenre" [series]="series"></app-series-list>
+
+        </div>
+
       </div>
     </div>
 

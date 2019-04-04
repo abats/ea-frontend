@@ -5,6 +5,8 @@ import { BrowseRoutesModule } from './browse.routes';
 import { AppSharedModule } from '../app.shared.module';
 import { BrowseComponent } from './browse.component';
 import { SeriesListComponent } from '../series-list-view/series-list.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { SeriesBrowseService } from '../services/browse.service';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { SeriesListComponent } from '../series-list-view/series-list.component';
   ],
   imports: [
     BrowseRoutesModule,
-    AppSharedModule
+    AppSharedModule,
+    InfiniteScrollModule
   ],
   providers: [
     Title,
-    SeriesService
+    SeriesService,
+    SeriesBrowseService
   ]
 })
 

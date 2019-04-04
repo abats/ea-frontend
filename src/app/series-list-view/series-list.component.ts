@@ -10,6 +10,7 @@ import { Series } from '../model/series';
 
 export class SeriesListComponent {
   @Input() series: Series;
+  @Input() showSeason: boolean;
 
   constructor( ) {
   }
