@@ -66,7 +66,8 @@ export class BrowseComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.series$.unsubscribe();
+    this.subscription$.unsubscribe();
+    this.seriesBrowseSubscription$.unsubscribe();
   }
 
 }

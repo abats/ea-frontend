@@ -48,7 +48,6 @@ export class AuthService {
 
   login(response) {
     this.user.name = response.accountname;
-    console.log(this.user);
     localStorage.setItem('authenticated', 'true');
   }
 

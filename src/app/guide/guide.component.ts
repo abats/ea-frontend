@@ -1,11 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {SeriesService} from '../services/series.service';
-import {AuthService} from '../services/auth.service';
-import {Title} from '@angular/platform-browser';
-import {Episode} from '../model/episode';
-import {GuideCalendar} from '../model/calendar';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { SeriesService } from '../services/series.service';
+import { AuthService } from '../services/auth.service';
+import { Title } from '@angular/platform-browser';
+import { Episode } from '../model/episode';
+import { GuideCalendar } from '../model/calendar';
 import * as moment from 'moment';
-import {Observable, Observer, Subscribable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-guide',
@@ -82,7 +81,6 @@ export class GuideComponent implements OnInit, OnDestroy {
     this.episodesCalendar$ = this.seriesService.getGuideSeriesDay(day).subscribe(
       (episodes) => {
         this.guideEpisodesCalendar[dayInObject] = episodes;
-        console.log(this.guideEpisodesCalendar);
       }
     );
 
@@ -93,7 +91,6 @@ export class GuideComponent implements OnInit, OnDestroy {
     this.series$ = this.seriesService.getGuideSeries(this.guideDays).subscribe(
       (episodes) => {
         this.guideSeries = episodes;
-        console.log(this.guideSeries);
       }
     );
   }

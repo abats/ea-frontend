@@ -9,7 +9,7 @@
 
 <ul class="search-results" *ngIf="series && searchField.length > 0">
     <li *ngFor="let series of series">
-        <img class="img-responsive hidden-xs hidden-sm"
+        <img class="img-responsive"
              src="{{ series.poster_image | asUrlPipe : series.unique_name : 'small'  }}"
              alt="{{ series.name }}"/>
 

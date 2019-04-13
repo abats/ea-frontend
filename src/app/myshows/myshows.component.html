@@ -1,25 +1,27 @@
-<app-userstats *ngIf="authService.isLoggedIn()" state="all"></app-userstats>
+<app-userstats class="hidden-xs"  *ngIf="authService.isLoggedIn()" state="all"></app-userstats>
 
 <div class="container myshows-filters">
   <div class="row profile-filters ng-scope">
 
     <div class="col-md-12 col-lg-12">
-
+{{showUnseen}}
+      {{showArchive}}
+      {{showEnded}}
       <span class="hidden-xs myshows-filters-label">Filters </span>
       <input type="text" value="lol" [(ngModel)]="search" placeholder="Filter by name">
-      <button [ngClass]="{'ea-filter--active' : showUnseen}" class="ea-filter" (click)="clickToggleUnseen()">
-        <span [hidden]="!showUnseen" class="fa fa-check ng-hide"></span>
-        <span [hidden]="showUnseen" class="fa fa-plus"></span>
+      <button [ngClass]="{'ea-filter--active' : userFilterSettings.showUnseen}" class="ea-filter" (click)="clickToggleUnseen()">
+        <span *ngIf="userFilterSettings.showUnseen" class="fa fa-check ng-hide"></span>
+        <span *ngIf="!userFilterSettings.showUnseen" class="fa fa-plus"></span>
         unseen
       </button>
-      <button [ngClass]="{'ea-filter--active' : showEnded}" class="ea-filter" ng-class="{'ea-filter--active': !ended}" (click)="clickToggleEnded()">
-        <span [hidden]="!showEnded" class="fa fa-check ng-hide"></span>
-        <span [hidden]="showEnded" class="fa fa-plus"></span>
+      <button [ngClass]="{'ea-filter--active' : userFilterSettings.showEnded}" class="ea-filter" (click)="clickToggleEnded()">
+        <span *ngIf="userFilterSettings.showEnded " class="fa fa-check ng-hide"></span>
+        <span *ngIf="!userFilterSettings.showEnded" class="fa fa-plus"></span>
         continuing
       </button>
-      <button [ngClass]="{'ea-filter--active' : showArchive}" class="ea-filter" ng-class="{'ea-filter--active': archive}" (click)="clickToggleArchive()">
-        <span [hidden]="!showArchive" class="fa fa-check ng-hide"></span>
-        <span [hidden]="showArchive" class="fa fa-plus"></span>
+      <button [ngClass]="{'ea-filter--active' : userFilterSettings.showArchive}" class="ea-filter" (click)="clickToggleArchive()">
+        <span *ngIf="userFilterSettings.showArchive" class="fa fa-check ng-hide"></span>
+        <span *ngIf="!userFilterSettings.showArchive" class="fa fa-plus"></span>
         archived
       </button>
 
@@ -99,21 +101,21 @@
             <app-orderdisplay activeOrder="{{order}}" order="name" orderReverse="{{orderReverse}}"></app-orderdisplay>
             Show
           </th>
-          <th (click)="setOrder('unseen_episodes')">
+          <th (click)="setOrder('unseen_episodes')" class="hidden-xs">
             <app-orderdisplay activeOrder="{{order}}" order="unseen_episodes" orderReverse="{{orderReverse}}"></app-orderdisplay>
             Unseen</th>
           <th (click)="setOrder('season_amount')">
-            <app-orderdisplay activeOrder="{{order}}" order="season_amount" orderReverse="{{orderReverse}}"></app-orderdisplay>
+            <app-orderdisplay activeOrder="{{order}}" class="hidden-xs" order="season_amount" orderReverse="{{orderReverse}}"></app-orderdisplay>
             Seasons
           </th>
-          <th (click)="setOrder('status')">
-            <app-orderdisplay activeOrder="{{order}}" order="status" orderReverse="{{orderReverse}}"></app-orderdisplay>
+          <th class="hidden-xs" (click)="setOrder('status')">
+            <app-orderdisplay activeOrder="{{order}}" class="hidden-xs"  order="status" orderReverse="{{orderReverse}}"></app-orderdisplay>
             Status</th>
-          <th (click)="setOrder('rating')">
-            <app-orderdisplay activeOrder="{{order}}" order="rating" orderReverse="{{orderReverse}}"></app-orderdisplay>
+          <th class="hidden-xs" (click)="setOrder('rating')">
+            <app-orderdisplay activeOrder="{{order}}" class="hidden-xs" order="rating" orderReverse="{{orderReverse}}"></app-orderdisplay>
             Rating</th>
-          <th (click)="setOrder('')">Next episode</th>
-          <th>Archive show</th>
+          <th class="hidden-xs" (click)="setOrder('')">Next episode</th>
+          <th class="hidden-xs">Archive show</th>
         </tr>
         <tr class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search | asOrderBy: order : orderReverse">
           <td>
@@ -125,11 +127,11 @@
             </a>
           </td>
           <td>{{ series.unseen_episodes }}</td>
-          <td>{{ series.season_amount }}</td>
-          <td>{{ series.status }}</td>
-          <td>{{ series.rating }}</td>
-          <td>todo: next episode</td>
-          <td>Archive</td>
+          <td class="hidden-xs">{{ series.season_amount }}</td>
+          <td class="hidden-xs">{{ series.status }}</td>
+          <td class="hidden-xs">{{ series.rating }}</td>
+          <td class="hidden-xs">todo: next episode</td>
+          <td class="hidden-xs">Archive</td>
         </tr>
       </table>
     </div>

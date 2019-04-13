@@ -30,6 +30,10 @@ a:hover, a:focus {
   background-color: rgba(0,0,0,0.5);
 }
 
+.ea--user{
+  font-size: 150%;
+}
+
 .ea-btn:hover{
   color: $bright-highlight;
   border: 1px solid $bright-highlight;
@@ -242,7 +246,6 @@ a:hover, a:focus {
 .container--navbar {
   font-family: $font-header;
   font-weight: 200;
-  background-color: grey-background;
   letter-spacing: 0.08em;
 
   .navbar-brand{
@@ -251,6 +254,7 @@ a:hover, a:focus {
   }
 
   @media(min-width: $screen-sm-min){ padding: 15px 0px 15px 20px; }
+
 
   p{
     margin-right: 10px;
@@ -261,7 +265,11 @@ a:hover, a:focus {
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand{
   margin-left: -5px;
   margin-bottom: -1px;
-  padding: 15px 30px 0px 0px;
+
+  @media (min-width: 768px) {
+    padding: 15px 30px 0px 0px;
+  }
+
 }
 
 .dropdown-menu{
@@ -296,43 +304,6 @@ a:hover, a:focus {
   }
 
 }
-//
-//#masterUI{
-//  //Flexbox
-//  display: flex;
-//  min-height: 100vh;
-//  flex-direction: column;
-//}
-//
-//// usage; description of series, profile welcome, other info
-//.ea-header--h1 {
-//  @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
-//
-//  border-bottom: 1px solid darken(#C9C9C9, 50%);
-//  padding-top: 0px;
-//  padding-bottom: 15px;
-//  margin-bottom: 20px;
-//  font-size: 18px;
-//  font-family: 'Raleway', sans-serif;
-//  font-weight: 200;
-//  color: #C9C9C9;
-//  letter-spacing: 0.09em;
-//}
-//
-//h2 {
-//  @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
-//  border-bottom: 1px solid darken(#C9C9C9, 50%);
-//  padding-bottom: 15px;
-//  margin-bottom: 22px;
-//  font-size: 16px;
-//  font-family: 'Raleway', sans-serif;
-//  font-weight: 200;
-//  color: #C9C9C9;
-//  letter-spacing: 0.09em;
-//}
-//
-//
-/* reset some defaults */
 button:focus,
 button:active {
   outline: none !important;
@@ -376,128 +347,6 @@ ul {
   padding-top: 15px;
   padding-bottom: 15px;
 }
-//
-///* overwrite for angular-ui-bootstrap */
-//.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
-//
-//.registration{
-//  h1{
-//    color: $bright-highlight;
-//  }
-//  ul{
-//    padding-left: 30px;
-//    font-size: 1.3em;
-//  }
-//
-//}
-//
-
-//
-//.password-reset{
-//  form{
-//    width: 45%;
-//  }
-//}
-//
-//.login{
-//  h1{
-//    color: $bright-highlight;
-//  }
-//  .social-login{
-//    a{
-//      width: 50%;
-//    }
-//  }
-//  .password-reset{
-//    font-size: 1em;
-//    padding-left: 17px;
-//  }
-//  form{
-//    width: 75%;
-//  }
-//  .register{
-//    font-size: 1.4em;
-//  }
-//}
-//
-//.form-control-feedback{
-//  color: #000000;
-//}
-//
-//.unseen-badge{
-//  position: absolute;
-//  top: -10px;
-//  right: 0px;
-//}
-//
-//.settings{
-//  .settings-block{
-//
-//    h3{
-//      margin-top: 0px;
-//    }
-//
-//    div:first-child{
-//      background-color: $primary-color;
-//      padding: 15px;
-//
-//      div{
-//        padding: 5px 0px 5px 0px;
-//      }
-//    }
-//
-//    button{
-//      margin-top: 10px;
-//      background-color: rgba(0, 0, 0, 0.5);
-//      font-size: 120%;
-//      border: 2px solid #00ff90;
-//      color: #00ff90;
-//      border-radius: 20px;
-//      padding: 3px 10px 4px 8px;
-//    }
-//  }
-//}
-//
-//.ea-content {
-//  flex: 1;
-//  //min-height: 600px;
-//  @media #{$hidpi-screen}{
-//    //min-height: 375px;
-//  }
-//}
-//
-
-//
-//.footer{
-//  color: #999999;
-//  padding-top: 30px;
-//  padding-bottom: 20px;
-//  margin-bottom: 5px;
-//  font-size: 80%;
-//
-//  div{
-//    text-align: right;
-//  }
-//
-//  div:first-child {
-//    text-align: left;
-//  }
-//
-//}
-//
-//li.disabled{
-//  display: none;
-//}
-//
-
-//.ea-facebook{
-//  font-size: 160%;
-//  color: #FFFFFF;
-//  vertical-align: middle;
-//}
-//
-/* -----header----- */
-
 
 .fancy {
   padding-bottom: 0px;
@@ -676,6 +525,44 @@ tabset ul li a.active{
   }
 
 }
+
+// Can be used to switch bootstrap nav bar breakpoint
+//@media (max-width: 1200px) {
+//  .navbar-header {
+//    float: none;
+//  }
+//  .navbar-left,.navbar-right {
+//    float: none !important;
+//  }
+//  .navbar-toggle {
+//    display: block;
+//  }
+//  .navbar-collapse {
+//    border-top: 1px solid transparent;
+//    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+//  }
+//  .navbar-fixed-top {
+//    top: 0;
+//    border-width: 0 0 1px;
+//  }
+//  .navbar-collapse.collapse {
+//    display: none!important;
+//  }
+//  .navbar-nav {
+//    float: none!important;
+//    margin-top: 7.5px;
+//  }
+//  .navbar-nav>li {
+//    float: none;
+//  }
+//  .navbar-nav>li>a {
+//    padding-top: 10px;
+//    padding-bottom: 10px;
+//  }
+//  .collapse.in{
+//    display:block !important;
+//  }
+//}
 
 .btn-bitbucket     { @include btn-social(#205081); }
 .btn-dropbox       { @include btn-social(#1087dd); }

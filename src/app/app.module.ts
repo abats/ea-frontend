@@ -12,8 +12,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import {FanartPipe, FilterByPipe, LimitToPipe, NumberPadderPipe, OrderBy, SearchPipe, UrlPipe} from './pipes/index';
-import { AuthService } from './services/auth.service';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { FanartPipe, FilterByPipe, LimitToPipe } from './pipes/index';
 import { LoginComponent } from './user/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
@@ -28,6 +28,7 @@ import { SortablejsModule } from 'angular-sortablejs';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { TestComponent} from './test/test.component';
 import { BrowseModule} from './browse/browse.module';
+
 
 const routes: Routes = [
     {
@@ -86,6 +87,7 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes),
     BsDropdownModule.forRoot(),
+    CollapseModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     TabsModule.forRoot(),

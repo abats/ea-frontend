@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import {Series} from '../model/series';
-import {BrowseInterface} from '../browse/browse.interface';
 
 @Injectable()
 export class SeriesBrowseService {

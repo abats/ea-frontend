@@ -17,6 +17,8 @@ import {fadeAnimation} from './annimations';
 })
 
 export class AppComponent implements OnDestroy, OnInit {
+  isCollapsed = true;
+
   constructor(
     public authService: AuthService) {
   }

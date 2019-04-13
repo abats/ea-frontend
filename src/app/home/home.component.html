@@ -1,4 +1,4 @@
-<app-userstats *ngIf="authService.isLoggedIn()" state="all"></app-userstats>
+<app-userstats class="hidden-xs" *ngIf="authService.isLoggedIn()" state="all"></app-userstats>
 
 <div class="row-ea">
   <div class="container">
@@ -18,14 +18,14 @@
                      src="{{ series.unique_name | asFanartPipe : series.fanart_image }}"
                      alt="{{ series.name }}"/>
               </div>
-              <span class="badge">
+              <span class="badge hidden-xs">
                                 <span class="rating">{{ series.rating }}</span>
                                 <span class="rating-source">users</span>
                             </span>
-              <span class="home-banners-season"> Season {{ series.season_amount }} </span>
+              <span class="home-banners-season hidden-xs"> Season {{ series.season_amount }} </span>
               <h3 class="title">{{ series.name }} </h3>
             </a>
-            <app-follow class="spotlight-button-location" [series]="series" *ngIf="i < 2" [buttonLabel]="series.following ? 'Unfollow' : 'Follow'"></app-follow>
+            <app-follow class="spotlight-button-location hidden-xs" [series]="series" *ngIf="i < 2" [buttonLabel]="series.following ? 'Unfollow' : 'Follow'"></app-follow>
 
           </li>
         </ul>
@@ -50,7 +50,7 @@
           </a>
 
           <a [routerLink]="['/series', series.unique_name]">
-                        <span class="title">
+                        <span class="title ">
                             {{ series.name }}
                         </span>
           </a>

@@ -1,8 +1,9 @@
 <div>
+
   <nav class="navbar navbar-default" role="navigation">
     <div class="container container--navbar">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" (click)="isCollapsed = !isCollapsed" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -12,7 +13,7 @@
           Episode Alert
         </a>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" [collapse]="isCollapsed">
         <app-search></app-search>
         <ul class="nav navbar-nav">
           <li><a [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
@@ -20,11 +21,11 @@
           <li><a [routerLink]="['/myshows']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">MY SHOWS</a></li>
           <!--<li><a [routerLink]="['/profile']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">PROFILE</a></li>-->
 
-          <li *ngIf="authService.isLoggedIn()" class="hidden-xs hidden-sm" >
+          <li *ngIf="authService.isLoggedIn()" class="" >
             <div class="dropdown user-dropdown" dropdown >
 
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" dropdownToggle>
-                {{ authService.getUserName() }}
+                <span class="fa fa-user ea--user"></span>
                 <span class="caret"></span>
               </button>
 
@@ -52,7 +53,7 @@
     <router-outlet #o="outlet"></router-outlet>
   </div>
 
-  <div class="row-ea navbar-fixed-bottom">
+  <div class="row-ea">
     <div class="container" id="footer">
       <div class="footer row">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">

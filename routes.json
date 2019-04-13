@@ -1,74 +1,49 @@
 {
   "/api/": "/",
-
-  "/series/top" : "/top",
-
-  "/api/auth/logout" : "/logout",
-  "/api/auth/login" : "/login",
-  "/api/auth/check" : "/authcheck",
-
-  "/api/series/seen/*" : "/seen",
-
-  "/api/series/unseen/*" : "/unseen",
-
-  "/api/follow/264586" : "/follow",
-  "/api/unfollow/264586" : "/unfollow",
-
-  "/api/follow/81189" : "/follow",
-  "/api/unfollow/81189" : "/unfollow",
-
+  "/series/top": "/top",
+  "/api/auth/logout": "/logout",
+  "/api/auth/login": "/login",
+  "/api/auth/check": "/authcheck",
+  "/api/series/seen/*": "/seen",
+  "/api/series/unseen/*": "/unseen",
+  "/api/follow/264586": "/follow",
+  "/api/unfollow/264586": "/unfollow",
+  "/api/follow/81189": "/follow",
+  "/api/unfollow/81189": "/unfollow",
   "/profile/following": "/following",
   "/api/profile/stats?from=*&to=*": "/stats_with_filter",
   "/api/profile/stats": "/stats",
-  "/api/profile/order" : "/order",
-
-  "/auth/check" : "/check",
-
-  "/series/trending" : "/top",
-
-  "/api/series/guide/3" : "/guide3",
-  "/api/series/guide/7" : "/guide7",
-  "/api/series/guide/14" : "/guide14",
-  "/api/series/guide/21" : "/guide21",
-
-  "/api/series/genre/*/*" : "/browse_action_0",
-
-  "/series/breaking_bad" : "/breaking_bad",
-  "/series/orange_is_the_new_black" : "/orange_is_the_new_black",
-  "/series/american_horror_story" : "/american_horror_story",
-
-  "/api/series/search/*" : "/search_results",
-
-  "/api/series/unseenamountbyseries/264586/5" : "/orange_is_the_new_black_unseen_seasons",
-  "/api/series/unseenamountbyseries/81189/5" : "/breaking_bad_unseen_seasons",
-  "/api/series/episodesbyseason/264586/1" : "/orange_is_the_new_black_1",
-  "/api/series/episodesbyseason/264586/2" : "/orange_is_the_new_black_2",
-  "/api/series/episodesbyseason/264586/3" : "/orange_is_the_new_black_3",
-  "/api/series/episodesbyseason/264586/4" : "/orange_is_the_new_black_4",
-  "/api/series/episodesbyseason/264586/5" : "/orange_is_the_new_black_5",
-
-  "/api/series/episodesbyseason/81189/0" : "/breaking_bad_season_0",
-  "/api/series/episodesbyseason/81189/1" : "/breaking_bad_season_1",
-  "/api/series/episodesbyseason/81189/2" : "/breaking_bad_season_2",
-  "/api/series/episodesbyseason/81189/3" : "/breaking_bad_season_3",
-  "/api/series/episodesbyseason/81189/4" : "/breaking_bad_season_4",
-  "/api/series/episodesbyseason/81189/5" : "/breaking_bad_season_5",
-
-  "/api/series/episodesbyseason/250487/1" : "/american_horror_story_season_1",
-  "/api/series/episodesbyseason/250487/2" : "/american_horror_story_season_2",
-  "/api/series/episodesbyseason/250487/3" : "/american_horror_story_season_3",
-  "/api/series/episodesbyseason/250487/4" : "/american_horror_story_season_4",
-  "/api/series/episodesbyseason/250487/5" : "/american_horror_story_season_5",
-  "/api/series/episodesbyseason/250487/6" : "/american_horror_story_season_6",
-
-  "/api/series/episodesperdate/2019-02-25": "/episodesperdate_day1",
-  "/api/series/episodesperdate/2019-02-26": "/episodesperdate_day2",
-  "/api/series/episodesperdate/2019-02-27": "/episodesperdate_day3",
-  "/api/series/episodesperdate/2019-02-28": "/episodesperdate_day1",
-  "/api/series/episodesperdate/2019-03-01": "/episodesperdate_day2",
-  "/api/series/episodesperdate/2019-03-02": "/episodesperdate_day3",
-  "/api/series/episodesperdate/2019-03-03": "/episodesperdate_day1",
-  "/api/series/episodesperdate/2019-03-04": "/episodesperdate_day2",
-  "/api/series/episodesperdate/2019-03-05": "/episodesperdate_day3"
+  "/api/profile/order": "/order",
+  "/auth/check": "/check",
+  "/series/trending": "/top",
+  "/api/series/guide/3": "/guide3",
+  "/api/series/guide/7": "/guide7",
+  "/api/series/guide/14": "/guide14",
+  "/api/series/guide/21": "/guide21",
+  "/api/series/genre/*/*": "/browse_action_0",
+  "/series/breaking_bad": "/breaking_bad",
+  "/series/orange_is_the_new_black": "/orange_is_the_new_black",
+  "/series/american_horror_story": "/american_horror_story",
+  "/api/series/search/*": "/search_results",
+  "/api/series/unseenamountbyseries/264586/5": "/orange_is_the_new_black_unseen_seasons",
+  "/api/series/unseenamountbyseries/81189/5": "/breaking_bad_unseen_seasons",
+  "/api/series/episodesbyseason/264586/1": "/orange_is_the_new_black_1",
+  "/api/series/episodesbyseason/264586/2": "/orange_is_the_new_black_2",
+  "/api/series/episodesbyseason/264586/3": "/orange_is_the_new_black_3",
+  "/api/series/episodesbyseason/264586/4": "/orange_is_the_new_black_4",
+  "/api/series/episodesbyseason/264586/5": "/orange_is_the_new_black_5",
+  "/api/series/episodesbyseason/81189/0": "/breaking_bad_season_0",
+  "/api/series/episodesbyseason/81189/1": "/breaking_bad_season_1",
+  "/api/series/episodesbyseason/81189/2": "/breaking_bad_season_2",
+  "/api/series/episodesbyseason/81189/3": "/breaking_bad_season_3",
+  "/api/series/episodesbyseason/81189/4": "/breaking_bad_season_4",
+  "/api/series/episodesbyseason/81189/5": "/breaking_bad_season_5",
+  "/api/series/episodesbyseason/250487/1": "/american_horror_story_season_1",
+  "/api/series/episodesbyseason/250487/2": "/american_horror_story_season_2",
+  "/api/series/episodesbyseason/250487/3": "/american_horror_story_season_3",
+  "/api/series/episodesbyseason/250487/4": "/american_horror_story_season_4",
+  "/api/series/episodesbyseason/250487/5": "/american_horror_story_season_5",
+  "/api/series/episodesbyseason/250487/6": "/american_horror_story_season_6",
+  "/api/series/episodesperdate/*": "/episodesperdate_day1"
 }
 

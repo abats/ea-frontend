@@ -7,6 +7,22 @@
 
 .search-results {
 
+  @media(max-width: $screen-xs-max){
+    left: 0px;
+    top: -13px;
+    width: 381px;
+  }
+
+  @media(min-width: $screen-sm){
+    width: 342px;
+    left: -357px;
+  }
+
+  @media(min-width: $screen-md){
+    left: -417px;
+    width: 402px;
+  }
+
   position: absolute;
   z-index: 100;
   width: 402px;
@@ -59,6 +75,12 @@
   border-radius: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+@media(max-width: $screen-sm-max){
+  .form-control-search {
+    min-width: 300px;
+  }
 }
 
 .btn-search {

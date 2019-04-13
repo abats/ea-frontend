@@ -1,6 +1,6 @@
-import {Component, Input, ChangeDetectionStrategy, OnInit, OnDestroy} from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { SeriesService } from '../../services/series.service';
-import {Subscription} from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-seen',

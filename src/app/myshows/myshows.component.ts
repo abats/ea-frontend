@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Series } from '../model/series';
 import { SeriesService } from '../services/series.service';
@@ -22,10 +22,9 @@ export class MyshowsComponent implements OnInit, OnDestroy {
   public showArchive: boolean;
   public showEnded: boolean;
   public options: { onUpdate: (event: any) => void, handle: '.handle' };
-  private UNSEEN_LOCAL_STORAGE_KEY = 'unseen';
-  private ARCHIVE_LOCAL_STORAGE_KEY = 'archive';
-  private ENDED_LOCAL_STORAGE_KEY = 'ended';
   private SERIES_VIEW_LOCAL_STORAGE_KEY = 'seriesView';
+  private USER_FILTER_SETTINGS_KEY = 'userFilterSettings';
+  public userFilterSettings;
 
   constructor( private seriesService: SeriesService,
                public authService: AuthService,
@@ -43,19 +42,28 @@ export class MyshowsComponent implements OnInit, OnDestroy {
       }
     };
 
-    /*
-     * TODO: Implement services as observables one day
-     */
-    // let series$ = seriesService.getProfileSeriesTest();
-    //
-    // series$.subscribe(
-    //     series => this.seriesTest = series
-    // );
+    if (JSON.parse(this.getLocalStorage(this.USER_FILTER_SETTINGS_KEY))) {
+      this.userFilterSettings = JSON.parse(this.getLocalStorage(this.USER_FILTER_SETTINGS_KEY));
+    } else {
+      this.userFilterSettings = <IUserFilterSettings> {
+        showUnseen: false,
+        showArchive: false,
+        showEnded: false
+      };
+
+      this.setLocalStorage(this.USER_FILTER_SETTINGS_KEY, JSON.stringify( this.userFilterSettings));
+    }
+
+    this.profileSeriesView =  this.getLocalStorage(this.SERIES_VIEW_LOCAL_STORAGE_KEY) || 'poster';
 
   }
 
-  updateProfileSeriesOrder() {
+  setLocalStorage(item: string, value: any): void {
+    localStorage.setItem(item, value);
+  }
 
+  getLocalStorage(item: string): string {
+    return localStorage.getItem(item);
   }
 
   switchArrayItemsSeries(newIndex, oldIndex) {
@@ -107,26 +115,21 @@ export class MyshowsComponent implements OnInit, OnDestroy {
 
   }
 
-  setLocalStorage(item: string, value: any): void {
-    localStorage.setItem(item, value);
-  }
-
-  getLocalStorage(item: string): string {
-    return localStorage.getItem(item);
-  }
-
   clickToggleUnseen() {
-    this.setLocalStorage(this.UNSEEN_LOCAL_STORAGE_KEY, this.showUnseen = !this.showUnseen);
+    this.userFilterSettings.showUnseen = !this.userFilterSettings.showUnseen;
+    this.setLocalStorage(this.USER_FILTER_SETTINGS_KEY, JSON.stringify(this.userFilterSettings));
     this.filterSeries();
   }
 
   clickToggleArchive() {
-    this.setLocalStorage(this.ARCHIVE_LOCAL_STORAGE_KEY, this.showArchive = !this.showArchive);
+    this.userFilterSettings.showArchive = !this.userFilterSettings.showArchive
+    this.setLocalStorage(this.USER_FILTER_SETTINGS_KEY, JSON.stringify(this.userFilterSettings));
     this.filterSeries();
   }
 
   clickToggleEnded() {
-    this.setLocalStorage(this.ARCHIVE_LOCAL_STORAGE_KEY, this.showEnded = !this.showEnded);
+    this.userFilterSettings.showEnded = !this.userFilterSettings.showEnded
+    this.setLocalStorage(this.USER_FILTER_SETTINGS_KEY, JSON.stringify(this.userFilterSettings));
     this.filterSeries();
   }
 
@@ -147,7 +150,7 @@ export class MyshowsComponent implements OnInit, OnDestroy {
 
 
       for (let i = this.profileSeries.length - 1; i >= 0; i--) {
-        if (this.showUnseen) {
+        if (this.userFilterSettings.showUnseen) {
           if (this.profileSeries[i].unseen_episodes === 0) {
             this.profileSeries.splice(i, 1);
             continue;
@@ -159,7 +162,7 @@ export class MyshowsComponent implements OnInit, OnDestroy {
        * If Archive is false they should be filtered out
        */
       for (let i = this.profileSeries.length - 1; i >= 0; i--) {
-        if (!this.showArchive) {
+        if (!this.userFilterSettings.showArchive) {
           if (this.profileSeries[i].archive) {
             this.profileSeries.splice(i, 1);
             continue;
@@ -171,7 +174,7 @@ export class MyshowsComponent implements OnInit, OnDestroy {
        * If Ended is true they should be filtered out
        */
       for (let i = this.profileSeries.length - 1; i >= 0; i--) {
-        if (this.showEnded) {
+        if (this.userFilterSettings.showEnded) {
           if (this.profileSeries[i].status === 'Ended') {
             this.profileSeries.splice(i, 1);
             continue;
@@ -184,13 +187,6 @@ export class MyshowsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
-    // Collect value from the local storage, default value if it's empty
-    this.showUnseen =  this.getLocalStorage(this.UNSEEN_LOCAL_STORAGE_KEY) as any as boolean || false;
-    this.showArchive =  this.getLocalStorage(this.ARCHIVE_LOCAL_STORAGE_KEY) as any as boolean || false;
-    this.showEnded =  this.getLocalStorage(this.ENDED_LOCAL_STORAGE_KEY) as any as boolean || false;
-    this.profileSeriesView =  this.getLocalStorage(this.SERIES_VIEW_LOCAL_STORAGE_KEY) || 'poster';
-
     this.order = '';
     this.orderReverse = true;
     this.getProfileSeries();
@@ -201,7 +197,6 @@ export class MyshowsComponent implements OnInit, OnDestroy {
           // console.log(authInfo);
         });
     }
-
   }
 
   ngOnDestroy() {

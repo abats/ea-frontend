@@ -40,10 +40,11 @@
 
 .profile-series{
 
-  // @TODO try to implement a variation on this: http://stackoverflow.com/questions/18744164/flex-box-align-last-row-to-grid/33375496#33375496
-
   text-align: left;
   margin: auto;
+  @media(max-width: $screen-sm-max) {
+    padding-top: 0px;
+  }
   padding-top: 15px;
   padding-left: 0px;
   display: flex;
@@ -56,6 +57,12 @@
   }
 
   li{
+    @media(max-width: $screen-sm-max){
+      width: 24%;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+    }
+
     position: relative;
     width: 11.5%;
     display: inline-block;
@@ -76,6 +83,9 @@
 
 .big-poster{
   li{
+    @media(max-width: $screen-sm-max) {
+      width: 45%;
+    }
     width: 15.7%;
   }
 }
@@ -106,6 +116,11 @@
   }
 
   input{
+    @media(max-width: $screen-sm-max) {
+      width: 94px;
+      padding: 6px 2px 6px 8px;
+      font-size: 12px;
+    }
     padding: 6px 10px 6px 12px;
     margin: 0px;
     color: #000;
@@ -127,10 +142,17 @@
 
 
 .ea-filter{
+  @media(max-width: $screen-sm-max) {
+    margin-left: 15px;
+    font-size: 10px;
+  }
   margin-left: 25px;
   background-color: $primary-color;
 
   .fa{
+    @media(max-width: $screen-sm-max) {
+      width: 10px;
+    }
     width: 18px;
   }
 
@@ -141,9 +163,16 @@
   }
 
   &-viewtoggle{
+    @media(max-width: $screen-sm-max) {
+      margin-top: 3px;
+      font-size: 8px;
+    }
     display: inline-block;
     float: right;
     margin-top: 5px;
+    @media(max-width: $screen-sm-max) {
+      font-size: 12px;
+    }
     font-size: 20px;
     fill: #fff !important;
 
