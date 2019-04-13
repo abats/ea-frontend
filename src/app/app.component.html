@@ -30,7 +30,7 @@
               </button>
 
               <ul class="dropdown-menu"  aria-labelledby="dropdownMenu1">
-                <li><a href="#">Profile</a></li>
+                <li><a [routerLink]="['/profile']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Profile</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Settings</a></li>
                 <li role="separator" class="divider"></li>

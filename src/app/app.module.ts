@@ -28,6 +28,7 @@ import { SortablejsModule } from 'angular-sortablejs';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { TestComponent} from './test/test.component';
 import { BrowseModule} from './browse/browse.module';
+import { ProfileModule } from './profile/profile.module';
 
 
 const routes: Routes = [
@@ -47,7 +48,7 @@ const routes: Routes = [
     },
     {
       path: 'profile',
-      component: ProfileComponent
+      loadChildren: () => ProfileModule
     },
     {
       path: 'guide',
@@ -67,7 +68,6 @@ const routes: Routes = [
     LoginComponent,
     HomeComponent,
     SeriesComponent,
-    ProfileComponent,
     SearchComponent,
     SeenbuttonComponent,
     FollowbuttonComponent,

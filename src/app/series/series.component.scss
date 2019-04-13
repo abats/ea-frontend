@@ -25,47 +25,6 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   }
 }
 
-::ng-deep {
-  .ea-tabs {
-
-    .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-      border: 0;
-    }
-
-    li.active > a:hover{
-     border: none !important;
-    }
-
-    ul, li{
-      border: none!important;
-    }
-
-    .nav > li > a:hover{
-      background-color: $primary-color;
-      color: $light-blue;
-    }
-
-    .nav-tabs > li > a:hover{
-      color: $light-blue;
-    }
-
-    .nav-tabs > li > a{
-      background-color: $secondary-color;
-      color: $light-text;
-      border: none;
-    }
-
-    .nav-tabs > a:hover{
-      background-color: $primary-color;
-    }
-
-    .nav-tabs > li.active > a{
-      background-color: $primary-color;
-      color: $light-blue;
-    }
-  }
-}
-
 .series-detail {
 
   padding-left: 15px;
