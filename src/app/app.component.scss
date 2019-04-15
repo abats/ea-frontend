@@ -1,21 +1,20 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/_variables';
-@import 'variables';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/_mixins';
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700);
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,200,300,400,500,600,700);
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700);
-@import url(https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700);
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/_variables";
+@import "variables";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/_mixins";
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:100, 200, 300, 400, 500, 600, 700');
+@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:100, 200, 300, 400, 500, 600, 700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100, 200, 300, 400, 500, 600, 700');
+@import url('https://fonts.googleapis.com/css?family=Lato:100, 200, 300, 400, 500, 600, 700');
 
-
-@CHARSET "ISO-8859-1";
-
+@charset "ISO-8859-1";
 
 a {
   color: $bright-highlight;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: $bright-highlight;
 }
 
@@ -26,15 +25,15 @@ a:hover, a:focus {
 /*
 * Generic button styles
 */
-.ea-btn{
-  background-color: rgba(0,0,0,0.5);
+.ea-btn {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.ea--user{
+.ea--user {
   font-size: 150%;
 }
 
-.ea-btn:hover{
+.ea-btn:hover {
   color: $bright-highlight;
   border: 1px solid $bright-highlight;
 }
@@ -42,8 +41,8 @@ a:hover, a:focus {
 /*
 * Following button
 */
-.ea-btn--follow{
-  font-family: 'Lato', sans-serif;
+.ea-btn--follow {
+  font-family: "Lato", sans-serif;
   font-size: 75%;
   font-weight: 300;
   border: 1px solid #00ff90;
@@ -52,12 +51,12 @@ a:hover, a:focus {
   text-transform: uppercase;
   letter-spacing: 0.12em;
 
-  i{
+  i {
     padding: 0px 10px 0px 0px;
   }
 }
 
-.notfollowing{
+.notfollowing {
   color: #00ff90;
   border-color: #00ff90;
 }
@@ -65,7 +64,7 @@ a:hover, a:focus {
 /*
 * Archive button
 */
-.ea-btn--archive{
+.ea-btn--archive {
   font-size: 70%;
   border: 2px solid #00ff90;
   color: #00ff90;
@@ -77,7 +76,7 @@ a:hover, a:focus {
 /*
 * Filter button
 */
-.ea-filter{
+.ea-filter {
   font-size: 80%;
   background-color: #1a1a1a;
   text-transform: uppercase;
@@ -85,51 +84,45 @@ a:hover, a:focus {
   border: none;
   padding: 10px 16px 11px 15px;
   font-weight: 300;
-
 }
 
-.ea-filter i{
+.ea-filter i {
   position: relative;
   top: 1px;
   font-size: 120%;
   margin-right: 5px;
 }
 
-.ea-filter:hover{
+.ea-filter:hover {
   color: $bright-highlight;
 }
 
-
-.ea-filter--active{
+.ea-filter--active {
   color: $bright-highlight;
 }
-
-
 
 /*
 * Navigation
 */
 
-.nav-small{
-
+.nav-small {
   text-transform: uppercase;
   top: 6px;
   font-size: 13px;
 
-  .nav-link{
+  .nav-link {
     color: #999999;
     margin-left: 25px;
   }
-
 }
 
 .series-genres {
   text-align: center;
-  margin-top : 18px;
+  margin-top: 18px;
   text-transform: uppercase;
 
   li {
-    margin:0px 40px 0px 0px;
+    margin: 0px 40px 0px 0px;
     text-align: left;
     display: block;
     list-style: none;
@@ -156,7 +149,8 @@ a:hover, a:focus {
     }
   }
 
-  .navbar-brand:focus, .navbar-brand:hover {
+  .navbar-brand:focus,
+  .navbar-brand:hover {
     color: $light-text;
   }
 
@@ -170,22 +164,33 @@ a:hover, a:focus {
     text-overflow: ellipsis;
     overflow: hidden;
 
-    @media(min-width: $screen-md-min){
+    @media (min-width: $screen-md-min) {
       max-width: 170px;
     }
 
-    @media(min-width: $screen-lg-min){
+    @media (min-width: $screen-lg-min) {
       max-width: 300px;
     }
-
   }
 
   .navbar-link {
     color: $light-text;
   }
 
-  .navbar-text > a:hover{
+  .navbar-text > a:hover {
     color: $highlight-color;
+  }
+
+  @media (min-width: $screen-md) and (max-width: $screen-lg) {
+    .navbar-nav > li {
+      padding: 14px 1px 8px 5px !important;
+    }
+  }
+
+  @media (min-width: $screen-sm) and (max-width: $screen-md) {
+    .navbar-nav > li {
+      padding: 14px 1px 8px 5px !important;
+    }
   }
 
   .navbar-nav > li {
@@ -199,13 +204,14 @@ a:hover, a:focus {
     font-size: 15px;
     padding: 0px 0px 2px 0px;
 
-
-    @media(max-width: $screen-md-min){
-      padding-right:0px; padding-left:5px;
+    @media (max-width: $screen-md-min) {
+      padding-right: 0px;
+      padding-left: 5px;
     }
 
-    @media(max-width: $screen-lg-min){
-      padding-right:8px; padding-left:5px;
+    @media (max-width: $screen-lg-min) {
+      padding-right: 8px;
+      padding-left: 5px;
     }
   }
 
@@ -215,7 +221,7 @@ a:hover, a:focus {
     border-bottom: 1px solid $light-text;
   }
 
-  .active{
+  .active {
     border-bottom: 1px solid $light-text;
   }
 
@@ -230,7 +236,7 @@ a:hover, a:focus {
     height: 41px;
     margin-top: -2px;
     padding: 0px 15px 0px 15px;
-    color: #FFF;
+    color: #fff;
     background-color: #b7b7b7;
     background-image: none;
     border: 0;
@@ -238,8 +244,7 @@ a:hover, a:focus {
   }
 }
 
-
-.navbar-nav{
+.navbar-nav {
   float: right;
 }
 
@@ -248,40 +253,40 @@ a:hover, a:focus {
   font-weight: 200;
   letter-spacing: 0.08em;
 
-  .navbar-brand{
+  .navbar-brand {
     letter-spacing: 0.1em;
     margin-top: 6px;
   }
 
-  @media(min-width: $screen-sm-min){ padding: 15px 0px 15px 20px; }
-
-
-  p{
-    margin-right: 10px;
+  @media (min-width: $screen-sm-min) {
+    padding: 15px 0px 15px 20px;
   }
 
-
+  p {
+    margin-right: 10px;
+  }
 }
-.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand{
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
   margin-left: -5px;
   margin-bottom: -1px;
 
   @media (min-width: 768px) {
     padding: 15px 30px 0px 0px;
   }
-
 }
 
-.dropdown-menu{
+.dropdown-menu {
   min-width: 50px;
 }
 
 .user-dropdown,
-.btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle{
+.btn-default:active,
+.btn-default.active,
+.open > .btn-default.dropdown-toggle {
   button,
   button:active,
-  button:hover
-  {
+  button:hover {
     background-color: $dark-grey-background !important;
     color: $light-text !important;
     border: none;
@@ -291,41 +296,40 @@ a:hover, a:focus {
     margin-left: -12px;
   }
 
-  li{
+  li {
     display: block;
 
-    a:hover{
+    a:hover {
       background-color: #ccc !important;
     }
   }
 
-  .divider{
+  .divider {
     margin: 5px 20px 5px 20px;
   }
-
 }
 button:focus,
 button:active {
   outline: none !important;
 }
 
-
-
 p {
   margin: 0 0 0px;
 }
 
 ul {
-  padding-left:  0px;
+  padding-left: 0px;
 }
 
-.section-header{
+.section-header {
   height: 40px;
   padding: 8px 0px 10px 15px;
-  @media(max-width: $screen-xs-max){ padding: 5px 0px 5px 0px; }
+  @media (max-width: $screen-xs-max) {
+    padding: 5px 0px 5px 0px;
+  }
   background-color: $primary-color;
 
-  h2{
+  h2 {
     margin: 0px;
     padding-top: 2px;
     font-size: 130%;
@@ -333,17 +337,17 @@ ul {
 }
 
 /* spacers */
-.spacer-lg{
+.spacer-lg {
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
-.spacer-md{
+.spacer-md {
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
-.spacer-sm{
+.spacer-sm {
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -379,7 +383,6 @@ ul {
   padding: 0 15px;
 }
 
-
 //
 
 ///*
@@ -387,9 +390,9 @@ ul {
 // */
 
 $height-base: ($line-height-computed + $padding-base-vertical * 2);
-$height-lg:   (floor($font-size-large * $line-height-base) + $padding-large-vertical * 2);
-$height-sm:   (floor($font-size-small * 1.5) + $padding-small-vertical * 2);
-$height-xs:   (floor($font-size-small * 1.2) + $padding-small-vertical + 1);
+$height-lg: (floor($font-size-large * $line-height-base) + $padding-large-vertical * 2);
+$height-sm: (floor($font-size-small * 1.5) + $padding-small-vertical * 2);
+$height-xs: (floor($font-size-small * 1.2) + $padding-small-vertical + 1);
 
 .btn-social {
   position: relative;
@@ -443,7 +446,7 @@ $height-xs:   (floor($font-size-small * 1.2) + $padding-small-vertical + 1);
   :first-child {
     border: none;
     text-align: center;
-    width: 100%!important;
+    width: 100% !important;
   }
   &.btn-lg {
     height: $height-lg;
@@ -467,35 +470,33 @@ $height-xs:   (floor($font-size-small * 1.2) + $padding-small-vertical + 1);
 
 //tab overwrite
 
-.nav-tabs{
+.nav-tabs {
   border: none;
 }
 
-tabset ul li a{
+tabset ul li a {
   background-color: $light-grey-background;
   color: $light-text;
-
 }
 
-tabset ul li a.active{
+tabset ul li a.active {
   background-color: $primary-color !important;
   border-color: $primary-color !important;
 }
-
 
 @mixin btn-social($color-bg, $color: white) {
   background-color: $color-bg;
   @include button-variant($color, $color-bg, rgba(0, 0, 0, 0.2));
 }
 
-.footer{
+.footer {
   color: #999999;
   padding-top: 30px;
   padding-bottom: 20px;
   margin-bottom: 5px;
   font-size: 80%;
 
-  div{
+  div {
     text-align: right;
   }
 
@@ -506,73 +507,99 @@ tabset ul li a.active{
   ul {
     list-style-type: none;
 
-    li{
+    li {
       display: inline-block;
     }
   }
 
-  .nav-small{
-
+  .nav-small {
     text-transform: uppercase;
     top: 6px;
     font-size: 13px;
 
-    .nav-link{
+    .nav-link {
       color: #999999;
       margin-left: 25px;
     }
-
   }
-
 }
 
 // Can be used to switch bootstrap nav bar breakpoint
-//@media (max-width: 1200px) {
-//  .navbar-header {
-//    float: none;
-//  }
-//  .navbar-left,.navbar-right {
-//    float: none !important;
-//  }
-//  .navbar-toggle {
-//    display: block;
-//  }
-//  .navbar-collapse {
-//    border-top: 1px solid transparent;
-//    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-//  }
-//  .navbar-fixed-top {
-//    top: 0;
-//    border-width: 0 0 1px;
-//  }
-//  .navbar-collapse.collapse {
-//    display: none!important;
-//  }
-//  .navbar-nav {
-//    float: none!important;
-//    margin-top: 7.5px;
-//  }
-//  .navbar-nav>li {
-//    float: none;
-//  }
-//  .navbar-nav>li>a {
-//    padding-top: 10px;
-//    padding-bottom: 10px;
-//  }
-//  .collapse.in{
-//    display:block !important;
-//  }
-//}
+@media (max-width: $screen-md) {
+ .navbar-header {
+   float: none;
+ }
 
-.btn-bitbucket     { @include btn-social(#205081); }
-.btn-dropbox       { @include btn-social(#1087dd); }
-.btn-facebook      { @include btn-social(#3b5998); }
-.btn-flickr        { @include btn-social(#ff0084); }
-.btn-github        { @include btn-social(#444444); }
-.btn-google-plus   { @include btn-social(#dd4b39); }
-.btn-instagram     { @include btn-social(#3f729b); }
-.btn-linkedin      { @include btn-social(#007bb6); }
-.btn-pinterest     { @include btn-social(#cb2027); }
-.btn-tumblr        { @include btn-social(#2c4762); }
-.btn-twitter       { @include btn-social(#55acee); }
-.btn-vk            { @include btn-social(#587ea3); }
+ .navbar-form {
+    border-color: #e7e7e7;
+}
+
+ .navbar-left,.navbar-right {
+   float: none !important;
+ }
+ .navbar-toggle {
+   display: block;
+ }
+ .navbar-collapse {
+   border-top: 1px solid transparent;
+   box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+ }
+ .navbar-fixed-top {
+   top: 0;
+   border-width: 0 0 1px;
+ }
+ .navbar-collapse.collapse {
+   display: none!important;
+ }
+ .navbar-nav {
+   float: none!important;
+   margin-top: 7.5px;
+ }
+ .navbar-nav>li {
+   float: none;
+ }
+ .navbar-nav>li>a {
+   padding-top: 10px;
+   padding-bottom: 10px;
+ }
+ .collapse.in{
+   display:block !important;
+ }
+}
+
+.btn-bitbucket {
+  @include btn-social(#205081);
+}
+.btn-dropbox {
+  @include btn-social(#1087dd);
+}
+.btn-facebook {
+  @include btn-social(#3b5998);
+}
+.btn-flickr {
+  @include btn-social(#ff0084);
+}
+.btn-github {
+  @include btn-social(#444444);
+}
+.btn-google-plus {
+  @include btn-social(#dd4b39);
+}
+.btn-instagram {
+  @include btn-social(#3f729b);
+}
+.btn-linkedin {
+  @include btn-social(#007bb6);
+}
+.btn-pinterest {
+  @include btn-social(#cb2027);
+}
+.btn-tumblr {
+  @include btn-social(#2c4762);
+}
+.btn-twitter {
+  @include btn-social(#55acee);
+}
+.btn-vk {
+  @include btn-social(#587ea3);
+}

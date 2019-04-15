@@ -1,14 +1,12 @@
-@import '../variables';
+@import "../variables";
 
-.myshows--badge{
+.myshows--badge {
   position: absolute;
   top: 0px;
   right: 0px;
 }
 
-
-
-.handle{
+.handle {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: move;
@@ -17,32 +15,30 @@
   padding: 11px;
 }
 
-.profile-series-list{
+.profile-series-list {
   width: 100%;
 
-  th{
+  th {
     padding-bottom: 20px;
 
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
-
   }
 
-  td{
+  td {
     padding: 5px 0px 5px 0px;
   }
 
-  tr:hover .series-indicator{
-    display:block;
+  tr:hover .series-indicator {
+    display: block;
   }
 }
 
-.profile-series{
-
+.profile-series {
   text-align: left;
   margin: auto;
-  @media(max-width: $screen-sm-max) {
+  @media (max-width: $screen-sm-max) {
     padding-top: 0px;
   }
   padding-top: 15px;
@@ -56,8 +52,8 @@
     display: block;
   }
 
-  li{
-    @media(max-width: $screen-sm-max){
+  li {
+    @media (max-width: $screen-sm-max) {
       width: 24%;
       padding-bottom: 5px;
       margin-bottom: 5px;
@@ -68,29 +64,27 @@
     display: inline-block;
     padding-bottom: 15px;
     margin-bottom: 20px;
-
   }
 
-  a{
+  a {
     display: block;
   }
 
-  span{
+  span {
     display: block;
   }
-
 }
 
-.big-poster{
-  li{
-    @media(max-width: $screen-sm-max) {
+.big-poster {
+  li {
+    @media (max-width: $screen-sm-max) {
       width: 45%;
     }
     width: 15.7%;
   }
 }
 
-.title{
+.title {
   padding: 16px;
   font-size: 90%;
   background-color: $primary-lighter;
@@ -102,21 +96,20 @@
   text-overflow: ellipsis;
 }
 
-.myshows-filters{
-
+.myshows-filters {
   margin-bottom: 24px;
 
-  &-label{
+  &-label {
     color: $light-text;
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     font-size: 16px;
     font-weight: 200;
     letter-spacing: 0.1em;
     margin-right: 10px;
   }
 
-  input{
-    @media(max-width: $screen-sm-max) {
+  input {
+    @media (max-width: $screen-sm-max) {
       width: 94px;
       padding: 6px 2px 6px 8px;
       font-size: 12px;
@@ -129,65 +122,60 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     background-image: none;
-
   }
 
-  .row{
+  .row {
     font-size: 14px;
     background-color: $primary-lighter;
     padding: 20px 0px 20px 0px;
   }
-
 }
 
-
-.ea-filter{
-  @media(max-width: $screen-sm-max) {
+.ea-filter {
+  @media (max-width: $screen-sm-max) {
     margin-left: 15px;
     font-size: 10px;
   }
   margin-left: 25px;
   background-color: $primary-color;
 
-  .fa{
-    @media(max-width: $screen-sm-max) {
+  .fa {
+    @media (max-width: $screen-sm-max) {
       width: 10px;
     }
     width: 18px;
   }
 
   &:hover,
-  &--active{
+  &--active {
     color: $bright-highlight;
     border-color: $bright-highlight;
   }
 
-  &-viewtoggle{
-    @media(max-width: $screen-sm-max) {
+  &-viewtoggle {
+    @media (max-width: $screen-sm-max) {
       margin-top: 3px;
       font-size: 8px;
     }
     display: inline-block;
     float: right;
     margin-top: 5px;
-    @media(max-width: $screen-sm-max) {
+    @media (max-width: $screen-sm-max) {
       font-size: 12px;
     }
     font-size: 20px;
     fill: #fff !important;
 
-    :hover{
+    :hover {
       fill: $bright-highlight;
       cursor: pointer;
-
     }
   }
 }
 
-
-.series-indicator{
+.series-indicator {
   position: absolute;
   left: 2px;
   margin-top: 3px;
-  display:none;
+  display: none;
 }

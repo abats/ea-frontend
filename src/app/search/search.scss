@@ -83,6 +83,13 @@
   }
 }
 
+@media (min-width: $screen-sm) and (max-width: $screen-md) {
+  .form-control-search {
+    background-color:red;
+    min-width: 600px;
+  }
+}
+
 .btn-search {
   height: 41px;
   margin-top: -2px;

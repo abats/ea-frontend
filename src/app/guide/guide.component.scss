@@ -1,5 +1,28 @@
 @import '../variables';
 
+@media (min-width: $screen-sm) and (max-width: $screen-md) {
+  .ea-guide{
+    li{
+      position: relative;
+      width: 44%;
+      display: inline-block;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      font-size: 80%;
+
+      img{
+        width: 100%;
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
+
+.ea-filter{
+  margin-right: 20px;
+}
+
 tr:nth-of-type(odd) {
   background-color: $primary-lighter!important;
 

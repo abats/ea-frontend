@@ -101,10 +101,10 @@
             <app-orderdisplay activeOrder="{{order}}" order="name" orderReverse="{{orderReverse}}"></app-orderdisplay>
             Show
           </th>
-          <th (click)="setOrder('unseen_episodes')" class="hidden-xs">
+          <th (click)="setOrder('unseen_episodes')" class="">
             <app-orderdisplay activeOrder="{{order}}" order="unseen_episodes" orderReverse="{{orderReverse}}"></app-orderdisplay>
             Unseen</th>
-          <th (click)="setOrder('season_amount')">
+          <th (click)="setOrder('season_amount')" class="hidden-xs">
             <app-orderdisplay activeOrder="{{order}}" class="hidden-xs" order="season_amount" orderReverse="{{orderReverse}}"></app-orderdisplay>
             Seasons
           </th>
@@ -121,7 +121,7 @@
           <td>
             <i class="fa fa-angle-right series-indicator" aria-hidden="true"></i>
             <a [routerLink]="['/series', series.unique_name]">
-                <span class="title truncate" title="{{series.name}}">
+                <span class="truncate" title="{{series.name}}">
                     {{ series.name }}
                 </span>
             </a>
