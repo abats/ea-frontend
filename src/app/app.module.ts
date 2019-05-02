@@ -1,3 +1,4 @@
+import { ToastrModule } from 'ngx-toastr';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -5,7 +6,6 @@ import { AppComponent } from './app.component';
 import { SeriesService } from './services/series.service';
 import { HomeComponent } from './home/home.component';
 import { SeriesComponent } from './series/series.component';
-import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes} from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -29,38 +29,8 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { TestComponent} from './test/test.component';
 import { BrowseModule} from './browse/browse.module';
 import { ProfileModule } from './profile/profile.module';
+import { RegisterUserComponent } from './user/register-user/register.user.component';
 
-
-const routes: Routes = [
-    {
-      path: 'series/:uniqueName',
-      component: SeriesComponent
-    },
-    {
-      path: 'series/genre/:genre',
-      data: {animation: 'HomePage'},
-      loadChildren: () => BrowseModule
-    },
-    {
-      path: 'myshows',
-      data: {animation: 'HomePage'},
-      loadChildren: () => MyshowsModule
-    },
-    {
-      path: 'profile',
-      loadChildren: () => ProfileModule
-    },
-    {
-      path: 'guide',
-      data: {animation: 'GuidePage'},
-      loadChildren: () => GuideModule
-    },
-    {
-      path: '',
-      data: {animation: 'HomePage'},
-      component: HomeComponent
-    }
-];
 
 @NgModule({
   declarations: [
@@ -74,6 +44,7 @@ const routes: Routes = [
     FanartPipe,
     FilterByPipe,
     LimitToPipe,
+    RegisterUserComponent,
     TestComponent
   ],
   imports: [
@@ -85,7 +56,6 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
     TooltipModule.forRoot(),
@@ -93,7 +63,14 @@ const routes: Routes = [
     TabsModule.forRoot(),
     WebStorageModule.forRoot(),
     NgxWebstorageModule.forRoot(),
-    SortablejsModule.forRoot({ animation: 150 })
+    SortablejsModule.forRoot({ animation: 150 }),
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      closeButton: true
+      // progressBar: true
+    })
   ],
   providers: [
     SeriesService
