@@ -4,9 +4,6 @@
   <div class="row profile-filters ng-scope">
 
     <div class="col-md-12 col-lg-12">
-{{showUnseen}}
-      {{showArchive}}
-      {{showEnded}}
       <span class="hidden-xs myshows-filters-label">Filters </span>
       <input type="text" value="lol" [(ngModel)]="search" placeholder="Filter by name">
       <button [ngClass]="{'ea-filter--active' : userFilterSettings.showUnseen}" class="ea-filter" (click)="clickToggleUnseen()">
@@ -93,6 +90,14 @@
             </a>
           </div>
         </li>
+        <!-- stupid hack to solve flexbox last row issues -->
+        <li class="lg-hidden"></li>
+        <li class="lg-hidden"></li>
+        <li class="lg-hidden"></li>
+        <li class="lg-hidden"></li>
+        <li class="lg-hidden"></li>
+        <li class="lg-hidden"></li>
+        <li class="lg-hidden"></li>
       </ul>
 
       <table class="profile-series-list" *ngIf="profileSeries && profileSeriesView == 'list'">
