@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { Series } from '../model/series';
 import { SeriesService } from '../services/series.service';
 import { Title } from '@angular/platform-browser';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-myshows',
@@ -26,9 +27,10 @@ export class MyshowsComponent implements OnInit, OnDestroy {
   private USER_FILTER_SETTINGS_KEY = 'userFilterSettings';
   public userFilterSettings;
 
-  constructor( private seriesService: SeriesService,
-               public authService: AuthService,
-               private titleService: Title) {
+  constructor(  private seriesService: SeriesService,
+                public authService: AuthService,
+                private titleService: Title,
+                private toastr: ToastrService) {
 
     titleService.setTitle('Episode Alert - My Shows');
 
@@ -186,6 +188,13 @@ export class MyshowsComponent implements OnInit, OnDestroy {
     }
   }
 
+  public showToaster() {
+    this.toastr.success('Success', 'Toastr fun!');
+    this.toastr.warning('Warning', 'Toastr fun!');
+    this.toastr.info('Info', 'Toastr fun!');
+    this.toastr.error('Error', 'Toastr fun!');
+  }
+
   ngOnInit() {
     this.order = '';
     this.orderReverse = true;
@@ -194,8 +203,13 @@ export class MyshowsComponent implements OnInit, OnDestroy {
     if (!this.authService.isLoggedIn()) {
       this.authService.getAuth()
         .then((authInfo) => {
-          // console.log(authInfo);
-        });
+          console.log('logged in');
+          console.log(authInfo);
+        })
+        .catch((error) => {
+          console.log('not logged in');
+          console.log(error);
+        })
     }
   }
 

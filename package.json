@@ -32,6 +32,7 @@
     "moment": "^2.24.0",
     "ngx-bootstrap": "^3.1.2",
     "ngx-infinite-scroll": "^7.1.0",
+    "ngx-toastr": "^10.0.2",
     "ngx-webstorage": "^3.0.2",
     "rxjs": "^6.3.3",
     "sortablejs": "^1.8.1",

@@ -17,7 +17,7 @@ export class AuthService {
     this.baseUrl = environment.apiUrl;
     this.authCheckUrl = this.baseUrl + '/auth/check';
     this.loginUrl = this.baseUrl + '/auth/login';
-    this.logoutUrl = this.baseUrl + '/auth/logout'
+    this.logoutUrl = this.baseUrl + '/auth/logout';
     this.user = new User;
   }
 
@@ -69,7 +69,7 @@ export class AuthService {
         this.login (response);
       })
       .catch(this.handleError);
-  }
+}
 
   private handleError(error: any) {
     console.error('An error occurred', error);
