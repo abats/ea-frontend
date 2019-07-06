@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {SeriesService} from '../services/series.service';
 import {Series} from '../model/series';
-import {interval, Subject, Subscription} from 'rxjs';
+import {Subject, Subscription} from 'rxjs';
 import {ActivatedRoute } from '@angular/router';
 import {SeriesBrowseService} from '../services/browse.service';
 
@@ -57,12 +57,24 @@ export class BrowseComponent implements OnInit, OnDestroy {
     this.titleService.setTitle('Episode Alert - Browse series');
   }
 
+  switchGenre() {
+    this.collectExtraPageOnGenreSwitchOrPageLoad();
+  }
+
+  collectExtraPageOnGenreSwitchOrPageLoad() {
+    setTimeout( () => {
+      // collect one more page so users have to scroll
+      this.subject.next({genre: this.genre, page: this.pageNumber++});
+    }, 200);
+  }
+
   onScroll() {
     this.subject.next({genre: this.genre, page: this.pageNumber++});
   }
 
   ngOnInit() {
     this.seriesGenres = this.seriesService.getSeriesGenres();
+    this.collectExtraPageOnGenreSwitchOrPageLoad();
   }
 
   ngOnDestroy() {

@@ -3,7 +3,7 @@
   <div class="series-detail" *ngIf="series">
     <div class="row info-text-top">
       <h1>{{ series.name }}</h1>
-      <app-follow class="spotlight-button-location" [series]="series" [buttonLabel]="series.following ? 'Unfollow' : 'Follow'"></app-follow>
+      <app-follow *ngIf="authService.isLoggedIn()" class="spotlight-button-location" [series]="series" [buttonLabel]="series.following ? 'Unfollow' : 'Follow'"></app-follow>
 
       <p class="hidden-xs hidden-xm">{{ series.description }}</p>
     </div>

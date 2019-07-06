@@ -12,7 +12,7 @@ export class SearchService {
   constructor(private http: HttpClient) {}
 
   search(terms: Observable<string>) {
-    return terms.pipe(debounceTime(400),
+    return terms.pipe(
       distinctUntilChanged(),
       switchMap(term => this.searchEntries(term)));
   }

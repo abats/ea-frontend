@@ -32,8 +32,8 @@
 
                 <hr/>
                 <div class="ea-modal--login--footer">
-                    <div><a href>Forgot password</a></div>
-                    <div>Don't have an account? <a href>Sign up with email</a></div>
+                    <div><a [routerLink]="['/password-recovery']">Forgot password</a></div>
+                    <div>Don't have an account? <a (click)="eaModal.hide()" [routerLink]="['/register']">Sign up with email</a></div>
                 </div>
             </div>
         </div>

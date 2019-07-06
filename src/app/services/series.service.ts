@@ -54,10 +54,6 @@ export class SeriesService {
     return this.http.get<Series[]>(this.topSeriesUrl);
   }
 
-  getSeriesByGenre(genre: string, page: number): Observable<Series[]> {
-    return this.http.get<Series[]>(`${this.seriesByGenre}${genre}/${page}`);
-  }
-
   getSeriesGenres() {
     return [{'genre' : 'action'}, {'genre' : 'adventure'}, {'genre' : 'animation'}, {'genre' : 'comedy'}
       , {'genre' : 'children'}, {'genre' : 'crime'}, {'genre' : 'drama'}, {'genre' : 'documentary'}

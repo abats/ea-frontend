@@ -6,7 +6,7 @@ import {GuideRoutingModule} from './guide.routes';
 import {CommonModule} from '@angular/common';
 import {Title} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NumberPadderPipe} from '../pipes/index';
+import {NumberPadderPipe} from '../pipes';
 import {AppSharedModule} from '../app.shared.module';
 
 @NgModule({
@@ -15,7 +15,7 @@ import {AppSharedModule} from '../app.shared.module';
     NumberPadderPipe
   ],
   exports: [
-    GuideComponent
+    GuideComponent,
   ],
   imports: [
     GuideRoutingModule,

@@ -21,7 +21,14 @@ export class HomeComponent implements OnDestroy {
     private seriesService: SeriesService) {
 
     this.topSeries$ = this.seriesService.getTopSeries().subscribe(topSeriesResponse => {
-      this.spotlightSeries = topSeriesResponse.slice(0, 2);
+      let amountOfSpotLightShows = 2;
+
+      if (!this.authService.isLoggedIn()) {
+        amountOfSpotLightShows = 1;
+      }
+
+      this.spotlightSeries = topSeriesResponse.slice(0, amountOfSpotLightShows);
+
     });
 
     this.trendingSeries$ = this.seriesService.getTrendingSeries().subscribe(trendingSeriesResponse => {

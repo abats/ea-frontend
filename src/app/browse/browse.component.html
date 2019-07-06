@@ -8,9 +8,10 @@
             <a *ngFor="let genre of seriesGenres"
                [routerLink]="['/series/genre/' + genre.genre]"
                [routerLinkActive]="['active']"
-               [routerLinkActiveOptions]>
+               [routerLinkActiveOptions]
+               (click)="switchGenre()">
 
-              {{ genre.genre }}
+                {{ genre.genre }}
             </a>
           </ul>
         </h1>

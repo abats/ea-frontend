@@ -3,7 +3,9 @@ import { Title } from '@angular/platform-browser';
 import { SeriesService } from '../services/series.service';
 import { Series } from '../model/series';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   templateUrl: 'series.component.html',
@@ -17,6 +19,7 @@ export class SeriesComponent implements OnInit, OnDestroy {
   series: Series;
   uniqueName: string;
   seriesUnseenAmount: Array<any>;
+  componentDestroyed$: Subject<boolean> = new Subject();
 
   public tabs: Array<any> = [];
 
@@ -29,7 +32,8 @@ export class SeriesComponent implements OnInit, OnDestroy {
   constructor(
     private titleService: Title,
     private activatedRoute: ActivatedRoute,
-    private seriesService: SeriesService
+    private seriesService: SeriesService,
+    private authService: AuthService
   ) {
 
     titleService.setTitle('Episode Alert - Series detail');
@@ -39,10 +43,15 @@ export class SeriesComponent implements OnInit, OnDestroy {
         this.uniqueName = param.uniqueName;
       });
 
-    this.series$ = this.seriesService.getSingleSeries(this.uniqueName).subscribe(seriesDetails => {
-      this.series = seriesDetails;
-      this.getSeriesInformation();
-    });
+    this.series$ = this.seriesService.getSingleSeries(this.uniqueName).pipe(takeUntil(this.componentDestroyed$))
+      .subscribe(
+        seriesDetails => {
+          this.series = seriesDetails;
+          this.getSeriesInformation();
+        } ,
+        err => {
+          console.log(err);
+        });
 
   }
 
@@ -90,7 +99,8 @@ export class SeriesComponent implements OnInit, OnDestroy {
 
   getSeriesSeason(seriesId: number, seasonNumber: number) {
 
-    this.seriesCurrentSeason$ = this.seriesService.getSeriesSeason(seriesId, seasonNumber).subscribe(seriesSeason => {
+    this.seriesCurrentSeason$ = this.seriesService.getSeriesSeason(seriesId, seasonNumber).pipe(takeUntil(this.componentDestroyed$))
+      .subscribe(seriesSeason => {
       if (this.series.has_specials) {
         this.tabs[seasonNumber].content = seriesSeason;
       } else {
@@ -112,7 +122,8 @@ export class SeriesComponent implements OnInit, OnDestroy {
   }
 
   public getSeriesUnseenAmount() {
-    this.seriesUnseenAmount$ = this.seriesService.getUnseenAmountBySeries( this.series.id, 5).subscribe(
+    this.seriesUnseenAmount$ = this.seriesService.getUnseenAmountBySeries( this.series.id, 5)
+      .pipe(takeUntil(this.componentDestroyed$)).subscribe(
       (unseenAmount) => {
         this.seriesUnseenAmount = unseenAmount;
 
@@ -124,10 +135,7 @@ export class SeriesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
-    this.series$.unsubscribe();
-    // this.seriesSeason$.unsubscribe();
-    this.seriesUnseenAmount$.unsubscribe();
-    this.seriesCurrentSeason$.unsubscribe();
+    this.componentDestroyed$.next();
+    this.componentDestroyed$.complete();
   }
 }

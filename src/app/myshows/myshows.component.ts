@@ -4,6 +4,7 @@ import { Series } from '../model/series';
 import { SeriesService } from '../services/series.service';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
+import {CanActivate} from '@angular/router';
 
 @Component({
   selector: 'app-myshows',
@@ -57,7 +58,6 @@ export class MyshowsComponent implements OnInit, OnDestroy {
     }
 
     this.profileSeriesView =  this.getLocalStorage(this.SERIES_VIEW_LOCAL_STORAGE_KEY) || 'poster';
-
   }
 
   setLocalStorage(item: string, value: any): void {
@@ -80,7 +80,6 @@ export class MyshowsComponent implements OnInit, OnDestroy {
 
     return newArray;
   }
-
 
   getProfileSeries() {
     this.series$ = this.seriesService.getProfileSeries().subscribe(

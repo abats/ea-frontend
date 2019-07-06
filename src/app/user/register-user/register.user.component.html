@@ -2,52 +2,74 @@
     <div class="row">
         <div  class="col-md-12 col-lg-12">
             <p class="user-greeting">
-                Hi there and welcome to Episode Alert.
-                Please register with your e-mail address and password to become a member and start following amazing TV Series.
+              Hi there and welcome to Episode Alert.
+              Please register with your e-mail address and password to become a member and start following amazing TV Series.
+              If you forgot your password please <a [routerLink]="['/password-recovery']">recover it through this link</a>
             </p>
         </div>
     </div>
 </div>
 
 <div class="container">
-    <div class="row">
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="row">
         <div class="col-lg-12">
-            <h1>
-                Register with e-mail and password
-            </h1>
+          <h1>
+            Register/login with your social account
+          </h1>
+          <p>Register and never miss an episode of your favorite TV show again!</p>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+            <app-google-login-ea></app-google-login-ea>
+        </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-lg-5">
-            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label> E-mail address
-                        <input id="email" type="email" class="form-control" formControlName="email">
-                    </label>
-
-                </div>
-                <div class="form-group">
-                    <label>
-                        Password
-                        <input id="password" type="password" class="form-control" formControlName="password">
-                    </label>
-                    <label>
-                        Confirm Password
-                        <input id="confirmPassword" type="password" class="form-control"
-                            formControlName="confirmPassword">
-                    </label>
-                </div>
-
-                <button type="submit" [disabled]="!registerForm.valid"
-                    class="btn btn-default btn-bright">Register</button>
-            </form>
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>
+            Register with e-mail and password
+          </h1>
         </div>
-        <div class="col-lg-7 warning-col-padding">
-            <div class="alert alert-warning" *ngIf="registerForm.controls.confirmPassword.errors?.MatchPassword">
-                Passwords don't match
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label> E-mail address
+                <input id="email" type="email" class="form-control" formControlName="email">
+              </label>
+
             </div>
-            <div class="alert alert-warning" *ngIf="registerForm.controls.email.errors?.email">
-                E-mail address is not valid</div>
+            <div class="form-group">
+              <label>
+                Password
+                <input id="password" type="password" class="form-control" formControlName="password">
+              </label>
+              <label>
+                Confirm Password
+                <input id="password_confirmation" type="password" class="form-control"
+                       formControlName="password_confirmation">
+              </label>
+            </div>
+
+            <button type="submit" [disabled]="!registerForm.valid"
+                    class="btn btn-default btn-bright">Register</button>
+          </form>
         </div>
+        <div class="col-lg-6 warning-col-padding">
+          <div class="alert alert-warning" *ngIf="registerForm.controls.password_confirmation.errors?.MatchPassword">
+            Passwords don't match
+          </div>
+          <div class="alert alert-warning" *ngIf="registerForm.controls.email.errors?.email">
+            E-mail address is not valid</div>
+        </div>
+      </div>
     </div>
+  </div>
+
 </div>

@@ -18,6 +18,19 @@
     border-left: 5px solid #a94442; /* red */
 }
 
+a:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a{
+  color: $light-text;
+  text-transform: uppercase;
+  top: 6px;
+  font-size: 15px;
+  padding: 0px 0px 2px 0px;
+}
+
 .ea-modal{
 
     &--login{
@@ -35,8 +48,6 @@
                 letter-spacing: 0.1em;
             }
         }
-
-
 
         i{
             line-height: 54px !important;

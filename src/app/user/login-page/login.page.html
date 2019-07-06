@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div  class="col-md-12 col-lg-12">
+      <p class="user-greeting">
+        Hi there and welcome to Episode Alert.
+        Please login with your e-mail address and password. If you forgot your password please <a [routerLink]="['/password-recovery']">recover it through this link</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>
+            Login with your social account
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <app-google-login-ea></app-google-login-ea>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>
+            Login with e-mail and password
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          Login form
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

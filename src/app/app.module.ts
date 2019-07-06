@@ -7,7 +7,6 @@ import { SeriesService } from './services/series.service';
 import { HomeComponent } from './home/home.component';
 import { SeriesComponent } from './series/series.component';
 import { AppRoutingModule } from './app-routing.module';
-import { RouterModule, Routes} from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -20,16 +19,18 @@ import { SearchComponent } from './search/search.component';
 import { SeenbuttonComponent } from './buttons/seen/seen-button.component';
 import { FollowbuttonComponent } from './buttons/follow/follow-button.component';
 import { WebStorageModule } from 'h5webstorage';
-import { GuideModule } from './guide/guide.module';
-import { MyshowsModule } from './myshows/myshows.module';
 import { AppSharedModule } from './app.shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SortablejsModule } from 'angular-sortablejs';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { TestComponent} from './test/test.component';
-import { BrowseModule} from './browse/browse.module';
-import { ProfileModule } from './profile/profile.module';
 import { RegisterUserComponent } from './user/register-user/register.user.component';
+import { PasswordRecoveryComponent } from './user/password-recovery/password.recovery.component';
+import { UserWelcomeComponent } from './home/user-welcome/user.welcome.component';
+import { AuthGuardService } from './services/auth.guard.service';
+import { GoogleLoginEaComponent } from './user/google-login-ea/google.login.ea.component';
+import {AuthService} from './services/auth.service';
+import {LoginPageComponent} from './user/login-page/login.page.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { RegisterUserComponent } from './user/register-user/register.user.compon
     AppComponent,
     LoginComponent,
     HomeComponent,
+    UserWelcomeComponent,
     SeriesComponent,
     SearchComponent,
     SeenbuttonComponent,
@@ -45,12 +47,14 @@ import { RegisterUserComponent } from './user/register-user/register.user.compon
     FilterByPipe,
     LimitToPipe,
     RegisterUserComponent,
+    PasswordRecoveryComponent,
+    GoogleLoginEaComponent,
+    LoginPageComponent,
     TestComponent
   ],
   imports: [
     BrowserAnimationsModule,
     AppSharedModule,
-    GuideModule,
     ReactiveFormsModule,
     BrowserModule,
     FormsModule,
@@ -73,7 +77,9 @@ import { RegisterUserComponent } from './user/register-user/register.user.compon
     })
   ],
   providers: [
-    SeriesService
+    SeriesService,
+    AuthGuardService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

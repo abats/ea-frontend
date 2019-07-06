@@ -17,10 +17,9 @@
         <app-search></app-search>
         <ul class="nav navbar-nav">
           <li><a [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
-          <li><a [routerLink]="['/guide']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">GUIDE</a></li>
-          <li><a [routerLink]="['/myshows']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">MY SHOWS</a></li>
-          <!--<li><a [routerLink]="['/profile']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">PROFILE</a></li>-->
-
+          <li><a *ngIf="authService.isLoggedIn()" [routerLink]="['/guide']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">GUIDE</a></li>
+          <li><a *ngIf="!authService.isLoggedIn()" [routerLink]="['/register']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Register</a></li>
+          <li><a *ngIf="authService.isLoggedIn()" [routerLink]="['/myshows']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">MY SHOWS</a></li>
           <li *ngIf="authService.isLoggedIn()" class="" >
             <div class="dropdown user-dropdown" dropdown >
 
@@ -32,16 +31,14 @@
               <ul class="dropdown-menu"  aria-labelledby="dropdownMenu1">
                 <li><a [routerLink]="['/profile']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Profile</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Settings</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#" (click)="authService.logout()">Logout</a></li>
+                <li><a (click)="authService.logout()">Logout</a></li>
               </ul>
 
             </div>
           </li>
 
           <li *ngIf="!authService.isLoggedIn()">
-            <a href="#"><app-login-form></app-login-form></a>
+            <a><app-login-form></app-login-form></a>
           </li>
 
         </ul>
@@ -64,8 +61,8 @@
           <ul class="nav-small">
             <li class="nav-item"><a class="nav-link" [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
             <li class="nav-item"><a class="nav-link" [routerLink]="['/series/genre/action']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">BROWSE SERIES</a></li>
-            <li class="nav-item"><a class="nav-link" [routerLink]="['/guide']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">GUIDE</a></li>
-            <li class="nav-item"><a class="nav-link" [routerLink]="['/myshows']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">MY SHOWS</a></li>
+            <li class="nav-item"><a *ngIf="authService.isLoggedIn()" class="nav-link" [routerLink]="['/guide']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">GUIDE</a></li>
+            <li class="nav-item"><a *ngIf="authService.isLoggedIn()" class="nav-link" [routerLink]="['/myshows']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">MY SHOWS</a></li>
             <li class="nav-item"><a class="nav-link" [routerLink]="['/contact']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">CONTACT</a></li>
           </ul>
         </div>

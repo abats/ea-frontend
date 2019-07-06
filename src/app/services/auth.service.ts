@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user';
 import { environment } from '../../environments/environment';
+import {CanActivate, Router} from '@angular/router';
 
 @Injectable()
-export class AuthService {
+export class AuthService{
   private user: User;
   private testValue: string;
   private baseUrl: string;
   private authCheckUrl: string;
   private loginUrl: string;
   private logoutUrl: string;
+  private registerUrl: string;
 
   constructor(
     private http: HttpClient) {
@@ -18,7 +20,9 @@ export class AuthService {
     this.authCheckUrl = this.baseUrl + '/auth/check';
     this.loginUrl = this.baseUrl + '/auth/login';
     this.logoutUrl = this.baseUrl + '/auth/logout';
+    this.registerUrl = this.baseUrl + '/auth/register';
     this.user = new User;
+
   }
 
   public getTestValue() {
@@ -35,6 +39,20 @@ export class AuthService {
 
   public isLoggedIn() {
     return localStorage.getItem('authenticated');
+  }
+
+  /*
+   * registration for non google users
+   */
+  registerEmailUser( formData) {
+    console.log(formData);
+
+    return this.http.post(this.registerUrl, formData)
+      .toPromise()
+      .then(response => {
+        console.log(response);
+      })
+      .catch(this.handleError);
   }
 
   logout() {
@@ -62,11 +80,16 @@ export class AuthService {
       .catch(this.handleError);
   }
 
-  getAuth(): Promise<void> {
+  getAuth(): Promise<any> {
     return this.http.get(this.authCheckUrl,  { withCredentials: true })
       .toPromise()
       .then(response => {
-        this.login (response);
+        const data: any = response;
+        if ( data.flash ) {
+          this.logout();
+        } else if ( data.accountname ) {
+          this.login (data);
+        }
       })
       .catch(this.handleError);
 }

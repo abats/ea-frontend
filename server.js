@@ -6,7 +6,8 @@ const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
 
 // response objects
-const POST_LOGIN_RESPONSE = {"id":"4291","accountname":"henkigek","thirdparty":false};
+const POST_REGISTER_RESPONSE = {"flash":"Thanks for registering!"};
+const POST_LOGIN_RESPONSE = {"id": "4291", "accountname": "henkigek", "thirdparty": false};
 const POST_ORDER_RESPONSE = {};
 
 server.use(middlewares);
@@ -22,18 +23,23 @@ server.use((req, res, next) => {
     // login response for non openid users
     if (req.url === '/login') {
       res.status(200).jsonp(POST_LOGIN_RESPONSE);
-res.end();
-}else if (req.url === '/order'){
+      res.end();
+    } else if (req.url === '/order') {
 
-  // response for ordering post
-  res.status(200).jsonp(POST_ORDER_RESPONSE);
-  res.end();
+      // response for ordering post
+      res.status(200).jsonp(POST_ORDER_RESPONSE);
+      res.end();
 
-}
+    } else if (req.url === '/api/auth/register') {
+      // reponse for registering non open id users
+      res.status(200).jsonp(POST_REGISTER_RESPONSE);
+      res.end();
+    }
 
-}else{
-  next()
-}
+
+  } else {
+    next()
+  }
 
 });
 

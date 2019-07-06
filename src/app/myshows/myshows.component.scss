@@ -173,6 +173,20 @@
   }
 }
 
+.archived{
+  opacity: 0.50;
+}
+
+.archived--indicator{
+  top: 70px;
+  position: absolute;
+  background-color: rgba(54, 54, 54, 0.5);
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  text-transform: uppercase;
+}
+
 .series-indicator {
   position: absolute;
   left: 2px;
