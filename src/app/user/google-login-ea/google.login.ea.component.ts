@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class GoogleLoginEaComponent implements OnInit {
-  private state: string;
-  private client_id: string;
-  private googleRedirectURI: string;
+  public state: string;
+  public client_id: string;
+  public googleRedirectURI: string;
 
   constructor() {
     // It would be better if the state came from a service on demand so it can't expire
