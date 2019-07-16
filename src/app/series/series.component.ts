@@ -122,7 +122,13 @@ export class SeriesComponent implements OnInit, OnDestroy {
   }
 
   public getSeriesUnseenAmount() {
-    this.seriesUnseenAmount$ = this.seriesService.getUnseenAmountBySeries( this.series.id, 5)
+    let unseenAmountSeasons: number;
+    if (this.series.has_specials) {
+      unseenAmountSeasons = this.series.season_amount - 1;
+    } else {
+      unseenAmountSeasons = this.series.season_amount;
+    }
+    this.seriesUnseenAmount$ = this.seriesService.getUnseenAmountBySeries( this.series.id, unseenAmountSeasons)
       .pipe(takeUntil(this.componentDestroyed$)).subscribe(
       (unseenAmount) => {
         this.seriesUnseenAmount = unseenAmount;
