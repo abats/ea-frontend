@@ -39,9 +39,8 @@ export class MyshowsComponent implements OnInit, OnDestroy {
       handle: '.handle',
       onUpdate: (event: any) => {
         // switch items
-       const newOrderArray =  {'order' : this.switchArrayItemsSeries(event.newIndex, event.oldIndex) };
-       const newOrderJsonString = JSON.stringify(newOrderArray);
-       seriesService.updateSeriesProfileOrder(newOrderJsonString).subscribe();
+       const newOrderArray = this.switchArrayItemsSeries(event.newIndex, event.oldIndex);
+       seriesService.updateSeriesProfileOrder(newOrderArray).subscribe();
       }
     };
 

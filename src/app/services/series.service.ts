@@ -138,7 +138,8 @@ export class SeriesService {
   */
 
   updateSeriesProfileOrder(order) {
-    return this.http.post( this.seriesProfileOrderURL,  order);
+    return this.http.post( this.seriesProfileOrderURL, {
+      'order' : order });
   }
 
 
