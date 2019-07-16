@@ -1,28 +1,11 @@
 @import '../variables';
 
-
-:host{
+.search-wrapper{
   position: relative;
+  float: left;
 }
 
 .search-results {
-
-  @media(max-width: $screen-xs-max){
-    left: 0px;
-    top: -13px;
-    width: 381px;
-  }
-
-  @media(min-width: $screen-sm){
-    width: 342px;
-    left: -357px;
-  }
-
-  @media(min-width: $screen-md){
-    left: -417px;
-    width: 402px;
-  }
-
   position: absolute;
   z-index: 100;
   width: 402px;
@@ -30,7 +13,7 @@
   height: 580px;
   overflow: scroll;
   top: 50px;
-  left: -417px;
+  left: 15px;
   list-style-type: none;
   padding-left: 0px;
 
@@ -60,6 +43,7 @@
 }
 
 .form-control-search {
+  display: block;
   font-family: 'Lato', sans-serif;
   font-size: 17px;
   font-weight: 300;

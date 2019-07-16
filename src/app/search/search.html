@@ -1,26 +1,23 @@
-<div class="navbar-form navbar-left">
-    <div class="input-group" >
-        <input class="form-control form-control-search" placeholder="Search" [(ngModel)]="searchField" (keyup)="searchTerm$.next($event.target.value)">
-        <span class="input-group-btn">
-            <button type="submit" class="btn btn-default btn-search" ><span class="fa fa-search"></span></button>
-        </span>
-    </div>
+<div class="search-wrapper">
+  <div class="navbar-form navbar-left">
+      <div class="input-group" >
+          <input class="form-control form-control-search" placeholder="Search" [(ngModel)]="searchField" (keyup)="searchTerm$.next($event.target.value)">
+          <span class="input-group-btn">
+              <button type="submit" class="btn btn-default btn-search" ><span class="fa fa-search"></span></button>
+          </span>
+      </div>
+  </div>
+  <ul class="search-results" *ngIf="series && searchField.length > 0">
+      <li *ngFor="let series of series">
+          <img class="img-responsive"
+               src="{{ series.poster_image | asUrlPipe : series.unique_name : 'small'  }}"
+               alt="{{ series.name }}"/>
+          <a href="/series/{{ series.unique_name }}">
+              {{ series.name }}
+          </a>
+          {{ (series.firstaired !== null) ? '(' + ( series.firstaired | asLimitTo: '4' ) + ')' : "" }}
+          <br/>
+          {{ series.season_amount }} seasons
+      </li>
+  </ul>
 </div>
-
-<ul class="search-results" *ngIf="series && searchField.length > 0">
-    <li *ngFor="let series of series">
-        <img class="img-responsive"
-             src="{{ series.poster_image | asUrlPipe : series.unique_name : 'small'  }}"
-             alt="{{ series.name }}"/>
-
-        <a href="/series/{{ series.unique_name }}">
-            {{ series.name }}
-        </a>
-
-        {{ (series.firstaired !== null) ? '(' + ( series.firstaired | asLimitTo: '4' ) + ')' : "" }}
-
-        <br/>
-
-        {{ series.season_amount }} seasons
-    </li>
-</ul>
