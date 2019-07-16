@@ -2,10 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { SeriesComponent } from './series/series.component';
-import { BrowseModule } from './browse/browse.module';
-import { MyshowsModule } from './myshows/myshows.module';
-import { ProfileModule } from './profile/profile.module';
-import { GuideModule } from './guide/guide.module';
 import { HomeComponent } from './home/home.component';
 import { RegisterUserComponent } from './user/register-user/register.user.component';
 import { PasswordRecoveryComponent } from './user/password-recovery/password.recovery.component';
@@ -24,24 +20,24 @@ const routes: Routes = [
   {
     path: 'series/genre/:genre',
     data: { animation: 'HomePage' },
-    loadChildren: () => BrowseModule
+    loadChildren: './browse/browse.module#BrowseModule'
   },
   {
     path: 'myshows',
     canActivate: [AuthGuard],
     data: { animation: 'HomePage' },
-    loadChildren: () => MyshowsModule
+    loadChildren: './myshows/myshows.module#MyshowsModule'
   },
   {
     path: 'profile',
     canActivate: [AuthGuard],
-    loadChildren: () => ProfileModule
+    loadChildren: './profile/profile.module#ProfileModule'
   },
   {
     path: 'guide',
     canActivate: [AuthGuard],
     data: { animation: 'GuidePage' },
-    loadChildren: () => GuideModule
+    loadChildren: './guide/guide.module#GuideModule'
   },
   {
     path: 'register',

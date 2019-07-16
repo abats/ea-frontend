@@ -1,38 +1,44 @@
 @import '../../variables';
 
-h1{
-  font-size: 125%;
-  font-weight: 500;
-}
+.user-welcome{
+  height: 100%;
+  box-model: border-box;
 
-p{
-  font-size: 120%;
-  font-weight: 400;
-  color: #fff;
-}
+  h1{
+    font-size: 125%;
+    font-weight: 500;
+  }
 
-span{
-  text-align: center;
-  font-size: 80%;
-  display: block;
-}
+  p{
+    font-size: 120%;
+    font-weight: 400;
+    color: #fff;
+  }
 
-button{
-  background-color: darken($bright-highlight, 5%) !important;
-  width: 280px;
-  color: #fff !important;
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  letter-spacing: 0.10em;
-  padding-left: 15px;
-  padding-right: 15px;
-  height: 50px;
-  margin-top: 10px;
-}
+  span{
+    text-align: center;
+    font-size: 80%;
+    display: block;
+  }
 
-.welcome-text{
-  padding: 20px;
-  font-size: 150%;
+  button{
+    background-color: darken($bright-highlight, 5%) !important;
+    width: 280px;
+    color: #fff !important;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.10em;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 50px;
+    margin-top: 10px;
+  }
+
+  .welcome-text{
+    padding: 20px;
+    font-size: 150%;
+  }
+
 }
 
