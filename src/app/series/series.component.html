@@ -57,7 +57,7 @@
                 <td class="episode-table-number">{{ episode.episode }}</td>
                 <td class="episode-table-description">{{ episode.name }}</td>
                 <td>{{ episode.airdate }}</td>
-                <td><app-seen [seen]="episode.seen" [episode]="episode" [buttonLabel]="episode.seen ? 'Unsee' : 'Seen'"></app-seen></td>
+                <td><app-seen (seenUpdatedEmitter)="onUpdateSeen($event)" [seen]="episode.seen" [episode]="episode" [buttonLabel]="episode.seen ? 'Unsee' : 'Seen'"></app-seen></td>
               </tr>
             </table>
           </tab>

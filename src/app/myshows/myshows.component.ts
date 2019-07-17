@@ -27,6 +27,10 @@ export class MyshowsComponent implements OnInit, OnDestroy {
   private SERIES_VIEW_LOCAL_STORAGE_KEY = 'seriesView';
   private USER_FILTER_SETTINGS_KEY = 'userFilterSettings';
   public userFilterSettings;
+  /*
+   * Adding a typescript function to the view to encode series url
+   */
+  public encodeMe = encodeURI;
 
   constructor(  private seriesService: SeriesService,
                 public authService: AuthService,

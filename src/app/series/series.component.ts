@@ -28,6 +28,8 @@ export class SeriesComponent implements OnInit, OnDestroy {
   private seriesSeason$;
   private seriesUnseenAmount$;
   private seriesCurrentSeason$;
+  agreed = 0;
+  disagreed = 0;
 
   constructor(
     private titleService: Title,
@@ -56,6 +58,11 @@ export class SeriesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+  }
+
+  onUpdateSeen(e) {
+    console.log('update from the seen button');
+    this.getSeriesUnseenAmount();
   }
 
   createSeriesSeasonTabs(seasonAmount) {

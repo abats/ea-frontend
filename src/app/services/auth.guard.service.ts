@@ -12,7 +12,6 @@ export class AuthGuardService implements CanActivate {
     private toaster: ToastrService) {}
 
   canActivate(): boolean {
-    console.log('check if we can go');
     if (!this.authService.isLoggedIn()) {
       this.toaster.error('Please login or register to access this page', 'Not logged in', {
         positionClass: 'toast-top-full-width'
