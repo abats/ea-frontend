@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import {Routes, RouterModule, UrlSerializer, UrlTree, DefaultUrlSerializer} from '@angular/router';
 import { SeriesComponent } from './series/series.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterUserComponent } from './user/register-user/register.user.component';
@@ -56,15 +56,29 @@ const routes: Routes = [
   }
 ];
 
+export class CustomUrlSerializer implements UrlSerializer {
+  parse(url: any): UrlTree {
+    const dus = new DefaultUrlSerializer();
+    return dus.parse(url);
+  }
+  serialize(tree: UrlTree): any {
+    const dus = new DefaultUrlSerializer(),
+      path = dus.serialize(tree);
+    return path;
+  }
+}
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
     CommonModule
   ],
+  providers: [
+    { provide: UrlSerializer, useClass: CustomUrlSerializer }
+  ],
   exports: [
     RouterModule
   ]
 })
-
 
 export class AppRoutingModule { }

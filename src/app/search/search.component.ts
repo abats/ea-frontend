@@ -17,6 +17,11 @@ export class SearchComponent implements OnInit {
     series: Series[];
     searchTerm$ = new Subject<string>();
 
+    /*
+    * Adding a typescript function to the view to encode series url
+    */
+    public encodeMe = encodeURI;
+
     constructor(private searchService: SearchService) {
       this.searchService.search(this.searchTerm$)
         .subscribe(results => {

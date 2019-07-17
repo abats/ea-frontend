@@ -77,7 +77,7 @@
           <p class="archived--indicator" *ngIf="series.archive">archived</p>
 
           <div class="series-img">
-            <a [routerLink]="['/series', encodeMe(series.unique_name)]">
+            <a [routerLink]="['/series',series.unique_name]">
               <img class="img-responsive"
                    src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
                    alt="{{ series.name }}"/>
@@ -85,7 +85,7 @@
             <app-badge class="myshows--badge" color="red" content="{{series.unseen_episodes}}"></app-badge>
           </div>
           <div class="series-info">
-            <a [routerLink]="['/series', encodeMe(series.unique_name)]">
+            <a [routerLink]="['/series',series.unique_name]">
                 <span class="title truncate" title="{{series.name}}">
                     {{ series.name }}
                 </span>

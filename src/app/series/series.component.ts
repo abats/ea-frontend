@@ -25,11 +25,8 @@ export class SeriesComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
   private series$;
-  private seriesSeason$;
   private seriesUnseenAmount$;
   private seriesCurrentSeason$;
-  agreed = 0;
-  disagreed = 0;
 
   constructor(
     private titleService: Title,

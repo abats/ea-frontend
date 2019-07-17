@@ -12,7 +12,7 @@
           <img class="img-responsive"
                src="{{ series.poster_image | asUrlPipe : series.unique_name : 'small'  }}"
                alt="{{ series.name }}"/>
-          <a href="/series/{{ series.unique_name }}">
+          <a href="/series/{{ encodeMe(series.unique_name) }}">
               {{ series.name }}
           </a>
           {{ (series.firstaired !== null) ? '(' + ( series.firstaired | asLimitTo: '4' ) + ')' : "" }}
