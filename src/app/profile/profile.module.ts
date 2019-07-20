@@ -6,6 +6,7 @@ import { Title } from '@angular/platform-browser';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
   imports: [
     ProfileRoutingModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     TabsModule.forRoot()
   ],
   exports: [

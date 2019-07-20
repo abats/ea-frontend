@@ -49,8 +49,6 @@ export class AuthService{
    * registration for non google users
    */
   registerEmailUser( formData) {
-    console.log(formData);
-
     return this.http.post(this.registerUrl, formData)
       .toPromise()
       .then(response => {
@@ -75,8 +73,6 @@ export class AuthService{
   }
 
   loginUser(userCredentials): Promise <any> {
-    console.log('login');
-    console.log(userCredentials);
     return this.http.post(this.loginUrl, userCredentials)
       .toPromise()
       .then(response => {
