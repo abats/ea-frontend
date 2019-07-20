@@ -41,6 +41,10 @@ export class AuthService{
     return localStorage.getItem('authenticated');
   }
 
+  public isThirdParty() {
+    return this.user.thirdparty;
+  }
+
   /*
    * registration for non google users
    */
@@ -66,6 +70,7 @@ export class AuthService{
 
   login(response) {
     this.user.name = response.accountname;
+    this.user.thirdparty = response.thirdparty;
     localStorage.setItem('authenticated', 'true');
   }
 

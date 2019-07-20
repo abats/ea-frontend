@@ -297,6 +297,10 @@ a:focus {
 
 .dropdown-menu {
   min-width: 50px;
+
+  li{
+    cursor: pointer;
+  }
 }
 
 .user-dropdown,
