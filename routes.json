@@ -11,6 +11,7 @@
   "/api/follow/81189": "/follow",
   "/api/unfollow/81189": "/unfollow",
   "/profile/following": "/following",
+  "/api/profile" : "/profile",
   "/api/profile/stats?from=*&to=*": "/stats_with_filter",
   "/api/profile/stats": "/stats",
   "/api/profile/order": "/order",
