@@ -69,7 +69,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   }
 
   .spotlight{
-
+    vertical-align: top;
     width: 50%;
     position: relative;
     display: inline-block;
@@ -252,14 +252,6 @@ ul{
   }
 }
 
-.splash-fanart-fade {
-  width: 100%;
-  height: 100%;
-  background: transparent url('/img/fanart-fade.png') repeat;
-  display: block;
-  position: absolute;
-}
-
 .marketing {
   text-align: center;
   width: 100%;
@@ -309,7 +301,6 @@ ul{
 
   span{
     display: block;
-
   }
 
   .title{

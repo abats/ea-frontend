@@ -1,14 +1,17 @@
 <div class="user-welcome">
   <p>Sign up to <strong>Episode Alert</strong> and:</p>
-  <ol>
-    <li>Follow your favorite TV shows</li>
-    <li>Get notified on new episodes releases</li>
-    <li>Keep track of all your shows</li>
-  </ol>
-  <button>
+  <div class="ol-wrapper">
+    <ol>
+      <li>Follow your favorite TV shows</li>
+      <li>Get notified on new episodes releases</li>
+      <li>Keep track of all your shows</li>
+    </ol>
+  </div>
+  <button [routerLink]="['/register']" class="btn">
     Sign up
   </button>
   <span>
-    Already have an acount? <a>Sign in.</a>
+     Already have an acount? <a><app-login-form></app-login-form></a>
   </span>
+
 </div>

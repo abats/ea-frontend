@@ -1,27 +1,52 @@
 @import '../../variables';
 
 .user-welcome{
+  margin-top: 20px;
+  text-align: center;
   height: 100%;
-  box-model: border-box;
+
+  .ol-wrapper{
+    display: inline-block;
+    max-width: 75%;
+    text-align: center;
+  }
+
+  ol {
+    display: block;
+  }
+
+  li{
+    line-height: 150%;
+    text-align: left;
+  }
+
+  li::before {
+    content: "";
+    width: 20px;
+    display: inline-block;
+  }
 
   h1{
-    font-size: 125%;
+    font-size: 165%;
     font-weight: 500;
   }
 
   p{
-    font-size: 120%;
+    font-size: 140%;
     font-weight: 400;
     color: #fff;
   }
 
   span{
     text-align: center;
-    font-size: 80%;
+    font-size: 120%;
     display: block;
   }
 
   button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
     background-color: darken($bright-highlight, 5%) !important;
     width: 280px;
     color: #fff !important;
@@ -32,13 +57,12 @@
     padding-left: 15px;
     padding-right: 15px;
     height: 50px;
-    margin-top: 10px;
+    display: inline-block;
   }
 
   .welcome-text{
     padding: 20px;
     font-size: 150%;
   }
-
 }
 

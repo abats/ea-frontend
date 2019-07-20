@@ -1,6 +1,15 @@
 <!-- authorised user -->
 <app-userstats class="hidden-xs" *ngIf="authService.isLoggedIn()" state="all"></app-userstats>
 
+<div class="container" *ngIf="!authService.isLoggedIn()">
+  <div class="row">
+    <div class="col-md-12 col-lg-12" style="height: 20px;" >
+     <!-- temporary spacer solution -->
+
+    </div>
+  </div>
+</div>
+
 <div class="row-ea">
   <div class="container">
     <div class="row">
@@ -12,9 +21,9 @@
       <div class="col-md-12 col-lg-12">
 
         <ul class="home-banners">
-          <li *ngIf="!authService.isLoggedIn()">
+          <li *ngIf="!authService.isLoggedIn()" class="spotlight">
             <!-- anonymous user -->
-            <app-user-welcome ></app-user-welcome>
+            <app-user-welcome></app-user-welcome>
           </li>
           <li *ngFor="let series of spotlightSeries; let i=index" class="spotlight">
             <a [routerLink]="['/series', series.unique_name]">
@@ -30,12 +39,11 @@
               <span class="home-banners-season hidden-xs"> Season {{ series.season_amount }} </span>
               <h3 class="title">{{ series.name }} </h3>
             </a>
-            <app-follow class="spotlight-button-location hidden-xs" [series]="series" *ngIf="i < 2 && authService.isLoggedIn()"
+            <app-follow class="spotlight-button-location hidden-xs" [series]="series"
+                        *ngIf="i < 2 && authService.isLoggedIn()"
                         [buttonLabel]="series.following ? 'Unfollow' : 'Follow'"></app-follow>
-
           </li>
         </ul>
-
       </div>
     </div>
   </div>
