@@ -15,28 +15,32 @@ export class SeenbuttonComponent implements OnDestroy  {
     @Input() episode: any;
     @Input() buttonLabel: string;
     @Input() seen: boolean;
-    @Output() seenUpdatedEmitter = new EventEmitter<boolean>();
+    @Output() seenUpdatedEmitter = new EventEmitter<any>();
 
     private episodeSeen$ = new Subscription();
 
     constructor( private seriesService: SeriesService ) {
     }
 
-    seenUpdated() {
-      this.seenUpdatedEmitter.emit(true);
+    seenUpdated(seenShows: any) {
+      this.seenUpdatedEmitter.emit({ episodes: seenShows, seen: 'seen'});
+    }
+
+    unseenUpdated(unseenShows: any) {
+      this.seenUpdatedEmitter.emit({ episodes: unseenShows, seen: 'unseen'});
     }
 
     toggleSeen(mode) {
-      this.episodeSeen$ = this.seriesService.seenEpisode(this.episode.id, mode).subscribe( response => {
+      this.episodeSeen$ = this.seriesService.seenEpisode(this.episode.id, mode).subscribe( seenShows => {
         this.episode.seen = !this.episode.seen;
-        this.seenUpdated();
+        this.seenUpdated(seenShows);
       });
     }
 
     toggleUnseen(mode) {
-      this.episodeSeen$ = this.seriesService.unseeEpisode(this.episode.id, mode).subscribe( response => {
+      this.episodeSeen$ = this.seriesService.unseeEpisode(this.episode.id, mode).subscribe( unseenShows => {
         this.episode.seen = !this.episode.seen;
-        this.seenUpdated();
+        this.unseenUpdated(unseenShows);
       });
     }
 

@@ -12,6 +12,7 @@ import {AuthService} from '../services/auth.service';
 export class HomeComponent implements OnDestroy {
   public spotlightSeries: Series[];
   public trendingSeries: Series[];
+  public editorPicks: Series[];
 
   private topSeries$;
   private trendingSeries$;
@@ -28,6 +29,7 @@ export class HomeComponent implements OnDestroy {
       }
 
       this.spotlightSeries = topSeriesResponse.slice(0, amountOfSpotLightShows);
+      this.editorPicks = topSeriesResponse.slice(2, 5);
 
     });
 

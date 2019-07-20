@@ -183,7 +183,9 @@ a:focus {
 
   @media (min-width: $screen-md) and (max-width: $screen-lg) {
     .navbar-nav > li {
-      padding: 14px 1px 8px 5px !important;
+      font-size: 12px;
+      color:red !important;
+      padding: 14px 1px 4px 2px !important;
     }
   }
 
@@ -193,8 +195,25 @@ a:focus {
     }
   }
 
+  @media (min-width: $screen-sm) and (max-width: $screen-sm) {
+    .navbar-nav > li {
+      padding: 14px 1px 8px 5px !important;
+    }
+  }
+
   .navbar-nav > li {
-    padding: 14px 14px 8px 30px;
+    padding: 14px 14px 8px 20px;
+    font-weight: 400;
+
+    span {
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    span.caret {
+      margin-left: 4px;
+      font-size: 130%;
+    }
   }
 
   .navbar-nav > li > a {

@@ -145,10 +145,8 @@ export class MyshowsComponent implements OnInit, OnDestroy {
    */
 
   filterSeries() {
-
     if (this.pristineSeries.length > 0) {
       this.profileSeries = this.pristineSeries.slice();
-
 
       for (let i = this.profileSeries.length - 1; i >= 0; i--) {
         if (this.userFilterSettings.showUnseen) {

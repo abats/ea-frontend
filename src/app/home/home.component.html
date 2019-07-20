@@ -73,7 +73,7 @@
     <div class="col-md-6 col-lg-6 trending-background-color">
       <h2>Editors' picks</h2>
       <ul class="splash-posters">
-        <li class="series" *ngFor="let series of trendingSeries| slice:0:3;">
+        <li class="series" *ngFor="let series of editorPicks">
           <a [routerLink]="['/series', series.unique_name]">
 
             <img class="img-responsive poster"

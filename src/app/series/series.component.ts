@@ -27,6 +27,7 @@ export class SeriesComponent implements OnInit, OnDestroy {
   private series$;
   private seriesUnseenAmount$;
   private seriesCurrentSeason$;
+  private currentActiveSeason;
 
   constructor(
     private titleService: Title,
@@ -57,15 +58,14 @@ export class SeriesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
   }
 
-  onUpdateSeen(e) {
-    console.log('update from the seen button');
+  onUpdateSeen(episodesResponse) {
+    /* process the response, which can be one or multiple seen episodes */
+    this.getSeriesSeason(this.series.id, this.currentActiveSeason);
     this.getSeriesUnseenAmount();
   }
 
   createSeriesSeasonTabs(seasonAmount) {
-
     // don't judge me for this code
-
     if (this.series.has_specials) {
       for (let i = 0; i < seasonAmount; i++) {
 
@@ -79,9 +79,7 @@ export class SeriesComponent implements OnInit, OnDestroy {
       for (let i = 0; i < seasonAmount; i++) {
         this.tabs.push({title: 'Season ' + (i + 1), content: [], active: false});
       }
-
     }
-
   }
 
   setTitle(seriesTitle) {
@@ -115,10 +113,13 @@ export class SeriesComponent implements OnInit, OnDestroy {
 
   public loadTab(tab): void {
     if (this.series.has_specials) {
-      this.getSeriesSeason(this.series.id, tab);
+      tab = tab;
     } else {
-      this.getSeriesSeason(this.series.id, tab + 1);
+      tab = tab + 1;
     }
+
+    this.getSeriesSeason(this.series.id, tab);
+    this.currentActiveSeason = tab;
   }
 
   public setActiveTab(index: number): void {
