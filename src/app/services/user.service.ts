@@ -12,22 +12,32 @@ export class UserService {
   private baseUrl: string;
   private profileUrl: string;
   private changeProfileUrl: string;
+  private changeUserPreferencesUrl: string;
 
   constructor ( private http: HttpClient ) {
     this.baseUrl = API_URL;
     this.profileUrl = this.baseUrl + '/profile';
     this.changeProfileUrl = `${this.profileUrl}/credentials`;
+    this.changeUserPreferencesUrl = `${this.profileUrl}/preferences`;
   }
 
-  getUserProfile() : Observable<UserProfile> {
+  getUserProfile(): Observable<UserProfile> {
     return this.http.get<UserProfile> (this.profileUrl);
+  }
+
+  changeUserPreferences(formData: any) {
+    return this.http.post(this.changeUserPreferencesUrl, formData)
+      .toPromise()
+      .then(response => {
+        return Promise.resolve(response);
+      })
+      .catch(this.handleError);
   }
 
   changeUserProfile(formData: User) {
     return this.http.post(this.changeProfileUrl, formData)
       .toPromise()
       .then(response => {
-        console.log(response);
         return Promise.resolve(response);
       })
       .catch(this.handleError);

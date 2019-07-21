@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   userModel = new User;
   changeProfileForm: FormGroup;
   changePasswordForm: FormGroup;
+  changeNotificationsForm: FormGroup;
   isThirdParty: boolean;
   userProfile = new UserProfile;
   userProfile$ = new Subscription;
@@ -31,6 +32,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
       private toaster: ToastrService
   ) {
       titleService.setTitle('Episode Alert - Profile');
+
+      this.changeNotificationsForm = formBuilder.group( {
+        alerts: [''],
+        publicfollow: ['']
+      });
 
       this.changeProfileForm = formBuilder.group({
               email: ['', [Validators.required, Validators.email]],
@@ -62,7 +68,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   setProfileDefaultValue(userProfile) {
+    let alertValue: boolean;
+    if (this.userProfile.alerts === '0') {
+      alertValue = false;
+    } else if (this.userProfile.alerts === '1' ) {
+      alertValue = true;
+    }
+
     this.changeProfileForm.patchValue({email: userProfile.email, name: userProfile.accountname, password: null});
+    this.changeNotificationsForm.patchValue( {alerts: alertValue, publicfollow: false});
   }
 
   changeProfile() {
@@ -88,5 +102,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
       });
 
+  }
+
+  changeNotifications() {
+    this.userService.changeUserPreferences(this.changeNotificationsForm.value)
+      .then( response => {
+        this.toaster.success((<any>response).flash, 'Update successful', {
+          positionClass: 'toast-top-full-width'
+        });
+      });
   }
 }
