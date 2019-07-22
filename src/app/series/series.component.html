@@ -52,12 +52,17 @@
             </ng-template>
 
             <table class="episode-table">
-              <tr *ngFor="let episode of tab?.content" [ngClass]="{'seen' : episode.seen }">
-                <td class="episode-table-number">{{ episode.episode }}</td>
-                <td class="episode-table-description">{{ episode.name }}</td>
-                <td>{{ episode.airdate }}</td>
-                <td><app-seen (seenUpdatedEmitter)="onUpdateSeen($event)" [seen]="episode.seen" [episode]="episode" [buttonLabel]="episode.seen ? 'Unsee' : 'Seen'"></app-seen></td>
-              </tr>
+                <tr *ngFor="let episode of tab?.content" [ngClass]="{'seen' : episode.seen }" >
+                  <td class="episode-table-number" (click)="episode.showDescription = !episode.showDescription">{{ episode.episode }}</td>
+                  <td class="episode-table-description" (click)="episode.showDescription = !episode.showDescription">
+                    <div>{{ episode.name }}</div>
+                    <div *ngIf="episode.showDescription" class="episode-extra-info">
+                      {{ episode.description }}
+                    </div>
+                  </td>
+                  <td class="episode-table-date">{{ episode.airdate }}</td>
+                  <td class="episode-table-seen"><app-seen (seenUpdatedEmitter)="onUpdateSeen($event)" [seen]="episode.seen" [episode]="episode" [buttonLabel]="episode.seen ? 'Unsee' : 'Seen'"></app-seen></td>
+                </tr>
             </table>
           </tab>
         </tabset>

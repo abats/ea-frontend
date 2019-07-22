@@ -98,7 +98,6 @@ router-outlet ~ * {
 
 h1 {
   @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
-
   border-bottom: 1px solid darken(#C9C9C9, 50%);
   padding-top: 0px;
   padding-bottom: 15px;
@@ -107,6 +106,18 @@ h1 {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
   color: $light-blue;
+  letter-spacing: 0.09em;
+}
+
+.ea-title-gray{
+  @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
+  border-bottom: 1px solid darken(#C9C9C9, 50%);
+  padding-top: 0px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
   letter-spacing: 0.09em;
 }
 

@@ -12,12 +12,30 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   margin-bottom: 20px;
 
   .episode-table-number{
+    vertical-align: top;
     padding-left: 15px;
-    width: 5%;
+    width: 8%;
+    cursor: pointer;
   }
 
   .episode-table-description{
-    width: 70%;
+    vertical-align: top;
+    width: 62%;
+    cursor: pointer;
+
+    .episode-extra-info{
+      color: $light-text;
+    }
+  }
+
+  .episode-table-date {
+    vertical-align: top;
+    width: 15%
+  }
+
+  .episode-table-seen {
+    vertical-align: top;
+    width: 15%
   }
 
   tr.seen{

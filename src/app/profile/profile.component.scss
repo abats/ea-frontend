@@ -13,24 +13,34 @@ tab {
     .tab-text {
         padding-top: 10px;
     }
+
     .tab-align {
         padding-left: 15px;
         padding-right: 15px;
     }
+
     hr {
         border-top: 1px solid #777777;
     }
+
     .form-horizontal label.text-left {
         text-align: left;
     }
+
     .form-control {
+        height: 40px;
         background-color: #363636!important;
         color: #ccc;
         border: 1px solid #363636;
         border-radius: 0;
     }
+
     .btn-ea {
         height: 37px!important;
+    }
+
+    input[type=checkbox]{
+
     }
 }
 

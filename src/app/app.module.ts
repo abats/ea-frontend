@@ -29,8 +29,10 @@ import { PasswordRecoveryComponent } from './user/password-recovery/password.rec
 import { UserWelcomeComponent } from './home/user-welcome/user.welcome.component';
 import { AuthGuardService } from './services/auth.guard.service';
 import { GoogleLoginEaComponent } from './user/google-login-ea/google.login.ea.component';
-import {AuthService} from './services/auth.service';
-import {LoginPageComponent} from './user/login-page/login.page.component';
+import { AuthService } from './services/auth.service';
+import { LoginPageComponent } from './user/login-page/login.page.component';
+import { AccordionModule } from 'ngx-bootstrap';
+import { ArchiveButtonComponent } from './buttons/archive/archive-button.component';
 
 
 @NgModule({
@@ -43,6 +45,7 @@ import {LoginPageComponent} from './user/login-page/login.page.component';
     SearchComponent,
     SeenbuttonComponent,
     FollowbuttonComponent,
+    ArchiveButtonComponent,
     FanartPipe,
     FilterByPipe,
     LimitToPipe,
@@ -65,6 +68,7 @@ import {LoginPageComponent} from './user/login-page/login.page.component';
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     TabsModule.forRoot(),
+    AccordionModule.forRoot(),
     WebStorageModule.forRoot(),
     NgxWebstorageModule.forRoot(),
     SortablejsModule.forRoot({ animation: 150 }),

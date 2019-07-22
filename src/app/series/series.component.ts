@@ -103,11 +103,12 @@ export class SeriesComponent implements OnInit, OnDestroy {
 
     this.seriesCurrentSeason$ = this.seriesService.getSeriesSeason(seriesId, seasonNumber).pipe(takeUntil(this.componentDestroyed$))
       .subscribe(seriesSeason => {
-      if (this.series.has_specials) {
-        this.tabs[seasonNumber].content = seriesSeason;
-      } else {
-        this.tabs[seasonNumber - 1].content = seriesSeason;
-      }
+        seriesSeason.map(obj => ({ ...seriesSeason, showDescription: false}));
+        if (this.series.has_specials) {
+          this.tabs[seasonNumber].content = seriesSeason;
+        } else {
+          this.tabs[seasonNumber - 1].content = seriesSeason;
+        }
     });
   }
 
