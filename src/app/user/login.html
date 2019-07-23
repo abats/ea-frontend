@@ -4,12 +4,6 @@
         <div class="modal-content ea-modal--login">
             <div class="modal-header">
                 <h1>Episode Alert</h1>
-                <button type="button" class="close pull-right ea-modal--button" (click)="eaModal.hide()" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>temp button
-
-              <a class="btn btn-block btn-social btn-google-plus" href="https://accounts.google.com/o/oauth2/auth?scope=email&state={{state}}&redirect_uri={{googleRedirectURI}}&response_type=code&client_id={{client_id}}&access_type=offline&openid.realm={{googleRedirectURI}}"><i class="fa fa-google-plus"></i> Sign in with Google</a>
-
             </div>
             <div class="modal-body">
                 <h2 class="fancy background"><span>Sign in to start following shows</span></h2>
@@ -24,8 +18,8 @@
                 </form>
                 <hr/>
 
-                <div>
-                    <a class="btn btn-block btn-social btn-lg btn-google"><i class="fa fa-google"></i> Sign in with Google</a>
+                <div class="google-signin-wrapper">
+                  <app-google-login-ea></app-google-login-ea>
                 </div>
 
                 <hr/>
