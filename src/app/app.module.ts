@@ -33,6 +33,7 @@ import { AuthService } from './services/auth.service';
 import { LoginPageComponent } from './user/login-page/login.page.component';
 import { AccordionModule } from 'ngx-bootstrap';
 import { ArchiveButtonComponent } from './buttons/archive/archive-button.component';
+import { EaButtonFlatComponent } from './buttons/ea-button-flat/ea-button-flat.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ArchiveButtonComponent } from './buttons/archive/archive-button.compone
     SeenbuttonComponent,
     FollowbuttonComponent,
     ArchiveButtonComponent,
+    EaButtonFlatComponent,
     FanartPipe,
     FilterByPipe,
     LimitToPipe,
