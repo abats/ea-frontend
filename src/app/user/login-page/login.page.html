@@ -22,7 +22,7 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <app-google-login-ea></app-google-login-ea>
+           <app-google-login-ea></app-google-login-ea>
         </div>
       </div>
     </div>
@@ -36,7 +36,18 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          Login form
+
+          <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div class="form-group">
+              <input [(ngModel)]="userModel.name" title="enter username" type="text" class="form-control" id="page_name" name="name" placeholder="username" required>
+            </div>
+            <div class="form-group">
+              <input [(ngModel)]="userModel.password" title="enter password" type="password" class="form-control" id="page_password" name="password" placeholder="password" required>
+            </div>
+            <button type="submit" class="btn btn-ea" [disabled]="!loginForm.form.valid">Login</button>
+          </form>
+
+
         </div>
       </div>
     </div>
