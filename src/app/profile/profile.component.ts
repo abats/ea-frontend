@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       this.changeProfileForm = formBuilder.group({
               email: ['', [Validators.required, Validators.email]],
               password: ['', Validators.required],
-              name: ['', Validators.required]
+              accountname: ['', Validators.required]
         }
       );
       this.changePasswordForm = formBuilder.group({
@@ -75,7 +75,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       alertValue = true;
     }
 
-    this.changeProfileForm.patchValue({email: userProfile.email, name: userProfile.accountname, password: null});
+    this.changeProfileForm.patchValue({email: userProfile.email, accountname: userProfile.accountname, password: null});
     this.changeNotificationsForm.patchValue( {alerts: alertValue, publicfollow: false});
   }
 
