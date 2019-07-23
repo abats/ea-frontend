@@ -15,4 +15,8 @@ export class ArchiveButtonComponent {
   constructor( ) {
   }
 
+  toggle() {
+
+  }
+
 }
