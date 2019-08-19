@@ -42,7 +42,7 @@
                     </div>
                   </div>
                 </form>
-                <div *ngIf="!isThirdParty">
+                <div *ngIf="!authService.isThirdParty()">
                   <hr>
                   <form class="form-horizontal" [formGroup]="changePasswordForm">
                     <div class="form-group">

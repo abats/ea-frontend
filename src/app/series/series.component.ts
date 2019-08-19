@@ -5,7 +5,7 @@ import { Series } from '../model/series';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import {takeUntil} from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   templateUrl: 'series.component.html',

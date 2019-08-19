@@ -16,11 +16,9 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit, OnDestroy {
-  userModel = new User;
   changeProfileForm: FormGroup;
   changePasswordForm: FormGroup;
   changeNotificationsForm: FormGroup;
-  isThirdParty: boolean;
   userProfile = new UserProfile;
   userProfile$ = new Subscription;
 
@@ -56,7 +54,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
-    this.isThirdParty = this.authService.isThirdParty();
     this.userProfile$ = this.userService.getUserProfile().subscribe(results => {
       this.userProfile = results;
       this.setProfileDefaultValue(results);

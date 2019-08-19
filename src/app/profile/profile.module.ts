@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from './profile.routes';
 import { Title } from '@angular/platform-browser';
-import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,7 +23,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     Title,
-    AuthService,
     UserService
   ]
 })
