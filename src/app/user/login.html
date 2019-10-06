@@ -1,37 +1,40 @@
 <a (click)="eaModal.show()">Login</a>
-<div bsModal #eaModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div bsModal #eaModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content ea-modal--login">
             <div class="modal-header">
                 <h1>Episode Alert</h1>
-                <button type="button" class="close pull-right ea-modal--button" (click)="eaModal.hide()" aria-label="Close">
+                <button type="button" class="close pull-right ea-modal--button" (click)="eaModal.hide()"
+                        aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>temp button
-
-              <a class="btn btn-block btn-social btn-google-plus" href="https://accounts.google.com/o/oauth2/auth?scope=email&state={{state}}&redirect_uri={{googleRedirectURI}}&response_type=code&client_id={{client_id}}&access_type=offline&openid.realm={{googleRedirectURI}}"><i class="fa fa-google-plus"></i> Sign in with Google</a>
-
+                </button>
             </div>
             <div class="modal-body">
                 <h2 class="fancy background"><span>Sign in to start following shows</span></h2>
                 <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
                     <div class="form-group">
-                        <input [(ngModel)]="userModel.name" title="enter username" type="text" class="form-control" id="username" name="name" placeholder="username" required>
+                        <input [(ngModel)]="userModel.name" title="enter username" type="text" class="form-control"
+                               id="username" name="name" placeholder="username" required>
                     </div>
                     <div class="form-group">
-                        <input [(ngModel)]="userModel.password" title="enter password" type="password" class="form-control" id="password" name="password" placeholder="password" required>
+                        <input [(ngModel)]="userModel.password" title="enter password" type="password"
+                               class="form-control" id="password" name="password" placeholder="password" required>
                     </div>
-                    <button type="submit" class="btn btn-default btn-bright" [disabled]="!loginForm.form.valid">Submit</button>
+                    <button type="submit" class="btn btn-default btn-bright" [disabled]="!loginForm.form.valid">
+                      Submit
+                    </button>
                 </form>
                 <hr/>
-
-                <div>
-                    <a class="btn btn-block btn-social btn-lg btn-google"><i class="fa fa-google"></i> Sign in with Google</a>
+                <div class="google-ea-wrapper">
+                  <app-google-login-ea></app-google-login-ea>
                 </div>
-
                 <hr/>
                 <div class="ea-modal--login--footer">
                     <div><a [routerLink]="['/password-recovery']">Forgot password</a></div>
-                    <div>Don't have an account? <a (click)="eaModal.hide()" [routerLink]="['/register']">Sign up with email</a></div>
+                    <div>Don't have an account? <a (click)="eaModal.hide()" [routerLink]="['/register']">
+                      Sign up with email</a>
+                    </div>
                 </div>
             </div>
         </div>
