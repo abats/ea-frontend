@@ -1,0 +1,17 @@
+<div>
+  <label>Value one
+    <select [(ngModel)]="searchField1" (ngModelChange)="onChange($event)">
+      <option value="selectValue1">selectValue1</option>
+      <option value="selectValue2">selectValue2</option>
+      <option value="selectValue3">selectValue3</option>
+      <option value="selectValue4">selectValue4</option>
+      <option value="selectValue5">selectValue5</option>
+    </select>
+  </label>
+
+  <input [(ngModel)]="searchField2" (ngModelChange)="onChange($event)" value="worst">
+</div>
+
+<div>
+  {{ searchField1 }} ||  {{ searchField2 }}
+</div>

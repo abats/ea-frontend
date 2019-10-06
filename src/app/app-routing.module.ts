@@ -7,6 +7,7 @@ import { RegisterUserComponent } from './user/register-user/register.user.compon
 import { PasswordRecoveryComponent } from './user/password-recovery/password.recovery.component';
 import { AuthGuardService as AuthGuard } from './services/auth.guard.service' ;
 import { LoginPageComponent } from './user/login-page/login.page.component';
+import { ContactComponentComponent } from './contact-component/contact-component.component';
 
 const routes: Routes = [
   {
@@ -53,7 +54,12 @@ const routes: Routes = [
     path: '',
     data: { animation: 'HomePage' },
     component: HomeComponent
-  }
+  },
+  {
+    path: 'contact',
+    data: { animation: 'HomePage' },
+    component: ContactComponentComponent
+  },
 ];
 
 export class CustomUrlSerializer implements UrlSerializer {
