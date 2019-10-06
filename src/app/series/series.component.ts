@@ -5,7 +5,7 @@ import { Series } from '../model/series';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import {takeUntil} from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   templateUrl: 'series.component.html',
@@ -103,11 +103,12 @@ export class SeriesComponent implements OnInit, OnDestroy {
 
     this.seriesCurrentSeason$ = this.seriesService.getSeriesSeason(seriesId, seasonNumber).pipe(takeUntil(this.componentDestroyed$))
       .subscribe(seriesSeason => {
-      if (this.series.has_specials) {
-        this.tabs[seasonNumber].content = seriesSeason;
-      } else {
-        this.tabs[seasonNumber - 1].content = seriesSeason;
-      }
+        seriesSeason.map(obj => ({ ...seriesSeason, showDescription: false}));
+        if (this.series.has_specials) {
+          this.tabs[seasonNumber].content = seriesSeason;
+        } else {
+          this.tabs[seasonNumber - 1].content = seriesSeason;
+        }
     });
   }
 

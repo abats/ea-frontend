@@ -196,18 +196,6 @@ export class MyshowsComponent implements OnInit, OnDestroy {
     this.order = '';
     this.orderReverse = true;
     this.getProfileSeries();
-
-    if (!this.authService.isLoggedIn()) {
-      this.authService.getAuth()
-        .then((authInfo) => {
-          console.log('logged in');
-          console.log(authInfo);
-        })
-        .catch((error) => {
-          console.log('not logged in');
-          console.log(error);
-        })
-    }
   }
 
   ngOnDestroy() {

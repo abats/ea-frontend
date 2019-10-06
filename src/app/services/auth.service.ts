@@ -2,10 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user';
 import { environment } from '../../environments/environment';
-import {CanActivate, Router} from '@angular/router';
+import { EAUser } from '../interfaces/EAUser';
 
-@Injectable()
-export class AuthService{
+@Injectable({
+  providedIn: 'root',
+})
+
+export class AuthService {
   private user: User;
   private testValue: string;
   private baseUrl: string;
@@ -13,6 +16,7 @@ export class AuthService{
   private loginUrl: string;
   private logoutUrl: string;
   private registerUrl: string;
+  private eaUser: EAUser;
 
   constructor(
     private http: HttpClient) {
@@ -22,15 +26,10 @@ export class AuthService{
     this.logoutUrl = this.baseUrl + '/auth/logout';
     this.registerUrl = this.baseUrl + '/auth/register';
     this.user = new User;
-
   }
 
-  public getTestValue() {
-    return this.testValue;
-  }
-
-  public setTestValue(newValue) {
-    this.testValue = newValue;
+  public getUser() {
+    return this.eaUser;
   }
 
   public getUserName() {
@@ -49,8 +48,6 @@ export class AuthService{
    * registration for non google users
    */
   registerEmailUser( formData) {
-    console.log(formData);
-
     return this.http.post(this.registerUrl, formData)
       .toPromise()
       .then(response => {
@@ -69,14 +66,15 @@ export class AuthService{
   }
 
   login(response) {
+    this.eaUser = response;
+    console.log('set the login');
+    console.log(this.eaUser);
     this.user.name = response.accountname;
     this.user.thirdparty = response.thirdparty;
     localStorage.setItem('authenticated', 'true');
   }
 
   loginUser(userCredentials): Promise <any> {
-    console.log('login');
-    console.log(userCredentials);
     return this.http.post(this.loginUrl, userCredentials)
       .toPromise()
       .then(response => {

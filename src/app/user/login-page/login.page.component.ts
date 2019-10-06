@@ -13,7 +13,6 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 })
 
 export class LoginPageComponent {
-  modalRef: BsModalRef;
   submitted = false;
   loading = false;
   public state = '';
@@ -25,7 +24,6 @@ export class LoginPageComponent {
   constructor(
     private titleService: Title,
     private authService: AuthService,
-    private modalService: BsModalService
   ) {
     titleService.setTitle('Episode Alert - Login');
     this.state = localStorage.getItem('eaState')
@@ -33,11 +31,8 @@ export class LoginPageComponent {
     this.googleRedirectURI = 'http://www.episode-alert.com/login';
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
-
   onSubmit() {
+    console.log(this.userModel);
     this.submitted = true;
     this.login();
   }

@@ -115,11 +115,6 @@ a {
   padding: 0px 0px 2px 0px;
 }
 
-.google-ea-wrapper {
-  width: 388px;
-  margin: auto;
-}
-
 .ea-modal {
 
   &--login {
@@ -223,13 +218,20 @@ a {
       font-weight: 300;
     }
 
+    .google-signin-wrapper {
+      text-align: center;
+      width: 388px;
+      margin: auto;
+    }
+
     h2 {
       text-align: center;
-      margin: auto;
       margin-top: 0px;
       border-bottom: none;
       font-size: 14px;
       letter-spacing: 0.12em;
+      margin-left: 5px;
+      margin-right: 5px;
       font-family: "Lato", sans-serif;
 
     }

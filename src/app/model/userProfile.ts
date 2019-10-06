@@ -12,5 +12,5 @@ export class UserProfile extends User {
     registered: string
     role: string
     showonlyrunning: string
-    updated_at: string
+    updated_at: string;
 }
