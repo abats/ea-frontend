@@ -20,7 +20,6 @@ import { SeenbuttonComponent } from './buttons/seen/seen-button.component';
 import { FollowbuttonComponent } from './buttons/follow/follow-button.component';
 import { AppSharedModule } from './app.shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SortablejsModule } from 'angular-sortablejs';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { TestComponent} from './test/test.component';
 import { RegisterUserComponent } from './user/register-user/register.user.component';
@@ -32,6 +31,7 @@ import { LoginPageComponent } from './user/login-page/login.page.component';
 import { AccordionModule } from 'ngx-bootstrap';
 import { ArchiveButtonComponent } from './buttons/archive/archive-button.component';
 import { EaButtonFlatComponent } from './buttons/ea-button-flat/ea-button-flat.component';
+import { SortablejsModule } from 'ngx-sortablejs';
 
 
 @NgModule({
