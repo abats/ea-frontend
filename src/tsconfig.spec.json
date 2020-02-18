@@ -10,7 +10,8 @@
   },
   "files": [
     "test.ts",
-    "polyfills.ts"
+    "polyfills.ts",
+    "app/interfaces/IUserFiltersettings.ts"
   ],
   "include": [
     "**/*.spec.ts",

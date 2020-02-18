@@ -4,7 +4,7 @@ import { Series } from '../model/series';
 import { SeriesService } from '../services/series.service';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
-import {CanActivate} from '@angular/router';
+import { IUserFilterSettings } from '../interfaces/IUserFiltersettings';
 
 @Component({
   selector: 'app-myshows',

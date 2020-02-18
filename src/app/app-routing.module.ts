@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Routes, RouterModule, UrlSerializer, UrlTree, DefaultUrlSerializer} from '@angular/router';
 import { SeriesComponent } from './series/series.component';
@@ -20,24 +20,24 @@ const routes: Routes = [
   {
     path: 'series/genre/:genre',
     data: { animation: 'HomePage' },
-    loadChildren: './browse/browse.module#BrowseModule'
+    loadChildren: () => import('./browse/browse.module').then(m => m.BrowseModule)
   },
   {
     path: 'myshows',
     canActivate: [AuthGuard],
     data: { animation: 'HomePage' },
-    loadChildren: './myshows/myshows.module#MyshowsModule'
+    loadChildren: () => import('./myshows/myshows.module').then(m => m.MyshowsModule)
   },
   {
     path: 'profile',
     canActivate: [AuthGuard],
-    loadChildren: './profile/profile.module#ProfileModule'
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
   },
   {
     path: 'guide',
     canActivate: [AuthGuard],
     data: { animation: 'GuidePage' },
-    loadChildren: './guide/guide.module#GuideModule'
+    loadChildren: () => import('./guide/guide.module').then(m => m.GuideModule)
   },
   {
     path: 'register',
@@ -56,6 +56,7 @@ const routes: Routes = [
   }
 ];
 
+@Injectable()
 export class CustomUrlSerializer implements UrlSerializer {
   parse(url: any): UrlTree {
     const dus = new DefaultUrlSerializer();

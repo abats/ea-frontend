@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   constructor(
       private titleService: Title,
-      private authService: AuthService,
+      public authService: AuthService,
       private userService: UserService,
       private formBuilder: FormBuilder,
       private toaster: ToastrService
