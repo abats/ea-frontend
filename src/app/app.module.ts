@@ -18,7 +18,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { SeenbuttonComponent } from './buttons/seen/seen-button.component';
 import { FollowbuttonComponent } from './buttons/follow/follow-button.component';
-import { WebStorageModule } from 'h5webstorage';
 import { AppSharedModule } from './app.shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SortablejsModule } from 'angular-sortablejs';
@@ -70,7 +69,6 @@ import { EaButtonFlatComponent } from './buttons/ea-button-flat/ea-button-flat.c
     ModalModule.forRoot(),
     TabsModule.forRoot(),
     AccordionModule.forRoot(),
-    WebStorageModule.forRoot(),
     NgxWebstorageModule.forRoot(),
     SortablejsModule.forRoot({ animation: 150 }),
     ToastrModule.forRoot({
