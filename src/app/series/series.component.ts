@@ -100,7 +100,7 @@ export class SeriesComponent implements OnInit, OnDestroy {
   }
 
   getSeriesSeason(seriesId: number, seasonNumber: number) {
-
+  console.log('get season' + seasonNumber);
     this.seriesCurrentSeason$ = this.seriesService.getSeriesSeason(seriesId, seasonNumber).pipe(takeUntil(this.componentDestroyed$))
       .subscribe(seriesSeason => {
         seriesSeason.map(obj => ({ ...seriesSeason, showDescription: false}));
@@ -118,6 +118,8 @@ export class SeriesComponent implements OnInit, OnDestroy {
     } else {
       tab = tab + 1;
     }
+
+    console.log('load tab');
 
     this.getSeriesSeason(this.series.id, tab);
     this.currentActiveSeason = tab;

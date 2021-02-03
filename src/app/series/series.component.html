@@ -32,7 +32,7 @@
 
           <tab *ngFor="let tab of tabs let i = index;"
                [heading]="tab.title"
-               (select)="loadTab(i)"
+               (selectTab)="loadTab(i)"
                (deselect)="tab.active = false"
                [disabled]="tab.disabled"
                [removable]="tab.removable"
