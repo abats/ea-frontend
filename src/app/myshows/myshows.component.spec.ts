@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MyshowsComponent } from './myshows.component';
 import { AppSharedModule } from '../app.shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -41,7 +41,7 @@ describe('MyShowsComponent', () => {
     }
   }
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ AppSharedModule, RouterTestingModule, HttpClientTestingModule,
         SortablejsModule],

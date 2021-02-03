@@ -71,7 +71,7 @@ export class CustomUrlSerializer implements UrlSerializer {
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     CommonModule
   ],
   providers: [

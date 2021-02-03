@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { AppSharedModule } from '../app.shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -17,7 +17,7 @@ describe('HomeComponent', () => {
   const seriesServiceStub = new SeriesServiceStub();
   const authServiceStub = new AuthServiceStub();
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ AppSharedModule, RouterTestingModule, HttpClientTestingModule ],
       declarations: [ HomeComponent, FanartPipe, FollowbuttonComponent ],
